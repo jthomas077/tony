@@ -9,7 +9,9 @@
     "npm": "~5.x.x"
   },
   "dependencies": {
-    "gsap": "^2.0.1"
+    "gsap": "^2.0.1",
+    "selectric": "^1.13.0",
+    "swiper": "^4.3.3"
   },
   "devDependencies": {
     "@types/jquery": "^3.3.5",
