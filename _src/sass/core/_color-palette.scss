@@ -1,21 +1,18 @@
 
 /*
-    // getme: colors   <= no space
-      "*": #dgfgfg,    <= replace `*` with `?`
-    // gotme: colors   <= no space
+
 */
-$colors: (
-    "white": #fff,
-    "black": #000,
-    "red": #f00,
-    "green": #0f0,
 
-    "body": color("black"),
-    "outline": color("black"),
-    "ok": color("green"),
-    "err": color("red"),
+$white: #fff;
+$black: #000;
+$red: #f00;
+$green: #0f0;
+$blue: #00f;
+$body: $black;
+$ok: $green;
+$err: $red;
 
-    "Bay of Many": #2b4587, // 'approx match -> ' #273A81
-    "Cerulean": #0b9fdc, // 'approx match -> ' #02A4D3
-    "Wild Sand": #f5f5f5, // 'approx match -> ' #F4F4F4
-);
+// ******* GET COLORS ******* //
+$bay-of-many: #2b4587; // approx match => #273A81
+$cerulean: #0b9fdc; // approx match => #02A4D3
+// ******* GOT COLORS ******* //

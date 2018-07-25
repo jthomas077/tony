@@ -1,0 +1,67 @@
+.intro
+{
+    padding: 40px;
+    text-align: center;
+}
+
+.intro__title
+{
+    font-size: rem(40);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    color: $bay-of-many;
+}
+
+.intro__copy
+{
+    font-size: rem(16);
+    line-height: 1.75;
+}
+
+.intro__box-title
+{
+    font-size: rem(30);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    color: $bay-of-many;
+}
+
+.intro__box-copy
+{
+    font-size: rem(16);
+    line-height: 1.75;
+}
+
+.intro__boxes
+{
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: auto;
+}
+
+.intro__box
+{
+    padding: 40px;
+    transition: all 0.25s ease;
+
+    &:hover
+    {
+        transition: all 0.25s ease;
+
+        & .intro__box-icon
+        {
+            padding: 1rem;
+            transition: all 0.25s ease;
+        }
+    }
+}
+
+.intro__box-icon
+{
+    width: 75px;
+    height: 75px;
+    transition: all 0.25s ease;
+    color: $cerulean;
+    border-radius: 50%;
+}

@@ -1,0 +1,59 @@
+.ideas
+{
+    display: inline-block;
+    height: 400px;
+    text-align: center;
+    vertical-align: middle;
+
+    &::before
+    {
+        display: inline-block;
+        height: 100%;
+        content: "";
+        vertical-align: middle;
+    }
+}
+
+.ideas__title
+{
+    font-family: $font-primary;
+    font-size: rem(40);
+    font-weight: $bold;
+    line-height: 2;
+    display: block;
+    text-transform: uppercase;
+    color: $white;
+}
+
+.ideas__copy
+{
+    display: inline-block;
+    width: 50%;
+    padding: 40px;
+    text-shadow: 2px 2px 2px $bay-of-many;
+
+    & p
+    {
+        font-family: $font-primary;
+        font-size: rem(20);
+        font-weight: $regular;
+        line-height: 2;
+        display: block;
+        color: $white;
+    }
+}
+
+.ideas__cta
+{
+    font-family: $font-primary;
+    font-size: 2rem;
+    font-weight: $semibold;
+    display: inline-block;
+    margin: 50px 25px 0 0;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    color: $white;
+    border: 3px solid $white;
+    background-color: $cerulean;
+}
