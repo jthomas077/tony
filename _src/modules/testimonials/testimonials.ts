@@ -11,12 +11,18 @@ class Testimonials extends Module
         super(el);
     }
 
-    init = () =>
+    init()
     {
-
+        new Swiper('.testimonials .swiper-container',
+        {
+            loop: true,
+            autoplay: 5000,
+            grabCursor: true,
+            pagination: '.testimonials .swiper-pagination'
+        });
     }
 
-    bindEventListeners = () =>
+    bindEventListeners()
     {
 
     }

@@ -1,16 +1,18 @@
 .ideas
 {
-    display: inline-block;
+    width: 100%;
     height: 400px;
     text-align: center;
-    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    @include vertical-align();
 
     &::before
     {
-        display: inline-block;
-        height: 100%;
-        content: "";
-        vertical-align: middle;
+        @include vertical-align();
     }
 }
 
@@ -20,9 +22,28 @@
     font-size: rem(40);
     font-weight: $bold;
     line-height: 2;
-    display: block;
+    z-index: 1;
+    display: inline-block;
+    width: auto;
+    padding: 0 25px;
     text-transform: uppercase;
-    color: $white;
+    color: $black;
+    //text-shadow: 0 2px 5px $white;
+
+    &::after
+    {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        opacity: 0.75;
+        background-color: $white;
+    }
 }
 
 .ideas__copy
@@ -30,16 +51,35 @@
     display: inline-block;
     width: 50%;
     padding: 40px;
-    text-shadow: 2px 2px 2px $bay-of-many;
 
     & p
     {
         font-family: $font-primary;
         font-size: rem(20);
-        font-weight: $regular;
+        font-weight: $bold;
         line-height: 2;
-        display: block;
-        color: $white;
+        z-index: 1;
+        display: inline-block;
+        width: auto;
+        margin: 15px 0 0;
+        padding: 15px;
+        color: $black;
+        //text-shadow: 0 2px 5px $black;
+
+        &::after
+        {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            opacity: 0.75;
+            background-color: $white;
+        }
     }
 }
 
@@ -51,9 +91,16 @@
     display: inline-block;
     margin: 50px 25px 0 0;
     padding: 15px 25px;
+    transition: all 0.5s ease;
     text-align: center;
     text-decoration: none;
     color: $white;
-    border: 3px solid $white;
+    //border: 2px solid $white;
     background-color: $cerulean;
+
+    &:hover
+    {
+        transition: all 0.5s ease;
+        background-color: $bay-of-many;
+    }
 }

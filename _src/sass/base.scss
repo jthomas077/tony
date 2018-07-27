@@ -1,9 +1,6 @@
 ﻿
 @charset "utf-8";
 
-@import "normalize"; @include normalize();
-@import "mq";
-
 @import "variables";
 @import "mixins/**/*";
 
@@ -12,6 +9,10 @@
     "core/color-palette",
     "core/rem",
     "core/fonts";
+
+@import "normalize"; @include normalize();
+@import "mq";
+@import "swiper.min";
 
 
 html
@@ -61,7 +62,7 @@ body
     &:focus
     {
         z-index: 99;
-        outline: 1px dashed color("outline") !important;
+        outline: 1px dashed $cerulean !important;
     }
 }
 
@@ -112,6 +113,7 @@ textarea
     width: map-get($mq-breakpoints, wrapper);
     max-width: 100%;
     margin: auto;
+    padding: 100px;
     text-align: left;
 }
 
@@ -145,5 +147,6 @@ img.svg-replaced
 }
 
 @import "core/typography";
+@import "components/**/*";
 @import "global";
 @import "../modules/**/*";

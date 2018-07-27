@@ -1,0 +1,20 @@
+
+.link-btn
+{
+    font-family: $font-primary;
+    font-size: rem(18);
+    font-weight: $semibold;
+    display: inline-block;
+    padding: 15px 25px;
+    transition: background-color 0.25s linear;
+    text-align: center;
+    text-decoration: none;
+    color: $white;
+    background-color: $cerulean;
+
+    &:hover
+    {
+        transition: background-color 0.25s linear;
+        background-color: $bay-of-many;
+    }
+}

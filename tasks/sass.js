@@ -17,7 +17,8 @@ export const make_it_sassy = series(GULP_TASK('color'), () =>
                     includePaths:
                     [
                         './node_modules/normalize-scss/sass/',
-                        './node_modules/sass-mq/'
+                        './node_modules/sass-mq/',
+                        './node_modules/swiper/dist/css/'
                     ],
 
                     outputStyle: (__DEV__) ? '' : 'compressed'

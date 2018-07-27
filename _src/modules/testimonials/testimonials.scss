@@ -1,0 +1,53 @@
+.testimonials
+{
+    font-size: rem(40);
+    font-weight: $semibold;
+    line-height: 1.5;
+    width: 100%;
+    height: auto;
+    padding: 40px 20px 10px;
+    text-align: center;
+    background-color: $wild-sand;
+}
+
+.testimonials__quote
+{
+    display: inline-block;
+    width: 70%;
+
+    &::before
+    {
+        font-family: "Felix Titling";
+        font-size: rem(120);
+        position: absolute;
+        top: 0;
+        left: -75px;
+        content: "\0022";
+        transform: rotate(-180deg);
+        opacity: 0.1;
+    }
+
+    &::after
+    {
+        font-family: "Felix Titling";
+        font-size: rem(40);
+        position: absolute;
+        right: -75px;
+        bottom: -350px;
+        content: "\0022";
+        opacity: 0.1;
+    }
+}
+
+.testimonials__quote-name
+{
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0 0 0;
+    text-align: right;
+
+    &::before
+    {
+        content: "\2014\00a0";
+    }
+}

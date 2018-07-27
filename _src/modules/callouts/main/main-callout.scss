@@ -1,10 +1,11 @@
-.intro
+.main-callout
 {
+    margin: 100px 0 0;
     padding: 40px;
     text-align: center;
 }
 
-.intro__title
+.main-callout__title
 {
     font-size: rem(40);
     margin-bottom: 25px;
@@ -12,13 +13,13 @@
     color: $bay-of-many;
 }
 
-.intro__copy
+.main-callout__copy
 {
     font-size: rem(16);
     line-height: 1.75;
 }
 
-.intro__box-title
+.main-callout__box-title
 {
     font-size: rem(30);
     margin-bottom: 25px;
@@ -26,13 +27,14 @@
     color: $bay-of-many;
 }
 
-.intro__box-copy
+.main-callout__box-copy
 {
     font-size: rem(16);
     line-height: 1.75;
+    text-align: left;
 }
 
-.intro__boxes
+.main-callout__boxes
 {
     display: flex;
     justify-content: space-between;
@@ -40,28 +42,36 @@
     margin: auto;
 }
 
-.intro__box
+.main-callout__box
 {
     padding: 40px;
-    transition: all 0.25s ease;
 
     &:hover
     {
-        transition: all 0.25s ease;
-
-        & .intro__box-icon
+        & .main-callout__box-icon
         {
-            padding: 1rem;
-            transition: all 0.25s ease;
+            &::before
+            {
+                margin: 15px 0;
+            }
         }
     }
 }
 
-.intro__box-icon
+.main-callout__box-icon
 {
-    width: 75px;
-    height: 75px;
-    transition: all 0.25s ease;
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    transition: margin 0.5s ease;
     color: $cerulean;
-    border-radius: 50%;
+
+    &::before
+    {
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: 0;
+        transition: margin 0.5s ease;
+    }
 }

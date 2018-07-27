@@ -1,0 +1,151 @@
+.footer__main
+{
+    z-index: 1;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    color: $white;
+    background-color: $bay-of-many;
+
+    & a
+    {
+        font-weight: $light;
+        transition: all 0.5s linear;
+        text-decoration: none;
+        color: $white;
+        border-bottom: 1px dotted transparent;
+
+        &:hover
+        {
+            transition: all 0.5s linear;
+            border-bottom: 1px dotted $white;
+        }
+    }
+
+    & ul
+    {
+        display: inline-block;
+        margin-top: -6px;
+        vertical-align: top;
+    }
+
+    & ul li
+    {
+        line-height: 2;
+    }
+
+    & ul li a
+    {
+        font-size: rem(18);
+    }
+}
+
+.footer__sections
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 40px;
+}
+
+.footer__section
+{
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+
+    & h5
+    {
+        font-family: $font-primary;
+        font-size: rem(20);
+        font-weight: $semibold;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+    }
+
+    & a
+    {
+        font-family: $font-primary;
+        font-size: rem(18);
+        line-height: 1.5;
+    }
+
+    & span
+    {
+        font-size: rem(14);
+        display: block;
+        margin-top: 20px;
+    }
+}
+
+.footer__section-badge
+{
+    border: 0 !important;
+
+    &:hover
+    {
+        border: 0 !important;
+    }
+}
+
+.footer__sections-contact
+{
+    & a
+    {
+        font-weight: $semibold;
+    }
+}
+
+.footer__section-title
+{
+    font-family: $font-primary;
+    font-size: rem(22);
+    font-weight: $bold;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+    color: $white;
+
+    &::after
+    {
+        display: block;
+        width: 50px;
+        margin-top: 10px;
+        content: "";
+        border-bottom: 5px solid $cerulean;
+    }
+}
+
+.footer__bottom
+{
+    z-index: 3;
+    display: inline-block;
+    width: 100%;
+    padding: 0 40px 30px;
+    background-color: $bay-of-many;
+}
+
+.footer__sections-utility
+{
+    float: right;
+
+    & img
+    {
+        display: inline-block;
+        width: 34px;
+    }
+
+    & span
+    {
+        font-size: rem(16);
+        font-style: italic;
+        display: block;
+        margin: -28px 0 0 50px;
+    }
+}
+
+.footer__copyright
+{
+    font-size: rem(13);
+    float: left;
+    margin-top: 20px;
+}
