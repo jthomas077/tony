@@ -9,12 +9,12 @@ class MainNav extends Module
         super(el);
     }
 
-    init = () =>
+    init()
     {
 
     }
 
-    bindEventListeners = () =>
+    bindEventListeners()
     {
 
     }

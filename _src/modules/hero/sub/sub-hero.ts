@@ -11,12 +11,12 @@ class SubHero extends Module
         super(el);
     }
 
-    init = () =>
+    init()
     {
 
     }
 
-    bindEventListeners = () =>
+    bindEventListeners()
     {
 
     }

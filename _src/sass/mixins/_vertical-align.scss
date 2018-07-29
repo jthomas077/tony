@@ -2,8 +2,14 @@
 @mixin vertical-align()
 {
     display: inline-block;
-    height: 100%;
-    //margin-right: -0.5rem;
-    content: "";
     vertical-align: middle;
+
+    &::before
+    {
+        display: inline-block;
+        height: 100%;
+        margin-right: -5px;
+        content: "";
+        vertical-align: middle;
+    }
 }

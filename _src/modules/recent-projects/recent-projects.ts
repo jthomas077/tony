@@ -11,12 +11,12 @@ class RecentProjects extends Module
         super(el);
     }
 
-    init = () =>
+    init()
     {
 
     }
 
-    bindEventListeners = () =>
+    bindEventListeners()
     {
 
     }

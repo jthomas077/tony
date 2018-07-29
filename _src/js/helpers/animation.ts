@@ -11,7 +11,7 @@ import 'gsap/ScrollToPlugin';
  * @param ease - Ease function
  * @param onComplete - On complete callback
  */
-export const open = (el: string, speed: number = 0.4, ease: string = 'easeOut', onComplete: Function) =>
+export const open = (el: string, speed: number = 0.4, ease: string = 'easeOut', onComplete: Function) : void =>
 {
     TweenMax.set(el, { height: 'auto' });
     TweenMax.from(el, speed, { height: 0, ease: Expo[ease], onComplete });
@@ -25,7 +25,7 @@ export const open = (el: string, speed: number = 0.4, ease: string = 'easeOut', 
  * @param ease - Ease function
  * @param onComplete - On complete callback
  */
-export const close = (el: string, speed: number = 0.4, ease: string = 'easeOut', onComplete: Function) =>
+export const close = (el: string, speed: number = 0.4, ease: string = 'easeOut', onComplete: Function) : void =>
 {
     TweenMax.to(el, speed, { height: 0, ease: Expo[ease], onComplete });
 };
@@ -39,7 +39,7 @@ export const close = (el: string, speed: number = 0.4, ease: string = 'easeOut',
  * @param ease - Ease function
  * @param onComplete - On complete callback
  */
-export const slide = (el: string, speed: number = 0.4, x:number = 0, ease: string = 'easeOut', onComplete: Function) =>
+export const slide = (el: string, speed: number = 0.4, x:number = 0, ease: string = 'easeOut', onComplete: Function) : void =>
 {
     TweenMax.to(el, speed, { x, ease: Expo[ease], onComplete });
 };
@@ -51,7 +51,7 @@ export const slide = (el: string, speed: number = 0.4, x:number = 0, ease: strin
  * @param speed - Speed of animation
  * @param onComplete - On complete callback
  */
-export const scrollTo = (y: number, speed: number = 1.5, ease: string = 'easeOut', onComplete: Function) =>
+export const scrollTo = (y: number, speed: number = 1.5, ease: string = 'easeOut', onComplete: Function) : void =>
 {
     TweenMax.to(window, speed, { scrollTo: { y }, ease: Expo[ease], onComplete });
 };
