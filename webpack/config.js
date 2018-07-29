@@ -45,7 +45,7 @@ export default
         // query jsdelvr on BUILD!
         (context, request, cb) =>
         {
-
+            //console.log(request)
 
             cb();
         }
@@ -57,11 +57,7 @@ export default
         [
             {
                 test: /\.ts?$/,
-                loader: 'ts-loader',
-                options:
-                {
-                    transpileOnly: true
-                }
+                loader: 'happypack/loader'
             }
         ]
     },
@@ -70,10 +66,11 @@ export default
 
     mode: (__DEV__) ? 'development' : process.env.NODE_ENV,
 
+    devtool: 'source-map',
+
     devServer:
     {
-        publicPath: '/js/'
-    },
-
-    devtool: 'source-map'
+        contentBase: 'js',
+        logLevel: 'warn'
+    }
 };

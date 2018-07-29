@@ -18,7 +18,7 @@ export const entry = () =>
         ]
     };
 
-    if (__DEV__)
+    if (__HMR__)
     {
         entryPoints.base.push('webpack-hot-middleware/client');
     }

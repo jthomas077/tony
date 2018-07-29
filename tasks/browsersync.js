@@ -9,15 +9,6 @@ import fs from 'fs';
 
 export const got_me_goggles = () =>
 {
-    const pages = fs.readdirSync(`${process.env.SRC}/pages/`).map(file => `/${file.replace(/\.html/gi, '')}`);
-
-    if (__TOOLING__)
-    {
-        console.log('    Pages =>', pages)
-    }
-
-    const bundler = webpack(webpackConfig);
-
     browserSync.create(process.env.APP_NAME);
 
     browserSync.init(
@@ -25,34 +16,49 @@ export const got_me_goggles = () =>
         server:
         {
             baseDir: process.env.DEST,
-            index: '/pages/home.html',
-            proxy: 'http://localhost:3100/'
+            index: '/pages/home.html'
         },
 
         port: process.env.PORT || 1337,
 
         scrollProportionally: false,
 
-        logFileChanges: false,
+        notify: false,
 
         logLevel: 'none',
 
-        middleware:
-        [
-            webpackDevMiddleware(bundler,
-            {
-                publicPath: `${process.env.APP_URL}:1337/js/`
-            }),
-            webpackHotMiddleware(bundler)
-        ],
+        logFileChanges: false,
 
         callbacks:
         {
             ready: (err, bs) =>
             {
+                if (__HMR__)
+                {
+                    const bundler = webpack(webpackConfig);
+                    const devServerConfig = webpackConfig.devServer;
+
+                    Object.assign(devServerConfig,
+                    {
+                        publicPath: `${process.env.APP_URL}:${bs.options.get('port')}/${devServerConfig.contentBase}`
+                    });
+
+                    /**
+                     *
+                     */
+                    bs.addMiddleware('*', webpackDevMiddleware(bundler, devServerConfig));
+                    bs.addMiddleware('*', webpackHotMiddleware(bundler));
+                }
+
+                const pages = fs.readdirSync(`${process.env.SRC}/pages/`).map(file => `/${file.replace(/\.html/gi, '')}`);
+
+                /**
+                 *
+                 */
                 bs.addMiddleware('*', proxyMiddleware(pages,
                 {
-                    target: `http://localhost:1337`,
+                    target: `${process.env.APP_URL}:${bs.options.get('port')}`,
+                    logLevel: 'warn',
 
                     pathRewrite: (path, req) =>
                     {
@@ -60,6 +66,10 @@ export const got_me_goggles = () =>
                     }
                 }));
 
+
+                /**
+                 *
+                 */
                 if (process.env.MOCK_API_URL !== '')
                 {
                     bs.addMiddleware('*', proxyMiddleware(process.env.MOCK_API_ROUTE,

@@ -37,6 +37,11 @@ const consts =
     __TOOLING__: args.includes('--tooling'),
 
     /**
+     * Check for a request to enable HMR.
+     */
+    __HMR__: args.includes('--hmr'),
+
+    /**
      * Check for a request to enable fun mode.
      * Makes things more interesting... =P
      */
@@ -95,6 +100,15 @@ const msgs =
         notify: true,
         icon: './toolkit/j5.jpg',
         rule: !__DEV__
+    },
+
+    HMR:
+    {
+        msg: 'HMR Enabled',
+        visual: turbo.bgBlue.white,
+        notify: true,
+        icon: './toolkit/speedyg.png',
+        rule: __HMR__ && __DEV__
     },
 
     TOOLING:
@@ -165,6 +179,7 @@ global.QUACK = (msg, visual, notify = false, icon) =>
         {
             title: `${process.env.APP_NAME} on ${process.env.APP_URL}:${process.env.PORT}`,
             message: msg,
+            contentImage: undefined,
             icon: icon,
             sound: !__CONF__
         });
@@ -210,13 +225,14 @@ if (FUN())
 
 if (CONF())
 {
-    console.log(`\n${turbo.bgWhite.blue(` If you actually pondered on the muting capabilities for a hot sec, you're my new hero ;) `)}\n`);
+    console.log(`\n${turbo.bgWhite.blue(` If you actually pondered on the muting capabilities for a hot sec, you're my new hero! ;) `)}\n`);
 }
 
 
 /**
  *
  */
+HMR();
 TOOLING();
 DEV_START();
 BUILD();
