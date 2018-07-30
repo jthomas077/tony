@@ -1,0 +1,2 @@
+
+declare let dom: object;

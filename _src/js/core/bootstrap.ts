@@ -10,14 +10,14 @@ import { getInstanceOfjQuery } from 'helpers/utils';
 */
 export async function importModules (imports: string | Array<string>, element: string | JQuery) : Promise<string[]>
 {
-    if (imports.length === 0)
+    if (!imports.length)
     {
         throw new ReferenceError('You must pass a module to import.');
     }
 
     imports = Array.isArray(imports) ? imports : [imports];
 
-    imports.map(m =>
+    await imports.map(m =>
         (async () =>
         {
             await import(`../../modules/${m}.ts`)
@@ -40,11 +40,11 @@ export async function importModules (imports: string | Array<string>, element: s
       @param {string} element - DOM element in any valid jQuery form i.e. '#foo' or '.bar' or '[data-baz]' or an actual jQuery object.
       @param {Function} target - Callback
 */
-export const initModules = (element: string | JQuery, target: Function, loosygoosy?: boolean) : void =>
+export const initModules = (element: string | JQuery, target: Function) : void =>
 {
     const elements = getInstanceOfjQuery(element);
 
-    if (!loosygoosy && !elements.length)
+    if (!elements.length)
     {
         throw new ReferenceError('You must pass an valid element.');
     }

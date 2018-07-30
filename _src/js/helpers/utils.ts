@@ -13,7 +13,7 @@ export const getQueryParams = (query: string) : object =>
 
     query.replace(queryStringPattern,
         // @ts-ignore
-        (NOT_USED$0, key, NOT_USED$1, value) =>
+        ($0, key, $1, value) =>
         {
             key = key.toLowerCase();
 

@@ -37,6 +37,16 @@
                 border: 2px solid $cerulean;
             }
         }
+
+        & + .services__box-title
+        {
+            &::after
+            {
+                width: 100%;
+                transition: all 0.5s ease;
+                border-color: $bay-of-many;
+            }
+        }
     }
 }
 
@@ -65,4 +75,14 @@
 .services__box-cta
 {
     margin: 50px 0 0 0;
+}
+
+.after
+{
+    &::after
+    {
+        width: 100%;
+        transition: all 0.5s ease;
+        border-color: $bay-of-many;
+    }
 }

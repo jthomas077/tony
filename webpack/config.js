@@ -1,11 +1,11 @@
 
-import { entry, alias, plugins } from './';
+import * as config from './';
 import path from 'path';
 import DirectoryNamedWebpackPlugin from 'directory-named-webpack-plugin';
 
 export default
 {
-    entry: entry(),
+    entry: config.entry(),
 
     output:
     {
@@ -18,7 +18,7 @@ export default
     {
         extensions: ['.ts', '.js', '.json', '.html'],
 
-        alias: alias(),
+        alias: config.alias(),
 
         modules: ['node_modules'],
 
@@ -62,7 +62,7 @@ export default
         ]
     },
 
-    plugins: plugins(),
+    plugins: config.plugins(),
 
     mode: (__DEV__) ? 'development' : process.env.NODE_ENV,
 
