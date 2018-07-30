@@ -1,29 +1,24 @@
 
-/// <reference path="../../js/core/module.d.ts" />
-
 // @ts-ignore
 import Module from 'core/module';
 
 class Services extends Module
 {
-    constructor(el: string | JQuery)
+    constructor(el: string | JQuery, opts: object = {})
     {
-        super(el);
+        super(el, opts);
     }
 
     init()
     {
-        // @ts-ignore
         this.dom =
         {
-            // @ts-ignore
             $cta: this.el.find('.services__box-cta')
         }
     }
 
     render()
     {
-        // @ts-ignore
         this.dom.$cta.each((idx, el) =>
         {
             const $el = $(el);

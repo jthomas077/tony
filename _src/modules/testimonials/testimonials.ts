@@ -6,9 +6,9 @@ import Swiper from 'swiper';
 
 class Testimonials extends Module
 {
-    constructor(el: string | JQuery)
+    constructor(el: string | JQuery, opts: object)
     {
-        super(el);
+        super(el, opts);
     }
 
     init()
@@ -20,6 +20,11 @@ class Testimonials extends Module
             grabCursor: true,
             pagination: '.testimonials .swiper-pagination'
         });
+    }
+
+    render()
+    {
+
     }
 
     bindEventListeners()

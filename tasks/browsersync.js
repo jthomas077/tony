@@ -33,6 +33,8 @@ export const got_me_goggles = () =>
         {
             ready: (err, bs) =>
             {
+                const bsUrl = bs.options.get('urls').get('local');
+
                 if (__HMR__)
                 {
                     const bundler = webpack(webpackConfig);
@@ -40,15 +42,13 @@ export const got_me_goggles = () =>
 
                     Object.assign(devServerConfig,
                     {
-                        publicPath: `${process.env.APP_URL}:${bs.options.get('port')}/${devServerConfig.contentBase}`
+                        publicPath: `${bsUrl}/${devServerConfig.contentBase}`
                     });
 
-                    /**
-                     *
-                     */
                     bs.addMiddleware('*', webpackDevMiddleware(bundler, devServerConfig));
                     bs.addMiddleware('*', webpackHotMiddleware(bundler));
                 }
+
 
                 const pages = fs.readdirSync(`${process.env.SRC}/pages/`).map(file => `/${file.replace(/\.html/gi, '')}`);
 
@@ -57,7 +57,7 @@ export const got_me_goggles = () =>
                  */
                 bs.addMiddleware('*', proxyMiddleware(pages,
                 {
-                    target: `${process.env.APP_URL}:${bs.options.get('port')}`,
+                    target: `${bsUrl}`,
                     logLevel: 'warn',
 
                     pathRewrite: (path, req) =>

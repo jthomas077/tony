@@ -1,13 +1,11 @@
 
 // @ts-ignore
 import { getInstanceOfjQuery } from 'helpers/utils';
-// @ts-ignore
-import IModule from 'core/imodule';
 
 /**
  *
  */
-abstract class Module extends IModule
+abstract class Module
 {
     private dom: object = {};
     private options: object = {};
@@ -19,10 +17,8 @@ abstract class Module extends IModule
      * @param {string|JQuery} el - Main DOM element in any valid jQuery form i.e. '#foo' or '.bar' or '[data-baz]' or an actual jQuery object.
      * @param {Object} [opts={}] - Module options.
     */
-    constructor(el: string | JQuery, opts: object = {})
+    protected constructor(el: string | JQuery, opts: object = {})
     {
-        super();
-
         this.el = getInstanceOfjQuery(el);
 
         if (typeof this.el === 'undefined' || !this.el.length)
@@ -30,7 +26,6 @@ abstract class Module extends IModule
             throw new ReferenceError('You must provide an valid element as a string type or jquery type.');
         }
 
-        Object.assign(this.dom, {});
         Object.assign(this.options, opts);
 
         this.init();
@@ -41,17 +36,17 @@ abstract class Module extends IModule
     /**
      * @abstract
      */
-    init() : void {};
+    abstract init() : void;
 
     /**
      * @abstract
      */
-    render() : void {};
+    abstract render() : void;
 
     /**
      * @abstract
      */
-    bindEventListeners() : void {};
+    abstract bindEventListeners() : void;
 }
 
 export default Module;
