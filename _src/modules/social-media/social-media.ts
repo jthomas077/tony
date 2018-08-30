@@ -4,9 +4,9 @@ import Module from 'core/module';
 
 class SocialMedia extends Module
 {
-    constructor(el: string | JQuery)
+    constructor(el: string | JQuery, opts: object)
     {
-        super(el);
+        super(el, opts);
     }
 
     init()

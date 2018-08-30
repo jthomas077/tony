@@ -1,0 +1,53 @@
+
+.free-quote
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0 0;
+    padding: 100px;
+
+    @include mq($until: desktop)
+    {
+        flex-direction: column;
+    }
+
+    & > div
+    {
+        @include mq($until: desktop)
+        {
+            width: 100%;
+        }
+
+        flex: 1;
+
+        &:nth-of-type(2)
+        {
+            @include mq($until: desktop)
+            {
+                margin: 50px 0;
+            }
+            @include mq($from: desktop)
+            {
+                margin: 0 200px;
+            }
+        }
+    }
+
+    & p
+    {
+        font-size: rem(18);
+        margin-bottom: 20px;
+
+        @include font-leading(28, 18);
+    }
+}
+
+.free-quote__title
+{
+    margin-bottom: 25px;
+
+    &::after
+    {
+        width: 50px;
+    }
+}

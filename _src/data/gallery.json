@@ -1,0 +1,34 @@
+
+[
+    {
+        "tags": ["flooring", "millwork"],
+        "src": "/media/images/content/remodel.jpg",
+        "title": "something",
+        "width": 1200,
+        "height": 400
+    },
+
+    {
+        "tags": ["flooring", "millwork"],
+        "src": "/media/images/content/painting.jpg",
+        "title": "something",
+        "width": 1200,
+        "height": 400
+    },
+
+    {
+        "tags": ["flooring", "millwork"],
+        "src": "/media/images/content/house-wip.jpg",
+        "title": "something",
+        "width": 1200,
+        "height": 400
+    },
+
+    {
+        "tags": ["flooring", "millwork"],
+        "src": "/media/images/content/tile.jpg",
+        "title": "something",
+        "width": 1200,
+        "height": 400
+    }
+]

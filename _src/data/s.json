@@ -1,0 +1,477 @@
+[
+    {
+        "path": "./_src/media/images/gallery/Ceramic Marble",
+        "title": "Ceramic Marble",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Ceramic Marble/image1.jpg",
+                "title": "image1.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ceramic Marble/image2.jpg",
+                "title": "image2.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Charles Smith",
+        "title": "Charles Smith",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Charles Smith/image1.jpg",
+                "title": "image1.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Charles Smith/image2.jpg",
+                "title": "image2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Charles Smith/image3.jpg",
+                "title": "image3.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Charles Smith/image4.jpg",
+                "title": "image4.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Charles Smith/image5.jpg",
+                "title": "image5.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Charles Smith/image6.jpg",
+                "title": "image6.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Charles Smith/image7.jpg",
+                "title": "image7.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Deanna",
+        "title": "Deanna",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Deanna/image1.jpg",
+                "title": "image1.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Deanna/image10.jpg",
+                "title": "image10.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Deanna/image2.jpg",
+                "title": "image2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Deanna/image3.jpg",
+                "title": "image3.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Deanna/image4.jpg",
+                "title": "image4.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Deanna/image5.jpg",
+                "title": "image5.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Deanna/image6.jpg",
+                "title": "image6.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Deanna/image7.jpg",
+                "title": "image7.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Deanna/image8.jpg",
+                "title": "image8.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Deanna/image9.jpg",
+                "title": "image9.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Fannit",
+        "title": "Fannit",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Fannit/fannit 2.jpg",
+                "title": "fannit 2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Fannit/fannit hallway.jpg",
+                "title": "fannit hallway.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Flightcar",
+        "title": "Flightcar",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Flightcar/image1.jpg",
+                "title": "image1.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Flightcar/image2.jpg",
+                "title": "image2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Flightcar/image3.jpg",
+                "title": "image3.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Flightcar/image4.jpg",
+                "title": "image4.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Flightcar/image5.jpg",
+                "title": "image5.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Flightcar/image6.jpg",
+                "title": "image6.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Flightcar/image7.jpg",
+                "title": "image7.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Flightcar/image8.jpg",
+                "title": "image8.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Flightcar/image9.jpg",
+                "title": "image9.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Jennifer Moore",
+        "title": "Jennifer Moore",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/image.jpg",
+                "title": "image.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/image1.jpg",
+                "title": "image1.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/image2.jpg",
+                "title": "image2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/image3.jpg",
+                "title": "image3.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/image4.jpg",
+                "title": "image4.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/image5.jpg",
+                "title": "image5.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/image6.jpg",
+                "title": "image6.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/image7.jpg",
+                "title": "image7.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/image_1.jpg",
+                "title": "image_1.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/image_2.jpg",
+                "title": "image_2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/IMG_2811.jpg",
+                "title": "IMG_2811.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/IMG_2817.jpg",
+                "title": "IMG_2817.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Jennifer Moore/IMG_2818.jpg",
+                "title": "IMG_2818.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Kevin Korver",
+        "title": "Kevin Korver",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Kevin Korver/image10.jpg",
+                "title": "image10.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Kevin Korver/image11.jpg",
+                "title": "image11.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Kevin Korver/image9.jpg",
+                "title": "image9.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Lake Forest Park Job",
+        "title": "Lake Forest Park Job",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Lake Forest Park Job/image2.jpg",
+                "title": "image2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Lake Forest Park Job/image3.jpg",
+                "title": "image3.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Lake Forest Park Job/image4.jpg",
+                "title": "image4.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Mount Lake Terrace Flip",
+        "title": "Mount Lake Terrace Flip",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Mount Lake Terrace Flip/image_5.jpg",
+                "title": "image_5.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Mount Lake Terrace Flip/image_6.jpg",
+                "title": "image_6.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Mount Lake Terrace Flip/image_7.jpg",
+                "title": "image_7.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Mount Lake Terrace Flip/image_8.jpg",
+                "title": "image_8.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/My House",
+        "title": "My House",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/My House/image.jpg",
+                "title": "image.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/My House/image_1.jpg",
+                "title": "image_1.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Nazzys",
+        "title": "Nazzys",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image1.jpg",
+                "title": "image1.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image10.jpg",
+                "title": "image10.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image11.jpg",
+                "title": "image11.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image12.jpg",
+                "title": "image12.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image2.jpg",
+                "title": "image2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image3.jpg",
+                "title": "image3.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image4.jpg",
+                "title": "image4.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image5.jpg",
+                "title": "image5.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image6.jpg",
+                "title": "image6.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image7.jpg",
+                "title": "image7.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image8.jpg",
+                "title": "image8.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nazzy/image9.jpg",
+                "title": "image9.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Nikhil Patni",
+        "title": "Nikhil Patni",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Nikhil Patni/image.jpg",
+                "title": "image.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nikhil Patni/image_1.jpg",
+                "title": "image_1.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nikhil Patni/image_10.jpg",
+                "title": "image_10.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nikhil Patni/image_2.jpg",
+                "title": "image_2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nikhil Patni/image_3.jpg",
+                "title": "image_3.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nikhil Patni/image_4.jpg",
+                "title": "image_4.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nikhil Patni/image_5.jpg",
+                "title": "image_5.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nikhil Patni/image_6.jpg",
+                "title": "image_6.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nikhil Patni/image_7.jpg",
+                "title": "image_7.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nikhil Patni/image_8.jpg",
+                "title": "image_8.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Nikhil Patni/image_9.jpg",
+                "title": "image_9.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Rays",
+        "title": "Rays",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Ray/image_2.jpg",
+                "title": "image_2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/image_3.jpg",
+                "title": "image_3.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/image_4.jpg",
+                "title": "image_4.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/ray allen 2.jpg",
+                "title": "ray allen 2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/ray allen 6.jpg",
+                "title": "ray allen 6.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/ray allen 7.jpg",
+                "title": "ray allen 7.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/rays 1.jpg",
+                "title": "rays 1.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/rays 2.jpg",
+                "title": "rays 2.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/rays condo 2.png",
+                "title": "rays condo 2.png"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/rays condo 3.png",
+                "title": "rays condo 3.png"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/rays condo 4.png",
+                "title": "rays condo 4.png"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/rays condo 5.png",
+                "title": "rays condo 5.png"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/rays condo 6.png",
+                "title": "rays condo 6.png"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/rays condo 7.png",
+                "title": "rays condo 7.png"
+            },
+            {
+                "path": "./_src/media/images/gallery/Ray/rays condo 8.png",
+                "title": "rays condo 8.png"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Susan Steinman",
+        "title": "Susan Steinman",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Susan Steinman/image_3.jpg",
+                "title": "image_3.jpg"
+            },
+            {
+                "path": "./_src/media/images/gallery/Susan Steinman/image_4.jpg",
+                "title": "image_4.jpg"
+            }
+        ]
+    },
+    {
+        "path": "./_src/media/images/gallery/Wallingford Lam Job",
+        "title": "Wallingford Lam Job",
+        "images": [
+            {
+                "path": "./_src/media/images/gallery/Wallingford Lam Job/image8.jpg",
+                "title": "image8.jpg"
+            }
+        ]
+    }
+]
+]

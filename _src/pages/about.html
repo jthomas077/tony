@@ -11,17 +11,22 @@
         <div class="base__container">
             ##include('./modules/global/header/header.html')
 
-            ##include('./modules/hero/main/main-hero.html')
+            <main>
+                ##include('./modules/hero/sub/sub-hero.html', {
+                    "title": "About",
+                    "image": "/media/images/content/flooring.jpg"
+                })
 
-            <main class="wrapper">
-                    ##include('./modules/about/about.html')
+                ##include('./modules/about/about.html')
+
+                ##include('./modules/ideas/ideas.html')
+
+                ##include('./modules/callouts/quote/quote.html')
+
+                ##include('./modules/testimonials/testimonials.html')
             </main>
 
-            ##include('./modules/ideas/ideas.html')
-
-            ##include('./modules/callouts/quote/quote.html')
-
-            ##include('./modules/testimonials/testimonials.html')
+            ##include('./modules/social-media/social-media.html')
 
             ##include('./modules/global/footer/footer.html')
         </div>

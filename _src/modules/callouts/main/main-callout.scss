@@ -3,38 +3,32 @@
     margin: 100px 0 0;
     padding: 40px;
     text-align: center;
-}
 
-.main-callout__copy
-{
-    font-size: rem(16);
-    line-height: 1.75;
-}
-
-.main-callout__box-title
-{
-    font-size: rem(30);
-    margin-bottom: 25px;
-
-    &::after
+    @include mq($until: base)
     {
-        border: 0;
+        padding: 40px 20px;
     }
-}
-
-.main-callout__box-copy
-{
-    font-size: rem(16);
-    line-height: 1.75;
-    text-align: left;
+    @include mq($until: mobile)
+    {
+        padding: 40px 0;
+    }
 }
 
 .main-callout__boxes
 {
     display: flex;
     justify-content: space-between;
-    width: 85%;
+    width: 90%;
     margin: auto;
+
+    @include mq($until: base-btw-max)
+    {
+        width: 100%;
+    }
+    @include mq($until: desktop)
+    {
+        flex-direction: column;
+    }
 }
 
 .main-callout__box
@@ -68,5 +62,37 @@
         left: 0;
         margin: 0;
         transition: margin 0.5s ease;
+    }
+}
+
+.main-callout__box-title
+{
+    font-size: rem(30);
+    margin-bottom: 25px;
+
+    @include mq($until: mobile)
+    {
+        font-size: rem(24);
+    }
+
+    &::after
+    {
+        border: 0;
+    }
+}
+
+.main-callout__box-copy
+{
+    font-size: rem(16);
+    line-height: 1.75;
+    text-align: left;
+
+    @include mq($until: tablet)
+    {
+        font-size: rem(15);
+    }
+    @include mq($until: mobile)
+    {
+        font-size: rem(14);
     }
 }

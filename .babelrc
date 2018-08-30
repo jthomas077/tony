@@ -9,7 +9,7 @@
                     "browsers": ["> 1%"]
                 },
 
-                "debug": true
+                "debug": false
             }
         ]
     ]

@@ -2,6 +2,42 @@
 .main-hero
 {
     width: 100%;
-    height: 900px;
-    background: url("/media/images/content/painting.jpg") center center / cover no-repeat;
+    height: 90vh;
+
+    & .swiper-slide
+    {
+        height: 90vh;
+        background: center 70% / cover no-repeat;
+    }
+
+    &:hover
+    {
+        & .swiper-button-next
+        {
+            right: 50px;
+            transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+            opacity: 1;
+        }
+
+        & .swiper-button-prev
+        {
+            left: 50px;
+            transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+            opacity: 1;
+        }
+    }
+
+    & .swiper-button-next
+    {
+        right: 100px;
+        transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        opacity: 0;
+    }
+
+    & .swiper-button-prev
+    {
+        left: 100px;
+        transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        opacity: 0;
+    }
 }

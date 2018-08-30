@@ -9,6 +9,7 @@ export const entry = () =>
         [
             'babel-polyfill',
             path.resolve(`${process.env.SRC}/js/lib/hammer-time.min.js`),
+            path.resolve(`${process.env.SRC}/js/lib/finaltiles.js`),
             path.resolve(`${process.env.SRC}/js/base.ts`)
         ],
 

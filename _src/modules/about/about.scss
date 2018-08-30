@@ -1,0 +1,25 @@
+
+.about
+{
+    padding: 100px;
+
+    & p
+    {
+        font-size: rem(20);
+        margin: -8px 0 33px;
+
+        @include font-leading(34, 20);
+    }
+
+    a
+    {
+        text-decoration: none;
+        color: $bay-of-many;
+    }
+}
+
+.about__img
+{
+    float: left;
+    margin: 0 100px 75px 0;
+}

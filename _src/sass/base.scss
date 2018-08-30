@@ -18,6 +18,7 @@
 html
 {
     font-size: 62.5%;
+    overflow-x: hidden;
     width: 100%;
     height: 100%;
 }
@@ -40,6 +41,13 @@ body
 {
     position: relative;
     box-sizing: border-box;
+    outline: none;
+
+    &::before,
+    &::after
+    {
+        box-sizing: inherit;
+    }
 }
 
 *:not(.rtf)
@@ -52,11 +60,7 @@ body
     }
 }
 
-*:not(.pos)
-{
-    position: relative;
-}
-
+/*
 *:not(.nofocus)
 {
     &:focus
@@ -65,6 +69,7 @@ body
         outline: 1px dashed $cerulean !important;
     }
 }
+*/
 
 input[type="search"]
 {
@@ -82,9 +87,34 @@ input[type="search"]
     }
 }
 
+::-webkit-input-placeholder
+{
+    color: $black;
+}
+
+::-moz-placeholder
+{
+    color: $black;
+}
+
+:-ms-input-placeholder
+{
+    color: $black;
+}
+
+:-moz-placeholder
+{
+    color: $black;
+}
+
 fieldset
 {
     border: 0;
+}
+
+legend
+{
+    width: 100%;
 }
 
 textarea
@@ -92,6 +122,17 @@ textarea
     resize: none;
 }
 
+select,
+input[type="checkbox"]
+{
+    cursor: pointer;
+}
+
+button
+{
+    cursor: pointer;
+    border: 0;
+}
 
 // CONTAINER STYLES
 .base
@@ -113,8 +154,13 @@ textarea
     width: map-get($mq-breakpoints, wrapper);
     max-width: 100%;
     margin: auto;
-    padding: 100px;
+    padding: 50px 0;
     text-align: left;
+}
+
+.wrapper-extended
+{
+    width: map-get($mq-breakpoints, wrapper-extended);
 }
 
 
@@ -132,6 +178,7 @@ img.svg
 img.svg-replaced
 {
     display: inline-block;
+    transition: fill 0.5s ease;
 }
 
 .ok
@@ -147,5 +194,6 @@ img.svg-replaced
 }
 
 @import "core/typography";
+@import "global";
 @import "components/**/*";
 @import "../modules/**/*";

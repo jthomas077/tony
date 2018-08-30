@@ -12,8 +12,19 @@
             ##include('./modules/global/header/header.html')
 
             <main>
+                ##include('./modules/hero/sub/sub-hero.html', {
+                    "title": "Site Map",
+                    "image": "/media/images/content/flooring.jpg"
+                })
 
+                ##include('./modules/site-map/site-map.html')
+
+                ##include('./modules/callouts/quote/quote.html')
+
+                ##include('./modules/testimonials/testimonials.html')
             </main>
+
+            ##include('./modules/social-media/social-media.html')
 
             ##include('./modules/global/footer/footer.html')
         </div>

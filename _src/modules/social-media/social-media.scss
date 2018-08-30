@@ -1,28 +1,26 @@
+
 .social-media
 {
     position: fixed;
     z-index: 9999;
-    top: 170px;
-    left: 0;
+    top: 150px;
+    right: 0;
 }
 
-.social-media__list
+.social-media__item
 {
-    & li
-    {
-        display: block;
-        width: 48px;
-        height: 48px;
-        background-image: url("/media/images/social-flat.png");
-        background-repeat: no-repeat;
-    }
+    display: block;
+    width: 48px;
+    height: 48px;
+    background-image: url("/media/images/social-flat.png");
+    background-repeat: no-repeat;
+}
 
-    & a
-    {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-    }
+.social-media__lnk
+{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
 }
 
 .social-media__facebook
@@ -37,5 +35,5 @@
 
 .social-media__thumbtack
 {
-    background-position: -48px 0;
+    background-position: -144px 0;
 }

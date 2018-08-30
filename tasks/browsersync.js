@@ -50,11 +50,12 @@ export const got_me_goggles = () =>
                 }
 
 
-                const pages = fs.readdirSync(`${process.env.SRC}/pages/`).map(file => `/${file.replace(/\.html/gi, '')}`);
+                //const pages = fs.readdirSync(`${process.env.SRC}/pages/`).map(file => `/${file.replace(/\.html/gi, '')}`);
 
                 /**
                  *
                  */
+                /*
                 bs.addMiddleware('*', proxyMiddleware(pages,
                 {
                     target: `${bsUrl}`,
@@ -65,7 +66,7 @@ export const got_me_goggles = () =>
                         return `/pages/${path}.html`;
                     }
                 }));
-
+                */
 
                 /**
                  *
@@ -81,5 +82,5 @@ export const got_me_goggles = () =>
         }
     });
 
-    return new Promise((resolve) => { resolve(); });
+    return Promise.resolve();
 };

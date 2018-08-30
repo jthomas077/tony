@@ -1,4 +1,27 @@
 
 <section class="sub-hero" data-module="hero/sub/sub-hero">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-lazy" style="background-image: url('/media/images/content/millwork.jpg');">
+                <div class="swiper-lazy-preloader"></div>
+            </div>
 
+            <div class="swiper-slide swiper-lazy" style="background-image: url('/media/images/content/flooring.jpg');">
+                <div class="swiper-lazy-preloader"></div>
+            </div>
+
+            <div class="swiper-slide swiper-lazy" style="background-image: url('/media/images/content/painting.jpg');">
+                <div class="swiper-lazy-preloader"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- <h1 class="sub-hero__title">Services</h1> -->
+
+    ##include('./modules/callouts/sub/hero-callout.html', {
+        "title": "##title"
+    })
 </section>

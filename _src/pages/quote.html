@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 ##include('./modules/core/_head.html', {
-    "title": "Quote"
+    "title": "Free Quote"
 })
 
 <body>
@@ -12,8 +12,19 @@
             ##include('./modules/global/header/header.html')
 
             <main>
+                ##include('./modules/hero/sub/sub-hero.html', {
+                    "title": "Free Quote",
+                    "image": "/media/images/content/flooring.jpg"
+                })
 
+                ##include('./modules/free-quote/free-quote.html')
+
+                ##include('./modules/callouts/quote/quote.html')
+
+                ##include('./modules/testimonials/testimonials.html')
             </main>
+
+            ##include('./modules/social-media/social-media.html')
 
             ##include('./modules/global/footer/footer.html')
         </div>

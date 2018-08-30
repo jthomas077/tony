@@ -59,3 +59,13 @@
         background-size: 5px 5px;
     }
 }
+
+.lnk-btn-reverse
+{
+    background-color: $bay-of-many;
+
+    &:hover
+    {
+        background-color: $cerulean;
+    }
+}

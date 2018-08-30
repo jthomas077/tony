@@ -1,6 +1,7 @@
 
 // @ts-ignore
 import Module from 'core/module';
+
 // @ts-ignore
 import Swiper from 'swiper';
 
@@ -11,25 +12,26 @@ class Testimonials extends Module
         super(el, opts);
     }
 
-    init()
-    {
-        new Swiper('.testimonials .swiper-container',
-        {
-            loop: true,
-            autoplay: 5000,
-            grabCursor: true,
-            pagination: '.testimonials .swiper-pagination'
-        });
-    }
-
     render()
     {
+        new Swiper(this.dom.container,
+        {
+            loop: true,
+            effect: 'fade',
+            autoplay:
+            {
+                delay: 5000,
+            },
+            speed: 1000,
+            slidesPerView: 1,
+            allowTouchMove: true,
+            grabCursor: true,
 
-    }
-
-    bindEventListeners()
-    {
-
+            fadeEffect:
+            {
+                crossFade: true
+            }
+        });
     }
 }
 
