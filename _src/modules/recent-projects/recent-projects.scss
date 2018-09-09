@@ -3,22 +3,57 @@
 {
     padding: 25px 0 35px;
 
-    & .wrapper
+    @include mq($until: tablet)
+    {
+        padding: 25px 0 0;
+    }
+
+    & .wrapper-extended
     {
         text-align: center;
+
+        @include mq($until: max)
+        {
+            width: calc(100% - 250px);
+        }
+        @include mq($until: desktop)
+        {
+            width: calc(100% - 200px);
+        }
+        @include mq($until: tablet)
+        {
+            width: calc(100%);
+            padding: 25px 0 0;
+        }
     }
 
     & .swiper-slide
     {
         display: inline-block;
-        width: calc(33.34% - 28px);
         height: 300px;
         vertical-align: middle;
         background: center center / cover no-repeat;
 
+        @include mq($from: base-btw-max)
+        {
+            width: calc(33.34% - 28px);
+        }
         @include mq($until: base-btw-max)
         {
             width: calc(50% - 28px);
+            height: 275px;
+        }
+        @include mq($until: mid-desktop)
+        {
+            height: 225px;
+        }
+        @include mq($until: tablet)
+        {
+            height: 300px;
+        }
+        @include mq($until: mobile)
+        {
+            height: 250px;
         }
     }
 
@@ -27,7 +62,18 @@
         position: absolute;
         z-index: 5;
         right: -75px;
+        transition: opacity 0.5s ease-in-out;
         transform: translateY(calc(50% + 10px));
+        opacity: 0;
+
+        @include mq($until: base)
+        {
+            right: -50px;
+        }
+        @include mq($until: tablet)
+        {
+            right: 25px;
+        }
     }
 
     & .swiper-button-prev
@@ -35,13 +81,43 @@
         position: absolute;
         z-index: 5;
         left: -75px;
+        transition: opacity 0.5s ease-in-out;
         transform: translateY(calc(50% + 10px));
+        opacity: 0;
+
+        @include mq($until: base)
+        {
+            left: -50px;
+        }
+        @include mq($until: tablet)
+        {
+            left: 25px;
+        }
+    }
+
+    &:hover
+    {
+        & .swiper-button-next,
+        & .swiper-button-prev
+        {
+            transition: all 0.5s ease-in-out;
+            opacity: 1;
+        }
     }
 }
 
 .recent-projects__title
 {
     margin: 0 0 50px;
+
+    @include mq($until: base)
+    {
+        font-size: rem(44);
+    }
+    @include mq($until: tablet)
+    {
+        font-size: rem(28);
+    }
 
     &::after
     {
@@ -87,6 +163,11 @@
             opacity: 1;
             color: $black;
 
+            @include mq($until: mobile)
+            {
+                margin-top: 60px;
+            }
+
             &::after
             {
                 width: 70px;
@@ -103,6 +184,11 @@
             transition-delay: 0.75s;
             opacity: 1;
             color: $black;
+
+            @include mq($until: mobile)
+            {
+                margin-top: 10px;
+            }
         }
 
         & .recent-projects__cta
@@ -111,6 +197,11 @@
             transition: all 0.35s ease;
             transition-delay: 1s;
             opacity: 1;
+
+            @include mq($until: mobile)
+            {
+                bottom: 25px;
+            }
         }
     }
 
@@ -134,6 +225,12 @@
     color: $white;
 
     @include font-tracking(1);
+    @include mq($until: mobile)
+    {
+        font-size: rem(22);
+        font-weight: $bold;
+        width: 70%;
+    }
 
     &::after
     {
@@ -158,11 +255,17 @@
 
     @include font-leading(30, 22);
     @include font-tracking(0.5);
+    @include mq($until: mobile)
+    {
+        font-size: rem(16);
+        font-weight: $bold;
+    }
 }
 
 .recent-projects__cta
 {
     position: absolute;
+    z-index: 10;
     right: 0;
     bottom: 0;
     left: 0;
@@ -170,4 +273,13 @@
     transition: all 0.5s ease-in-out;
     text-align: center;
     opacity: 0;
+
+    @include mq($until: mobile)
+    {
+        & .lnk-btn
+        {
+            font-size: rem(18);
+            padding: 13px 20px 15px;
+        }
+    }
 }

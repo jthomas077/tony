@@ -1,11 +1,24 @@
+
 .footer
 {
     z-index: 1;
     display: inline-block;
     width: 100%;
-    padding: 0 50px 25px;
     color: $white;
     background-color: $bay-of-many;
+
+    @include mq($from: base)
+    {
+        padding: 35px 50px 25px;
+    }
+    @include mq($until: base)
+    {
+        padding: 35px 50px 25px;
+    }
+    @include mq($until: mobile)
+    {
+        padding: 30px 30px 25px;
+    }
 
     &::before
     {
@@ -33,7 +46,6 @@
 
     & a
     {
-        font-weight: $light;
         transition: all 0.25s linear;
         text-decoration: none;
         color: $white;
@@ -45,88 +57,120 @@
             border-bottom: 1px dotted $white;
         }
     }
-
-    & ul
-    {
-        display: inline-block;
-        margin-top: -6px;
-        vertical-align: top;
-    }
-
-    & ul li
-    {
-        line-height: 2;
-    }
-
-    & ul li a
-    {
-        font-size: rem(18);
-    }
 }
 
 .footer__sections
 {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+
+    @include mq($until: tablet)
+    {
+        flex-direction: column;
+    }
+
+    flex-wrap: wrap;
 }
 
 .footer__section
 {
-    display: inline-block;
-    text-align: left;
-    vertical-align: top;
-
-    & h4
+    &:nth-of-type(2)
     {
-        font-family: $font-primary;
-        font-size: rem(20);
-        font-weight: $semibold;
-        margin-bottom: 5px;
-        text-transform: capitalize;
-        color: $white;
+        max-width: 40%;
 
-        &::after
+        @include mq($until: base)
         {
-            margin: 0;
-            border: 0;
+            max-width: 35%;
+        }
+        @include mq($until: desktop)
+        {
+            max-width: 50%;
+            margin-bottom: 25px;
+        }
+        @include mq($until: tablet)
+        {
+            max-width: 100%;
+            margin: 50px 0;
         }
     }
+}
 
-    & a
-    {
-        font-family: $font-primary;
-        font-size: rem(18);
-        line-height: 1.5;
-    }
+.footer__lnk
+{
+    font-family: $font-primary;
+    font-size: rem(18);
+    font-weight: $light;
+    line-height: 1.5;
 
-    & span
+    @include font-tracking(0.75);
+    @include mq($until: base)
     {
-        font-size: rem(14);
-        display: block;
-        margin-top: 20px;
+        font-size: rem(16);
     }
 }
 
-.footer__section-badge
+.footer__list
 {
-    border: 0 !important;
+    display: inline-block;
+    margin-top: -6px;
+    vertical-align: top;
+}
 
-    &:hover
+.footer__item
+{
+    line-height: 2;
+    display: inline-block;
+    margin: 0 4px 8px 0;
+    border-radius: 5px;
+    background-color: $cerulean;
+
+    @include mq($from: base)
     {
-        border: 0 !important;
+        padding: 5px 12px 3px;
+    }
+    @include mq($until: base)
+    {
+        padding: 3px 10px 2px;
+    }
+
+    & .footer__lnk
+    {
+        font-family: $font-heading;
+        font-size: rem(17);
+
+        @include mq($until: base)
+        {
+            font-size: rem(16);
+        }
     }
 }
 
-.footer__sections-contact
+.footer__label
 {
-    & a
+    font-size: rem(14);
+    display: block;
+    margin-top: 20px;
+}
+
+.footer__section-contact
+{
+    & .footer__lnk
     {
         font-weight: $semibold;
     }
+
+    & .footer__lnk-tel
+    {
+        pointer-events: none;
+
+        @include mq($until: desktop)
+        {
+            pointer-events: all;
+        }
+    }
 }
 
-.footer__section-title
+.footer__title
 {
     font-family: $font-primary;
     font-size: rem(22);
@@ -134,6 +178,9 @@
     margin-bottom: 28px;
     text-transform: uppercase;
     color: $white;
+
+    @include font-tracking(0.75);
+    @include font-leading(30, 22);
 
     &::after
     {
@@ -145,18 +192,28 @@
     }
 }
 
-.footer__section-title a
+.footer__subtitle
 {
     font-family: $font-primary;
-    font-size: rem(22);
-    font-weight: $bold;
-    margin-bottom: 28px;
-    text-transform: uppercase;
+    font-size: rem(20);
+    font-weight: $semibold;
+    margin-bottom: 5px;
+    text-transform: capitalize;
     color: $white;
+
+    @include font-tracking(0.75);
 }
 
 .footer__copyright
 {
-    font-size: rem(13);
-    margin: 25px 0 0;
+    font-size: rem(14);
+    margin: 50px 0 0;
+
+    @include font-tracking(0.5);
+    @include mq($until: mobile)
+    {
+        font-size: rem(13);
+        line-height: 1.5;
+        text-align: center;
+    }
 }

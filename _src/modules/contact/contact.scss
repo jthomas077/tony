@@ -3,12 +3,21 @@
 {
     display: flex;
     justify-content: space-between;
-    margin: 25px 0 0;
+    margin: 50px 0 0;
     padding: 100px;
 
-    @include mq($until: desktop)
+    @include mq($until: base)
     {
         flex-direction: column;
+        padding: 75px;
+    }
+    @include mq($until: desktop)
+    {
+        padding: 50px;
+    }
+    @include mq($until: mobile)
+    {
+        padding: 25px;
     }
 
     & > div
@@ -17,18 +26,36 @@
         {
             width: 100%;
         }
+        @include mq($until: base)
+        {
+            &:nth-of-type(1)
+            {
+                order: 2;
+            }
+
+            &:nth-of-type(3)
+            {
+                order: 0;
+            }
+        }
 
         flex: 1;
 
         &:nth-of-type(2)
         {
-            @include mq($until: desktop)
-            {
-                margin: 50px 0;
-            }
-            @include mq($from: desktop)
+            @include mq($from: base)
             {
                 margin: 0 200px;
+            }
+            @include mq($until: base)
+            {
+                margin: 100px 0;
+
+                order: 1;
+            }
+            @include mq($until: mobile)
+            {
+                margin: 50px 0;
             }
         }
     }

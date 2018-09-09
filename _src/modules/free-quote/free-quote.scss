@@ -3,17 +3,26 @@
 {
     display: flex;
     justify-content: space-between;
-    margin: 25px 0 0;
+    margin: 50px 0 0;
     padding: 100px;
 
-    @include mq($until: desktop)
+    @include mq($until: base)
     {
         flex-direction: column;
+        padding: 75px;
+    }
+    @include mq($until: desktop)
+    {
+        padding: 50px;
+    }
+    @include mq($until: mobile)
+    {
+        padding: 25px;
     }
 
     & > div
     {
-        @include mq($until: desktop)
+        @include mq($until: base)
         {
             width: 100%;
         }
@@ -22,13 +31,17 @@
 
         &:nth-of-type(2)
         {
-            @include mq($until: desktop)
-            {
-                margin: 50px 0;
-            }
-            @include mq($from: desktop)
+            @include mq($from: base-btw-max)
             {
                 margin: 0 200px;
+            }
+            @include mq($until: base-btw-max)
+            {
+                margin: 0 50px;
+            }
+            @include mq($until: base)
+            {
+                margin: 50px 0;
             }
         }
     }
@@ -44,7 +57,13 @@
 
 .free-quote__title
 {
+    line-height: 1.25;
     margin-bottom: 25px;
+
+    @include mq($until: mobile)
+    {
+        line-height: 1.25;
+    }
 
     &::after
     {

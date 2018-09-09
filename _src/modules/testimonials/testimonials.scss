@@ -1,11 +1,30 @@
+
 .testimonials
 {
-    font-size: rem(40);
     font-weight: $semibold;
     line-height: 1.5;
     width: 100%;
     text-align: center;
     background-color: $wild-sand;
+
+    @include mq($from: base)
+    {
+        font-size: rem(40);
+    }
+    @include mq($until: base)
+    {
+        font-size: rem(32);
+    }
+    @include mq($until: tablet)
+    {
+        font-size: rem(24);
+        line-height: 1.4;
+    }
+
+    & .swiper-slide
+    {
+        align-self: center;
+    }
 }
 
 .testimonials__container
@@ -27,12 +46,22 @@
         top: -525px;
         left: 125px;
         transform: rotate(-180deg);
+
+        @include mq($until: base)
+        {
+            left: 50px;
+        }
     }
 
     &::after
     {
         right: 125px;
         bottom: -525px;
+
+        @include mq($until: base)
+        {
+            right: 50px;
+        }
     }
 }
 
@@ -41,8 +70,20 @@
     font-style: italic;
     z-index: 1;
     display: inline-block;
-    width: 70%;
     padding: 40px 20px;
+
+    @include mq($from: base)
+    {
+        width: 70%;
+    }
+    @include mq($until: base)
+    {
+        width: 80%;
+    }
+    @include mq($until: mobile)
+    {
+        width: 100%;
+    }
 }
 
 .testimonials__quote-name

@@ -1,12 +1,30 @@
 
 .sub-hero
 {
-    //display: flex;
-    width: 100%;
+    @include mq($from: mid-desktop)
+    {
+        & .swiper-slide
+        {
+            height: 80vh;
+        }
+    }
+    @include mq($until: mid-desktop)
+    {
+        & .swiper-slide
+        {
+            height: 45vh;
+        }
+    }
+    @include mq($until: tablet)
+    {
+        & .swiper-slide
+        {
+            height: 30vh;
+        }
+    }
 
     & .swiper-slide
     {
-        height: 80vh;
         background: center 60% / cover no-repeat;
     }
 
@@ -39,50 +57,5 @@
         left: 100px;
         transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
         opacity: 0;
-    }
-}
-
-.sub-hero__title
-{
-    top: 25%;
-    display: inline-block;
-    margin: auto;
-    transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-    //transition-delay: 0.25s;
-    vertical-align: middle;
-    opacity: 0;
-    color: $white;
-
-    @include font-tracking(1);
-
-    &--init
-    {
-        top: 5%;
-        transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-        //transition-delay: 0.25s;
-        opacity: 1;
-
-        &::after
-        {
-            width: 75px;
-            margin: 10px auto auto;
-            transition-delay: 0.75s;
-        }
-    }
-
-    &.scroll
-    {
-        top: 25%;
-        transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-        transition-delay: 0.5s;
-        opacity: 0;
-
-        &::after
-        {
-            width: 0;
-            margin: 10px auto auto;
-            transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-            transition-delay: 0 !important;
-        }
     }
 }

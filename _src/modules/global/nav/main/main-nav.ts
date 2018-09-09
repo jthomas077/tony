@@ -2,6 +2,9 @@
 // @ts-ignore
 import Module from 'core/module';
 
+// @ts-ignore
+import { open, close } from 'helpers/animation';
+
 class MainNav extends Module
 {
     constructor(el: string | JQuery, opts: object)
@@ -20,7 +23,9 @@ class MainNav extends Module
 
         self.toggleClass('is-active');
 
-        this.dom.list.toggleClass('main-nav__list--active main-nav__list--inactive')
+        this.dom.list
+            .toggleClass('main-nav__list--active')
+            .toggleClass('main-nav__list--inactive', !this.dom.list.hasClass('main-nav__list--active'));
 
         e.preventDefault();
     }

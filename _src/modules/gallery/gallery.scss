@@ -1,10 +1,21 @@
 
 .gallery
 {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+    margin: 50px 0 0;
     padding: 100px;
+
+    @include mq($until: base)
+    {
+        padding: 75px;
+    }
+    @include mq($until: desktop)
+    {
+        padding: 50px;
+    }
+    @include mq($until: mobile)
+    {
+        padding: 25px;
+    }
 }
 
 .gallery__title
@@ -118,4 +129,14 @@
 {
     margin: 100px 0 0;
     text-align: center;
+
+    @include mq($until: mobile)
+    {
+        margin: 50px 0 25px;
+
+        & .gallery__loadmore-lnk
+        {
+            width: 100%;
+        }
+    }
 }

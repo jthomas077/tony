@@ -17,11 +17,37 @@ class RecentProjects extends Module
         new Swiper(this.dom.swiperContainer,
         {
             loop: true,
-            autoplay: 5000,
-            slidesPerView: 3,
+            autoplay:
+            {
+                delay: 5000,
+            },
+            speed: 1000,
             allowTouchMove: true,
             grabCursor: true,
-            spaceBetween: 35,
+            watchOverflow: true,
+            preloadImages: false,
+            lazy: true,
+
+            breakpoints:
+            {
+                5000:
+                {
+                    slidesPerView: 3,
+                    spaceBetween: 35
+                },
+
+                1280:
+                {
+                    slidesPerView: 2,
+                    spaceBetween: 25
+                },
+
+                769:
+                {
+                    slidesPerView: 1,
+                    spaceBetween: 25
+                }
+            },
 
             navigation:
             {

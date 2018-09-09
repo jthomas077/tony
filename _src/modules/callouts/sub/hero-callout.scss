@@ -2,12 +2,33 @@
 .sub-hero-callout
 {
     position: absolute;
-    z-index: 10;
+    z-index: 100;
     bottom: -75px;
     left: 100px;
-    width: auto;
+    width: 100%;
+    max-width: 600px;
     padding: 25px 0;
     text-align: left;
+
+    @include mq($until: base)
+    {
+        left: 75px;
+    }
+    @include mq($until: desktop)
+    {
+        left: 50px;
+    }
+    @include mq($until: tablet)
+    {
+        max-width: calc(100% - 100px);
+    }
+    @include mq($until: mobile)
+    {
+        bottom: -65px;
+        left: 25px;
+        max-width: calc(100% - 50px);
+        padding: 20px 0;
+    }
 
     &::after
     {
@@ -31,7 +52,23 @@
 {
     font-weight: $semibold;
     z-index: 1;
-    padding: 0 300px 0 35px;
+    padding: 0 0 0 35px;
+
+    @include font-tracking(0.5);
+    @include mq($until: base)
+    {
+        font-size: rem(45);
+    }
+    @include mq($until: tablet)
+    {
+        font-size: rem(30);
+        padding: 0 0 0 30px;
+    }
+    @include mq($until: mobile)
+    {
+        width: 100% !important;
+        padding: 0 0 0 25px;
+    }
 
     &::after
     {

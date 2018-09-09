@@ -1,13 +1,45 @@
 
 .main-hero
 {
-    width: 100%;
-    height: 90vh;
+    @include mq($from: mid-desktop)
+    {
+        & .swiper-slide
+        {
+            height: 90vh;
+        }
+    }
+    @include mq($until: mid-desktop)
+    {
+        & .swiper-slide
+        {
+            height: 55vh;
+        }
+    }
+    @include mq($until: tablet)
+    {
+        & .swiper-slide
+        {
+            height: 40vh;
+        }
+    }
 
     & .swiper-slide
     {
-        height: 90vh;
         background: center 70% / cover no-repeat;
+    }
+
+    & .swiper-button-next
+    {
+        right: 100px;
+        transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        opacity: 0;
+    }
+
+    & .swiper-button-prev
+    {
+        left: 100px;
+        transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        opacity: 0;
     }
 
     &:hover
@@ -25,19 +57,5 @@
             transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
             opacity: 1;
         }
-    }
-
-    & .swiper-button-next
-    {
-        right: 100px;
-        transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-        opacity: 0;
-    }
-
-    & .swiper-button-prev
-    {
-        left: 100px;
-        transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-        opacity: 0;
     }
 }

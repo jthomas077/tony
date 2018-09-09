@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>Anthony's Contracting, Inc | Contact</title>
+    <title>Anthony's Contracting | Contact</title>
 
     <base href="/" />
 
@@ -30,33 +30,41 @@
         <div class="base__container">
             
 <header class="header__main" data-module="global/header/header">
-    <div class="logo">
-        <a href="#" title="" class="">
-            <img src="/media/images/anthonys-logo.png" title="" alt="" />
+    <div class="header__main-logo">
+        <a href="/pages/home.html" title="Anthony's Contracting">
+            <img src="/media/images/anthonys-logo.png" title="Anthony's Contracting" alt="Anthony's Contracting" class="header__main-img" />
         </a>
     </div>
 
     
-<nav class="main-nav" data-module="modules/global/nav/main/main-nav" role="menubar">
+<nav class="main-nav" data-module="global/nav/main/main-nav" role="menubar">
+    <div class="main-nav__hamburger">
+        <button class="hamburger hamburger--emphatic" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+    </div>
+
     <ul class="main-nav__list">
         <li class="main-nav__item">
-            <a href="/services" title="Services" class="main-nav__link" role="menuitem">Services</a>
+            <a href="/pages/services.html" title="Services" class="main-nav__link" role="menuitem">Services</a>
         </li>
 
         <li class="main-nav__item">
-            <a href="/gallery" title="Gallery" class="main-nav__link" role="menuitem">Gallery</a>
+            <a href="/pages/gallery.html" title="Gallery" class="main-nav__link" role="menuitem">Gallery</a>
         </li>
 
         <li class="main-nav__item">
-            <a href="/quote" title="Free Quote" class="main-nav__link" role="menuitem">Free Quote</a>
+            <a href="/pages/quote.html" title="Free Quote" class="main-nav__link" role="menuitem">Free Quote</a>
         </li>
 
         <li class="main-nav__item">
-            <a href="/about" title="About" class="main-nav__link" role="menuitem">About</a>
+            <a href="/pages/about.html" title="About" class="main-nav__link" role="menuitem">About</a>
         </li>
 
         <li class="main-nav__item">
-            <a href="/contact" title="Contact" class="main-nav__link" role="menuitem">Contact</a>
+            <a href="/pages/contact.html" title="Contact" class="main-nav__link" role="menuitem">Contact</a>
         </li>
     </ul>
 </nav>
@@ -64,52 +72,160 @@
 </header>
 
 
-            
-<section class="main-hero" data-module="modules/hero/main/main-hero">
+            <main>
+                
+<section class="sub-hero" data-module="hero/sub/sub-hero">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-lazy" style="background-image: url('/media/images/content/millwork.jpg');">
+                <div class="swiper-lazy-preloader"></div>
+            </div>
+
+            <div class="swiper-slide swiper-lazy" style="background-image: url('/media/images/content/flooring.jpg');">
+                <div class="swiper-lazy-preloader"></div>
+            </div>
+
+            <div class="swiper-slide swiper-lazy" style="background-image: url('/media/images/content/painting.jpg');">
+                <div class="swiper-lazy-preloader"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
 
     
-<div class="hero-callout">
+<div class="sub-hero-callout">
+    <h1 class="sub-hero-callout__title">Contact</h1>
+
+    
+<nav class="breadcrumbs">
+    <ul class="breadcrumbs__list">
+        <li class="breadcrumbs__item">
+            <a href="#" title="" class="breadcrumbs__lnk">Home</a>
+        </li>
+
+        <li class="breadcrumbs__item">
+            <a href="#" title="" class="breadcrumbs__lnk breadcrumbs__lnk--selected">Contact</a>
+        </li>
+    </ul>
+</nav>
 
 </div>
 
 </section>
 
 
-            <main class="wrapper">
                 
-<section class="contact">
-    <h1 class="contact__title">Contact</h1>
+<section class="contact" data-module="contact/contact">
+    <div class="contact__connect">
+        <h2 class="contact__title">Anthony's Contracting, Inc.</h2>
 
+        <img src="/media/images/content/tony.jpg" alt="" title="" class="contact__img" />
 
+        <a href="tel:425-263-0744" title="Call: 425.263.0744" class="contact__lnk">425.263.0744</a><br />
+        <a href="mailto:anthonysccrs@gmail.com" title="anthonysccrs@gmail.com" class="contact__lnk">anthonysccrs@gmail.com</a><br />
+
+        <br /><br />
+
+        <span class="contact__label">LIC# ANTHOCC868QE - BONDED - INSURED</span>
+    </div>
+
+    <div class="contact__general">
+        <h2 class="contact__title">General Inquiries</h2>
+
+        <p>Have some general questions or not sure where to start? Give us a call at <strong>425.263.0744</strong> or fill out the form below and someone will get back to you.</p>
+
+        <form class="contact__form">
+            <fieldset>
+                <legend />
+
+                <span class="required">* Required</span>
+                <input type="text" id="txtName" name="txtName" title="" placeholder="Name" class="contact__form-name" />
+
+                <br />
+
+                <span class="required">* Required</span>
+                <input type="tel" id="txtPhone" name="txtPhone" title="" placeholder="Phone Number" class="contact__form-phone" />
+
+                <br />
+
+                <span class="required">* Required</span>
+                <input type="email" id="txtEmail" name="txtEmail" title="" placeholder="Email Address" class="contact__form-email" />
+
+                <br />
+
+                <span class="required">* Required</span>
+                <textarea id="txtMessage" name="txtMessage" title="" placeholder="Message" class="contact__form-msg"></textarea>
+
+                <br />
+
+                <span class="required">* Required</span>
+                <select id="selHow" name="selHow" size="1" class="contact__form-found">
+                    <option value="" selected>-- How did you hear about us? --</option>
+                    <option value="Thumbtack">Thumbtack</option>
+                    <option value="Porch">Porch</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Yelp">Yelp</option>
+                    <option value="Google">Google</option>
+                    <option value="Friend">Friend</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <br /><br />
+
+                <button title="Send Inquiry" class="contact__cta lnk-btn">Send Inquiry</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="contact__quote">
+        <h2 class="contact__title">Get Started</h2>
+
+        <p>Let us know the details of your project and we can provide you with a free quote.</p>
+
+        <a href="#" title="Get Started" class="contact__cta lnk-btn">Get Started</a>
+
+<!--
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+        <h2 class="contact__title">Work With Us</h2>
+
+        <p>Got chops huh? You think you have what it takes to maintain the quality Anthony's Contracting strives to deliver to its' customers?</p>
+
+        <p>If so, we want to hear from you!</p>
+
+        <a href="#" title="" class="contact__cta lnk-btn">View Openings</a>
+-->
+    </div>
 </section>
 
-            </main>
 
-            
-<section class="ideas" style="background-image: url('/media/images/content/ideas.jpg');">
+                
+<section class="ideas" style="background-image: url('/media/images/content/house-under-construction-blueprints.jpg');">
     <div class="ideas__content">
         <h1 class="ideas__title">We Bring Your Ideas to Life</h1>
 
         <p class="ideas__copy">For years individuals, families and businesses in Puget Sound have trusted our team of professionals to get the personalized attention they
             need for all their residential and commercial needs.</p>
 
-        <a href="#" title="Learn More" class="ideas__cta lnk-btn">Learn More</a>
-        <a href="#" title="View Gallery" class="ideas__cta lnk-btn">View Gallery</a>
+        <a href="/pages/services.html" title="Learn More" class="ideas__cta lnk-btn">Learn More</a>
+        <a href="/pages/gallery.html" title="View Gallery" class="ideas__cta lnk-btn">View Gallery</a>
     </div>
 </section>
 
 
-            
+                
 <section class="quote">
-    <h1 class="quote__title">Our reliable team guarantees to accomodate <br />all of your residential and commerical needs.</h1>
+    <h1 class="quote__title">Our reliable team guarantees to accomodate <br />all of your residential and commerical needs</h1>
 
-    <a href="/contact" title="GET YOUR FREE QUOTE" class="quote__cta">GET YOUR FREE QUOTE</a>
+    <a href="/pages/quote.html" title="GET STARTED" class="quote__cta">GET STARTED</a>
 </section>
 
 
-            
+                
 <section class="testimonials" data-module="testimonials/testimonials">
-    <div class="swiper-container">
+    <div class="testimonials__container swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <blockquote class="testimonials__quote">
@@ -148,70 +264,87 @@
     </div>
 </section>
 
+            </main>
 
             
-<footer class="footer__main" data-module="modules/global/footer/footer">
-    <div class="footer__sections">
-        <div class="footer__section footer__sections-contact">
-            <h3 class="footer__section-title">Connect</h3>
+<aside class="social-media" data-module="social-media/social-media" role="menubar">
+    <ul class="social-media__list" role="menu">
+        <li class="social-media__item social-media__facebook">
+            <a href="https://www.facebook.com/anthonyscontractinginc" title="Follow Us on Facebook" class="social-media__lnk" target="_blank" role="menuitem"></a>
+        </li>
 
-            <h4>Anthony's Contracting, Inc.</h4>
+        <li class="social-media__item social-media__yelp">
+            <a href="https://www.yelp.com/biz/anthonys-contracting-lynnwood" title="Follow Us on Yelp" class="social-media__lnk" target="_blank" role="menuitem"></a>
+        </li>
 
-            <a href="tel:425-263-0744" title="Call: 425.263.0744" class="tel">425.263.0744</a><br />
-            <a href="mailto:anthonysccrs@gmail.com" title="anthonysccrs@gmail.com">anthonysccrs@gmail.com</a><br />
+        <li class="social-media__item social-media__thumbtack">
+            <a href="https://www.thumbtack.com/-Lynnwood-WA/service/2251064" title="Find Us on Thumbtack" class="social-media__lnk" target="_blank" role="menuitem"></a>
+        </li>
+    </ul>
+</aside>
 
-            <span>LIC# ANTHOCC868QE - BONDED - INSURED</span>
+
+            
+<footer class="footer" data-module="global/footer/footer">
+    <div class="footer__sections" data-cache="0">
+        <div class="footer__section footer__section-contact" data-cache="0">
+            <h3 class="footer__title">
+                <a href="/pages/contact.html" title="Connect" class="footer__title-lnk">Connect</a>
+            </h3>
+
+            <h4 class="footer__subtitle">Anthony's Contracting</h4>
+
+            <a href="tel:425-263-0744" title="Call: 425.263.0744" class="footer__lnk footer__lnk-tel">425.263.0744</a>
+
+            <br />
+
+            <a href="mailto:anthonysccrs@gmail.com" title="anthonysccrs@gmail.com" class="footer__lnk">anthonysccrs@gmail.com</a>
+
+            <br />
+
+            <span class="footer__label">LIC# ANTHOCC868QE - BONDED - INSURED</span>
         </div>
 
-        <div class="footer__section">
-            <h3 class="footer__section-title">Residential & Commercial Services</h3>
+        <div class="footer__section footer__section-services" data-cache="0">
+            <h3 class="footer__title">
+                <a href="/pages/services.html" title="Residential & Commercial Services" class="footer__title-lnk">Residential & Commercial Services</a>
+            </h3>
 
-            <ul>
-                <li><a href="/services/painting" title="Painting">Painting</a></li>
-                <li><a href="/services/popcorn-ceiling-removal" title="Popcorn Ceiling Removal">Popcorn Ceiling Removal</a></li>
-                <li><a href="/services/flooring" title="Flooring">Flooring</a></li>
-                <li><a href="/services/remodals" title="Remodels">Remodels</a></li>
-                <li><a href="/services/windows-doors-and-millwork" title="Windows, Doors & Millwork" class="selected">Windows, Doors & Millwork</a></li>
-                <li><a href="/services/siding" title="Siding">Siding</a></li>
+            <ul class="footer__list">
+                <li class="footer__item"><a href="/pages/services/painting.html" title="Painting" class="footer__lnk">Painting</a></li>
+                <li class="footer__item"><a href="/pages/services/popcorn-ceiling-removal.html" title="Popcorn Ceiling Removal" class="footer__lnk">Popcorn Ceiling Removal</a></li>
+                <li class="footer__item"><a href="/pages/services/flooring.html" title="Flooring" class="footer__lnk">Flooring</a></li>
+                <li class="footer__item"><a href="/pages/services/remodals.html" title="Remodels" class="footer__lnk">Remodels</a></li>
+                <li class="footer__item"><a href="/pages/services/windows-doors-and-millwork.html" title="Windows, Doors & Millwork" class="footer__lnk">Windows, Doors & Millwork</a></li>
+                <li class="footer__item"><a href="/pages/services/siding.html" title="Siding" class="footer__lnk">Siding</a></li>
             </ul>
         </div>
 
-        <div class="footer__section">
-            <h3 class="footer__section-title">Refer a Friend</h3>
+        <div class="footer__section footer__section-follow" data-cache="0">
+            <h3 class="footer__title">Reviews</h3>
 
-            <a href="#" title="" class="footer__section-badge">
-                <img src="/media/images/refer-badge.png" alt="" title="" />
-            </a>
-        </div>
-
-        <div class="footer__section footer__sections-follow">
-            <h3 class="footer__section-title">Reviews</h3>
-
-            <div class="footer__sections-social">
+            <div class="footer__section-social" data-cache-skip="1">
                 <div class="widget ng-scope" id="tt-review-widget-star">
-                <img ng-src="https://static.thumbtackstatic.com/media/logos/thumbtack/wordmark.svg" alt="Thumbtack" class="tt-logo" src="https://static.thumbtackstatic.com/media/logos/thumbtack/wordmark.svg">
-                    <a ng-href="https://www.thumbtack.com/-Lynnwood-WA/service/2251064" href="https://www.thumbtack.com/-Lynnwood-WA/service/2251064" target="_blank">
-                    <div class="ng-binding">Anthony's Contracting Inc</div>
+                    <img ng-src="https://static.thumbtackstatic.com/media/logos/thumbtack/wordmark.svg" src="https://static.thumbtackstatic.com/media/logos/thumbtack/wordmark.svg" alt="Thumbtack" title="Thumbtack" class="tt-logo" />
+
+                    <a ng-href="https://www.thumbtack.com/-Lynnwood-WA/service/2251064" href="https://www.thumbtack.com/-Lynnwood-WA/service/2251064" title="Anthony's Contracting" target="_blank">
+                        <div class="ng-binding">Anthony's Contracting</div>
                     </a>
+
                     <div id="tt-dynamic"></div>
                 </div>
 
-                <script type='text/javascript' src='https://www.thumbtack.com/profile/widgets/scripts/?service_id=3JfPF1MFPvZy8g&widget_id=review&type=star'></script>
+                <script type="text/javascript" src="https://www.thumbtack.com/profile/widgets/scripts/?service_id=3JfPF1MFPvZy8g&widget_id=review&type=star" async></script>
             </div>
         </div>
     </div>
 
-    <div class="footer__bottom grid-bg">
-        <div class="footer__sections-utility">
-            <img src="/media/images/bbb.png" alt="Proudly serving the greater Puget Sound Area" title="Proudly serving the greater Puget Sound Area" />
-            <span>Proudly serving the greater Puget Sound Area</span>
-        </div>
+    <div class="footer__copyright" data-cache-skip="1">
+        <span>&copy; <span class="footer__main-year year"></span> Anthony's Contracting, All Rights Reserved.</span>
 
-        <div class="footer__copyright">
-            <span>&copy; <span class="footer__main-year year"></span> Anthony's Contracting, Inc. - All Rights Reserved. | </span>
+        <span class="seperator">|</span>
 
-            <a href="#" title="Site Map">Site Map</a>
-        </div>
+        <a href="/pages/site-map.html" title="Site Map">Site Map</a>
     </div>
 </footer>
 
@@ -219,9 +352,42 @@
     </div>
 
     
+
+<aside class="modal" data-module="global/modal/modal">
+    <div class="modal__container">
+        <a href="#" title="Close" class="modal__close close-button">
+            <div class="in">
+                <div class="close-button-block"></div>
+                <div class="close-button-block"></div>
+            </div>
+
+            <div class="out">
+                <div class="close-button-block"></div>
+                <div class="close-button-block"></div>
+            </div>
+        </a>
+
+        <div class="modal__content">
+            <h2 class="free-quote__title">Start a Commercial Project</h2>
+
+            <p>something</p>
+
+            <a href="#" title="" class="free-quote__lnk lnk-btn">Get Started</a>
+        </div>
+    </div>
+</aside>
+
+
 <!--[if IE]>
     <script type="text/javascript" src="/js/legacy.js" charset="utf-8" async></script>
 <![endif]-->
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js" charset="utf-8"></script>
+
+<script type="text/javascript" charset="utf-8">
+    window.jquery = $ || jQuery || jquery;
+</script>
 
 <script type="text/javascript" src="/js/base.js" charset="utf-8" async></script>
 

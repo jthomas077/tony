@@ -7,8 +7,6 @@ import Swiper from 'swiper';
 
 class SubHero extends Module
 {
-    private readonly scrollThreshold: number = 50;
-
     constructor(el: string | JQuery, opts: object)
     {
         super(el, opts);
@@ -16,11 +14,7 @@ class SubHero extends Module
 
     init()
     {
-        setTimeout(() =>
-        {
-            //this.dom.title.addClass('sub-hero__title--init');
-        },
-        500);
+
     }
 
     render()
@@ -62,14 +56,7 @@ class SubHero extends Module
 
     bindEventListeners()
     {
-        $(window).on('scroll', (e) => this.onWindowScroll(e));
-    }
 
-    onWindowScroll(e: JQuery.Event<Window, null>) : void
-    {
-        const self = $(e.currentTarget);
-
-        //this.dom.title.toggleClass('scroll', self.scrollTop() > this.scrollThreshold);
     }
 }
 

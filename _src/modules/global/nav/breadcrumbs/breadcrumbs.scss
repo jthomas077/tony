@@ -1,10 +1,23 @@
 
 .breadcrumbs
 {
-    width: 300px;
+    display: inline-block;
+    min-width: 300px;
     height: 50px;
-    padding: 18px 25px 25px 35px;
-    background-color: #edf6ff;
+    padding: 18px 25px 0 35px;
+    background-color: $zumthor;
+
+    @include mq($until: tablet)
+    {
+        padding: 18px 25px 0 30px;
+    }
+    @include mq($until: mobile)
+    {
+        min-width: auto;
+        max-width: calc(100% - 25px);
+        height: 45px;
+        padding: 15px 25px 0;
+    }
 }
 
 .breadcrumbs__list
@@ -42,6 +55,10 @@
     color: $bay-of-many;
 
     @include font-tracking(0.5);
+    @include mq($until: mobile)
+    {
+        font-size: rem(14);
+    }
 
     &:hover
     {

@@ -1,7 +1,21 @@
+
 .services
 {
-    margin: 25px 0 0;
-    padding: 50px 100px;
+    margin: 50px 0 0;
+    padding: 100px;
+
+    @include mq($until: base)
+    {
+        padding: 75px 75px 25px;
+    }
+    @include mq($until: desktop)
+    {
+        padding: 50px 50px 25px;
+    }
+    @include mq($until: mobile)
+    {
+        padding: 50px 25px 25px;
+    }
 }
 
 .services__title
@@ -15,19 +29,28 @@
 .services__boxes
 {
     margin-left: -25px;
+
+    @include mq($until: tablet)
+    {
+        margin-left: 0;
+    }
 }
 
 .services__box
 {
     display: inline-block;
     width: calc(33.34% - 28px);
-    margin: 50px 0 0;
-    margin-left: 25px;
+    margin: 0 0 50px 25px;
     vertical-align: top;
 
     @include mq($until: base-btw-max)
     {
         width: calc(50% - 28px);
+    }
+    @include mq($until: tablet)
+    {
+        width: 100%;
+        margin-left: 0;
     }
 }
 
@@ -64,6 +87,26 @@
     {
         height: 275px;
     }
+    @include mq($until: desktop)
+    {
+        height: 250px;
+    }
+    @include mq($until: 996px)
+    {
+        height: 200px;
+    }
+    @include mq($until: tablet)
+    {
+        height: 300px;
+    }
+    @include mq($until: mobile)
+    {
+        height: 200px;
+    }
+    @include mq($until: 375px)
+    {
+        height: 175px;
+    }
 
     &::before
     {
@@ -78,6 +121,12 @@
 {
     margin: 35px 0 25px;
 
+    @include mq($until: 375px)
+    {
+        line-height: 1.35;
+        margin: 25px 0;
+    }
+
     &::after
     {
         width: 50px;
@@ -88,11 +137,22 @@
 {
     font-size: rem(16);
     line-height: 1.75;
+
+    @include mq($until: 375px)
+    {
+        font-size: rem(15);
+    }
 }
 
 .services__box-cta
 {
     margin: 50px 10px 0 0;
+
+    @include mq($until: mobile)
+    {
+        width: 100%;
+        margin: 35px 0 0;
+    }
 }
 
 .after

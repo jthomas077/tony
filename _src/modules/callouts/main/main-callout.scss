@@ -1,11 +1,15 @@
 .main-callout
 {
-    margin: 100px 0 0;
-    padding: 40px;
     text-align: center;
 
+    @include mq($from: base)
+    {
+        margin: 100px 0 0;
+        padding: 40px;
+    }
     @include mq($until: base)
     {
+        margin: 85px 0 0;
         padding: 40px 20px;
     }
     @include mq($until: mobile)
@@ -35,6 +39,11 @@
 {
     padding: 40px;
 
+    @include mq($until: base)
+    {
+        padding: 20px;
+    }
+
     &:hover
     {
         & .main-callout__box-icon
@@ -55,6 +64,13 @@
     transition: margin 0.5s ease;
     color: $cerulean;
 
+    @include mq($until: base)
+    {
+        font-size: 3em;
+        width: 65px;
+        height: 65px;
+    }
+
     &::before
     {
         position: absolute;
@@ -67,27 +83,32 @@
 
 .main-callout__box-title
 {
-    font-size: rem(30);
     margin-bottom: 25px;
 
+    @include mq($from: base)
+    {
+        font-size: rem(30);
+    }
+    @include mq($until: base)
+    {
+        font-size: rem(26);
+    }
     @include mq($until: mobile)
     {
         font-size: rem(24);
-    }
-
-    &::after
-    {
-        border: 0;
     }
 }
 
 .main-callout__box-copy
 {
-    font-size: rem(16);
     line-height: 1.75;
     text-align: left;
 
-    @include mq($until: tablet)
+    @include mq($from: base)
+    {
+        font-size: rem(16);
+    }
+    @include mq($until: base)
     {
         font-size: rem(15);
     }

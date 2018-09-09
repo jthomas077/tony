@@ -69,13 +69,13 @@ class Gallery extends Module
             margin: 15,
             minTileWidth: 200,
             gridSize: 50,
-            imageSizeFactor: [[4000, .4],[1024, .3],[800, .7],[600, .6],[480, .5]],
+            imageSizeFactor: [[4000, .4],[1280, .3],[1024, .7],[600, .6],[480, .5]],
             columns:
             [
                 [4000, 4],
-                [1024, 3],
-                [800, 3],
-                [480, 2],
+                [1280, 3],
+                [1024, 2],
+                [600, 1],
                 [320, 1]
             ],
         });
@@ -83,9 +83,9 @@ class Gallery extends Module
 
     bindEventListeners()
     {
-        $(window).on('scroll', (e) => this.onWindowScroll(e));
+        //$(window).on('scroll', (e) => this.onWindowScroll(e));
 
-        this.dom.filterLnk.on('click touchend', (e) => this.onFilterChange(e));
+        //this.dom.filterLnk.on('click touchend', (e) => this.onFilterChange(e));
         this.dom.loadmoreLnk.on('click touchend', (e) => this.onLoadMoreClick(e));
     }
 

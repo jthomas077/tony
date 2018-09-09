@@ -1,11 +1,21 @@
+
 .ideas
 {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 500px;
     text-align: center;
     background: center center / cover no-repeat fixed;
+
+    @include mq($from: base)
+    {
+        height: 500px;
+    }
+    @include mq($until: base)
+    {
+        //height: 400px;
+        padding: 50px 0;
+    }
 
     align-items: center;
 }
@@ -21,6 +31,24 @@
     width: auto;
     padding: 0 25px;
     color: $black;
+
+    @include mq($until: base)
+    {
+        font-size: rem(35);
+    }
+    @include mq($until: tablet)
+    {
+        font-size: rem(30);
+    }
+    @include mq($until: retina)
+    {
+        font-size: rem(25);
+    }
+    @include mq($until: mobile)
+    {
+        line-height: 1.35;
+        padding: 15px;
+    }
 
     &::after
     {
@@ -43,21 +71,50 @@
 .ideas__content
 {
     display: inline-block;
-    width: 50%;
+
+    @include mq($from: base)
+    {
+        width: 50%;
+    }
+    @include mq($until: mid-desktop)
+    {
+        width: 90%;
+    }
 }
 
 .ideas__copy
 {
     font-family: $font-primary;
-    font-size: rem(20);
     font-weight: $bold;
     line-height: 2;
     z-index: 1;
     display: inline-block;
     width: auto;
     margin: 15px 0 0;
-    padding: 15px;
     color: $black;
+
+    @include mq($from: base)
+    {
+        font-size: rem(20);
+        padding: 15px;
+    }
+    @include mq($until: base)
+    {
+        font-size: rem(18);
+        padding: 20px;
+    }
+    @include mq($until: tablet)
+    {
+        font-size: rem(16);
+        line-height: 1.85;
+        padding: 15px;
+    }
+    @include mq($until: retina)
+    {
+        font-size: rem(14);
+        line-height: 1.75;
+        padding: 15px;
+    }
 
     &::after
     {
@@ -77,5 +134,14 @@
 
 .ideas__cta
 {
-    margin: 50px 25px 0 0;
+    @include mq($until: mobile)
+    {
+        width: 100%;
+        margin: 35px 0 0;
+    }
+
+    &:first-of-type
+    {
+        margin: 50px 25px 0 0;
+    }
 }

@@ -1,7 +1,21 @@
 
 .about
 {
+    margin: 50px 0 0;
     padding: 100px;
+
+    @include mq($until: base)
+    {
+        padding: 75px;
+    }
+    @include mq($until: desktop)
+    {
+        padding: 50px;
+    }
+    @include mq($until: mobile)
+    {
+        padding: 25px;
+    }
 
     & p
     {
@@ -9,6 +23,12 @@
         margin: -8px 0 33px;
 
         @include font-leading(34, 20);
+        @include mq($until: retina)
+        {
+            font-size: rem(18);
+
+            @include font-leading(32, 18);
+        }
     }
 
     a
@@ -22,4 +42,21 @@
 {
     float: left;
     margin: 0 100px 75px 0;
+
+    @include mq($until: base)
+    {
+        width: 350px;
+        margin: 0 50px 25px 0;
+    }
+    @include mq($until: desktop)
+    {
+        width: 275px;
+        margin: 0 30px 15px 0;
+    }
+    @include mq($until: retina)
+    {
+        float: none;
+        width: 100%;
+        margin: 0 0 50px 0;
+    }
 }

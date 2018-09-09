@@ -134,6 +134,12 @@ button
     border: 0;
 }
 
+section
+{
+    z-index: 1;
+    width: 100%;
+}
+
 // CONTAINER STYLES
 .base
 {
@@ -160,7 +166,12 @@ button
 
 .wrapper-extended
 {
-    width: map-get($mq-breakpoints, wrapper-extended);
+    width: map-get($mq-breakpoints, max);
+
+    @include mq($until: base)
+    {
+        padding: 35px;
+    }
 }
 
 

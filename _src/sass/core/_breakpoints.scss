@@ -2,13 +2,15 @@
 $mq-breakpoints: (
     mobile-sm: 320px,
     mobile: 450px,
+    retina: 600px,
     tablet: 768px,
     desktop: 1024px,
     base: 1280px,
     max: 1920px,
     wrapper: 1280px,
-    wrapper-extended: 1920px,
 
     // Tweakpoints
+    mid-mobile: 375px,
+    mid-desktop: 1450px,
     base-btw-max: 1680px
 ) !default;
