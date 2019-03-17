@@ -8,7 +8,9 @@
     "core/breakpoints",
     "core/color-palette",
     "core/rem",
-    "core/fonts";
+    "core/in-view",
+    "core/animations",
+    "core/easing";
 
 @import "normalize"; @include normalize();
 @import "mq";
@@ -17,16 +19,20 @@
 
 html
 {
-    font-size: 62.5%;
     overflow-x: hidden;
     width: 100%;
     height: 100%;
+
+    &.modal---active
+    {
+        overflow: hidden;
+    }
 }
 
 body
 {
     font-family: $font-primary;
-    font-size: rem(14);
+    font-size: rem(16);
     font-weight: normal;
     font-style: normal;
     line-height: 1;
@@ -66,45 +72,31 @@ body
     &:focus
     {
         z-index: 99;
-        outline: 1px dashed $cerulean !important;
+        outline: 1px dashed $bay-of-many !important;
     }
 }
 */
 
-input[type="search"]
+a
 {
-    &::-webkit-search-decoration,
-    &::-webkit-search-cancel-button,
-    &::-webkit-search-results-button,
-    &::-webkit-search-results-decoration,
-    &::-ms-clear
+    z-index: 1;
+    text-decoration: none;
+
+    @include font-tracking(1);
+
+    &[href^="tel"]
     {
-        display: none;
-        width: 0;
-        height: 0;
+        pointer-events: none;
 
-        -webkit-appearance: none;
+        @include mq($until: 1025px)
+        {
+            pointer-events: all;
+        }
+        @include mq($from: 1025px, $until: mid-desktop, $and: "(-webkit-device-pixel-ratio: 2)")
+        {
+            pointer-events: all;
+        }
     }
-}
-
-::-webkit-input-placeholder
-{
-    color: $black;
-}
-
-::-moz-placeholder
-{
-    color: $black;
-}
-
-:-ms-input-placeholder
-{
-    color: $black;
-}
-
-:-moz-placeholder
-{
-    color: $black;
 }
 
 fieldset
@@ -134,21 +126,85 @@ button
     border: 0;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+textarea,
+select
+{
+    font-family: $font-heading;
+    padding: 16px 15px 15px !important;
+    color: $black;
+    border: 1px solid $black;
+
+    @include font-tracking(0.5);
+    @include mq($from: mobile)
+    {
+        font-size: rem(16);
+    }
+    @include mq($from: mobile-sm, $until: mobile)
+    {
+        font-size: rem(13);
+    }
+
+    &::placeholder
+    {
+        text-transform: uppercase;
+    }
+}
+
+input[type="search"]
+{
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration,
+    &::-ms-clear
+    {
+        display: none;
+        width: 0;
+        height: 0;
+
+        -webkit-appearance: none;
+    }
+}
+
+::-webkit-input-placeholder
+{
+    color: $black;
+}
+
+::-moz-placeholder
+{
+    color: $black;
+}
+
+:-moz-placeholder
+{
+    color: $black;
+}
+
+:-ms-input-placeholder
+{
+    color: $black;
+}
+
 section
 {
     z-index: 1;
     width: 100%;
+    transition: transform 1s $easeOutQuint;
+    transform: matrix(1, 0, 0, 1, 0, 200);
+    transform-origin: 0 0;
+
+    &.scroll
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+    }
 }
 
-// CONTAINER STYLES
 .base
-{
-    width: inherit;
-    height: inherit;
-    text-align: center;
-}
-
-.base__container
 {
     width: inherit;
     height: inherit;
@@ -174,34 +230,29 @@ section
     }
 }
 
-
-// GENERAL STYLES
-.seperator
+main,
+main ~ .footer
 {
-    display: inline-block;
+    transition: transform 0.5s $customEase1;
+    transform: translate3d(0, 0, 0);
 }
 
-img.svg
+.main--active,
+.main--active ~ .footer
 {
-    display: none;
+    transform: translate3d(-100vw, 0, 0);
 }
 
-img.svg-replaced
+.main__content
 {
-    display: inline-block;
-    transition: fill 0.5s ease;
-}
+    transition: transform 1s $easeOutQuint;
+    transform: matrix(1, 0, 0, 1, 0, 125);
+    transform-origin: 0 0;
 
-.ok
-{
-    color: $ok;
-}
-
-.error,
-.required
-{
-    display: none;
-    color: $err;
+    &.scroll
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+    }
 }
 
 @import "core/typography";

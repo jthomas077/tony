@@ -1,41 +1,66 @@
 
 <footer class="footer" data-module="global/footer/footer">
-    <div class="footer__sections" data-cache="0">
-        <div class="footer__section footer__section-contact" data-cache="0">
-            <h3 class="footer__title">
-                <a href="/pages/contact.html" title="Connect" class="footer__title-lnk">Connect</a>
-            </h3>
+    <div class="footer__bg">
+        <div class="footer__bg-img" style="background-image: url('/media/images/content/house-under-construction-blueprints.jpg');"></div>
+    </div>
 
-            <h4 class="footer__subtitle">##titlePrefix</h4>
+    <div class="footer__container">
+        <div class="footer__contact">
+            <h1 class="footer__title">##titlePrefix</h1>
 
-            <a href="tel:425-263-0744" title="Call: 425.263.0744" class="footer__lnk footer__lnk-tel">425.263.0744</a>
+            <div class="footer__copy rtf">
+                <p>Anthony's is a family owned business that offers a wide variety of services for the greater Seattle area. Anthony is a general contractor, experienced in the myriad of remodeling services that are so often necessary for both residential homes and commercial establishments. Anthony and his crew are professional, knowledgeable and trustworthy.</p>
+            </div>
 
-            <br />
+            <ul class="footer__contact-info-list">
+                <li class="footer__contact-info-item">
+                    <a href="tel:425-263-0744" title="Call: 425.263.0744" class="footer__lnk">425.263.0744</a>
+                </li>
 
-            <a href="mailto:anthonysccrs@gmail.com" title="anthonysccrs@gmail.com" class="footer__lnk">anthonysccrs@gmail.com</a>
-
-            <br />
+                <li class="footer__contact-info-item">
+                    <a href="mailto:anthonysccrs@gmail.com" title="anthonysccrs@gmail.com" class="footer__lnk">anthonysccrs@gmail.com</a>
+                </li>
+            </ul>
 
             <span class="footer__label">LIC# ANTHOCC868QE - BONDED - INSURED</span>
         </div>
 
-        <div class="footer__section footer__section-services" data-cache="0">
-            <h3 class="footer__title">
-                <a href="/pages/services.html" title="Residential & Commercial Services" class="footer__title-lnk">Residential & Commercial Services</a>
-            </h3>
-
-            <ul class="footer__list">
-                <li class="footer__item"><a href="/pages/services/painting.html" title="Painting" class="footer__lnk">Painting</a></li>
-                <li class="footer__item"><a href="/pages/services/popcorn-ceiling-removal.html" title="Popcorn Ceiling Removal" class="footer__lnk">Popcorn Ceiling Removal</a></li>
-                <li class="footer__item"><a href="/pages/services/flooring.html" title="Flooring" class="footer__lnk">Flooring</a></li>
-                <li class="footer__item"><a href="/pages/services/remodals.html" title="Remodels" class="footer__lnk">Remodels</a></li>
-                <li class="footer__item"><a href="/pages/services/windows-doors-and-millwork.html" title="Windows, Doors & Millwork" class="footer__lnk">Windows, Doors & Millwork</a></li>
-                <li class="footer__item"><a href="/pages/services/siding.html" title="Siding" class="footer__lnk">Siding</a></li>
-            </ul>
+        <div class="footer__quote">
+            ##include('./modules/free-quote/free-quote-template.html')
         </div>
 
-        <div class="footer__section footer__section-follow" data-cache="0">
-            <h3 class="footer__title">Reviews</h3>
+        <div class="footer__connect">
+            <h3 class="footer__title">
+                Services
+            </h3>
+
+            <nav class="service__nav" role="menubar">
+                <ul class="service__nav-list">
+                    <li class="service-tag">
+                        <a href="/pages/services/siding.html" title="General Contracting" class="service-tag__lnk">General Contracting</a>
+                    </li>
+
+                    <li class="service-tag">
+                        <a href="/pages/services/tile.html" title="Tile Work" class="service-tag__lnk">Tile Work</a>
+                    </li>
+
+                    <li class="service-tag">
+                        <a href="/pages/services/painting.html" title="Painting" class="service-tag__lnk">Painting</a>
+                    </li>
+
+                    <li class="service-tag">
+                        <a href="/pages/services/flooring.html" title="Flooring" class="service-tag__lnk">Flooring</a>
+                    </li>
+
+                    <li class="service-tag">
+                        <a href="/pages/services/remodals.html" title="Remodels" class="service-tag__lnk">Remodels</a>
+                    </li>
+
+                    <li class="service-tag">
+                        <a href="/pages/services/windows-doors-and-millwork.html" title="Doors & Millwork" class="service-tag__lnk">Doors & Millwork</a>
+                    </li>
+                </ul>
+            </nav>
 
             <div class="footer__section-social" data-cache-skip="1">
                 <div class="widget ng-scope" id="tt-review-widget-star">
@@ -49,15 +74,25 @@
                 </div>
 
                 <script type="text/javascript" src="https://www.thumbtack.com/profile/widgets/scripts/?service_id=3JfPF1MFPvZy8g&widget_id=review&type=star" async></script>
+
+                <div class="footer__social">
+                    <a href="#" title="" class="footer__social-lnk" style="background-image: url('/media/images/svg/facebook.svg');">
+                        <img src="/media/images/svg/facebook.svg" alt="" title="" class="svg" />
+                    </a>
+
+                    <a href="#" title="" class="footer__social-lnk" style="background-image: url('/media/images/svg/yelp.svg');">
+                        <img src="/media/images/svg/yelp.svg" alt="" title="" class="svg" />
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="footer__copyright" data-cache-skip="1">
-        <span>&copy; <span class="footer__main-year year"></span> ##titlePrefix, All Rights Reserved.</span>
+        <span>&copy; <span class="year"></span> ##titlePrefix, All Rights Reserved.</span>
 
         <span class="seperator">|</span>
 
-        <a href="/pages/site-map.html" title="Site Map">Site Map</a>
+        <a href="https://www.kentico.com" title="Kentico" target="_blank">Powered by Kentico</a>
     </div>
 </footer>

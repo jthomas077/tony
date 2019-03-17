@@ -1,0 +1,28 @@
+
+name
+city / zip code
+job type (drop down) (req)
+	general contracting
+	tile work
+	flooring
+	doors/millwork
+	kitchen/bathroom remodeling
+	painting
+
+preferred start date (req)
+	asap
+	within 6 months
+	within a month
+	flexible
+
+budget range
+1-5
+5-10
+...
+
+home owner / investment property - flip / renter / propety manager (type of property)
+
+message
+
+upload documents
+

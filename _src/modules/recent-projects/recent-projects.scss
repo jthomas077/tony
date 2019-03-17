@@ -1,115 +1,89 @@
 
 .recent-projects
 {
-    padding: 25px 0 35px;
+    padding: 25px 0 0;
 
-    @include mq($until: tablet)
+    @include mq($until: desktop)
     {
         padding: 25px 0 0;
     }
 
     & .wrapper-extended
     {
+        width: 100%;
+        padding-bottom: 0;
         text-align: center;
 
-        @include mq($until: max)
+        @include mq($until: base)
         {
-            width: calc(100% - 250px);
-        }
-        @include mq($until: desktop)
-        {
-            width: calc(100% - 200px);
-        }
-        @include mq($until: tablet)
-        {
-            width: calc(100%);
             padding: 25px 0 0;
+        }
+    }
+
+    & .swiper-wrapper.centered
+    {
+        @include mq($from: base)
+        {
+            justify-content: center;
+            transform: none !important;
         }
     }
 
     & .swiper-slide
     {
-        display: inline-block;
-        height: 300px;
-        vertical-align: middle;
-        background: center center / cover no-repeat;
-
-        @include mq($from: base-btw-max)
+        @include in-view();
+        @include mq($from: 3500px)
         {
-            width: calc(33.34% - 28px);
+            width: 25%;
         }
-        @include mq($until: base-btw-max)
+        @include mq($from: base)
         {
-            width: calc(50% - 28px);
-            height: 275px;
+            padding: 0;
         }
-        @include mq($until: mid-desktop)
-        {
-            height: 225px;
-        }
-        @include mq($until: tablet)
-        {
-            height: 300px;
-        }
-        @include mq($until: mobile)
-        {
-            height: 250px;
-        }
-    }
-
-    & .swiper-button-next
-    {
-        position: absolute;
-        z-index: 5;
-        right: -75px;
-        transition: opacity 0.5s ease-in-out;
-        transform: translateY(calc(50% + 10px));
-        opacity: 0;
-
         @include mq($until: base)
         {
-            right: -50px;
+            width: 100% !important;
+            height: auto !important;
         }
-        @include mq($until: tablet)
+    }
+}
+
+.recent-projects.in-view
+{
+    & .recent-projects__title
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+
+        @include in-view(true);
+
+        &::after
         {
-            right: 25px;
+            width: 75px;
+            transform: scaleX(1);
         }
     }
 
-    & .swiper-button-prev
+    & .swiper-slide
     {
-        position: absolute;
-        z-index: 5;
-        left: -75px;
-        transition: opacity 0.5s ease-in-out;
-        transform: translateY(calc(50% + 10px));
-        opacity: 0;
+        @include in-view(true);
 
-        @include mq($until: base)
+        @for $i from 1 through 25
         {
-            left: -50px;
-        }
-        @include mq($until: tablet)
-        {
-            left: 25px;
-        }
-    }
-
-    &:hover
-    {
-        & .swiper-button-next,
-        & .swiper-button-prev
-        {
-            transition: all 0.5s ease-in-out;
-            opacity: 1;
+            &:nth-of-type(#{$i})
+            {
+                transition-delay: #{0.15 * $i}s;
+            }
         }
     }
 }
 
 .recent-projects__title
 {
-    margin: 0 0 50px;
+    margin: 0 0 75px;
+    transform: matrix(1, 0, 0, 1, 0, 75);
+    transform-origin: 0 0;
 
+    @include in-view();
     @include mq($until: base)
     {
         font-size: rem(44);
@@ -117,32 +91,43 @@
     @include mq($until: tablet)
     {
         font-size: rem(28);
+        margin: 0 0 50px;
     }
 
     &::after
     {
-        width: 70px;
-        margin: 10px auto auto;
-        transition: all 0.5s ease;
+        width: 0;
+        margin: 20px auto auto;
+        transition: transform 0.8s $customEase1 0.5s;
+        transform: scaleX(0);
+        transform-origin: center center;
+        border-color: $cerulean;
     }
 }
 
 .recent-projects__lnk
 {
+    position: absolute;
     z-index: 2;
-    display: inline-block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 100%;
+    margin: auto;
     text-align: center;
-    vertical-align: middle;
+
+    align-items: center;
 
     &::before
     {
         content: "";
-        transition: all 0.5s ease-in-out;
-        opacity: 0;
-        background-color: none;
+        background-color: $white;
 
+        @include in-view(false, 2s);
         @include center;
     }
 
@@ -150,16 +135,15 @@
     {
         &::before
         {
-            transition: opacity 0.25s ease-out;
-            opacity: 0.5;
-            background-color: $white;
+            visibility: visible;
+            opacity: 0.75;
         }
 
         & .recent-projects__subtitle
         {
-            margin: 75px 0 0;
-            transition: all 0.35s ease;
-            transition-delay: 0.5s;
+            visibility: visible;
+            transition: opacity 1s $easeOutQuint, visibility 1s $easeOutQuint, transform 1s $easeOutQuint, color 1s $easeOutQuint;
+            transform: matrix(1, 0, 0, 1, 0, 0);
             opacity: 1;
             color: $black;
 
@@ -170,18 +154,18 @@
 
             &::after
             {
-                width: 70px;
-                transition: all 0.5s cubic-bezier(0.9, 0, 0.1, 1);
-                transition-delay: 1.25s;
+                transition: transform 1s $customEase1;
+                transform: scaleX(1);
+                transform-origin: center center;
                 border-bottom: 5px solid $cerulean;
             }
         }
 
         & .recent-projects__subtitle-desc
         {
-            margin: 15px auto auto;
-            transition: all 0.35s ease;
-            transition-delay: 0.75s;
+            visibility: visible;
+            transition: opacity 1s $easeOutQuint, visibility 1s $easeOutQuint, transform 1s $easeOutQuint, color 1s $easeOutQuint;
+            transform: matrix(1, 0, 0, 1, 0, 15);
             opacity: 1;
             color: $black;
 
@@ -193,21 +177,16 @@
 
         & .recent-projects__cta
         {
-            bottom: 40px;
-            transition: all 0.35s ease;
-            transition-delay: 1s;
-            opacity: 1;
+            transition-delay: 0.15s;
+            transition-duration: 1.25s;
+            transform: matrix(1, 0, 0, 1, 0, -50);
 
+            @include in-view(true);
             @include mq($until: mobile)
             {
                 bottom: 25px;
             }
         }
-    }
-
-    &::after
-    {
-        @include vertical-align();
     }
 }
 
@@ -216,49 +195,51 @@
     font-weight: $semibold;
     z-index: 2;
     display: inline-block;
-    width: 85%;
-    margin: 135px 0 0;
-    transition: color 1.25s, margin 0.75s, opacity 1.25s ease-in-out;
-    transition-delay: 0.5s;
+    visibility: hidden;
+    width: 90%;
+    transition: color 2s $easeOutQuint 0.25s, transform 2s $easeOutQuint 0.5s, opacity 2.25s $easeOutQuint 0.75s, visibility 2.25s $easeOutQuint 0.75s;
+    transform: matrix(1, 0, 0, 1, 0, 50);
+    transform-origin: 0 0;
     vertical-align: middle;
     opacity: 0;
     color: $white;
 
     @include font-tracking(1);
-    @include mq($until: mobile)
+    @include mq($until: retina)
     {
         font-size: rem(22);
-        font-weight: $bold;
-        width: 70%;
+        display: none;
+        width: 75%;
     }
 
     &::after
     {
-        transition: all 0.5s cubic-bezier(0.9, 0, 0.1, 1);
+        width: 70px;
+        margin: 35px auto auto;
+        transition: transform 0.8s $customEase1;
+        transform: scaleX(0);
+        transform-origin: center center;
         border-bottom: 5px solid $bay-of-many;
-
-        @include vertical-align();
     }
 }
 
 .recent-projects__subtitle-desc
 {
-    font-size: rem(22);
+    font-size: rem(18);
     font-weight: $semibold;
     display: block;
-    margin: 75px 0 0;
-    transition: all 0.5s ease-in-out;
-    transition-delay: 0.25s;
-    text-transform: none;
+    visibility: hidden;
+    transition: color 2s $easeOutQuint, transform 2s $easeOutQuint 0.5s, opacity 2.25s $easeOutQuint 0.25s, visibility 2.25s $easeOutQuint 0.25s;
+    transform: matrix(1, 0, 0, 1, 0, -15);
+    transform-origin: 0 0;
     opacity: 0;
     color: $white;
 
     @include font-leading(30, 22);
-    @include font-tracking(0.5);
-    @include mq($until: mobile)
+    @include font-tracking(1);
+    @include mq($until: retina)
     {
         font-size: rem(16);
-        font-weight: $bold;
     }
 }
 
@@ -270,12 +251,15 @@
     bottom: 0;
     left: 0;
     margin: auto;
-    transition: all 0.5s ease-in-out;
+    transform: matrix(1, 0, 0, 1, 0, 25);
+    transform-origin: 0 0;
     text-align: center;
-    opacity: 0;
 
-    @include mq($until: mobile)
+    @include in-view(false, 2s, 0.25s);
+    @include mq($until: retina)
     {
+        display: none;
+
         & .lnk-btn
         {
             font-size: rem(18);

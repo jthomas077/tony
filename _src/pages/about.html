@@ -2,34 +2,34 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-##include('./modules/core/_head.html', {
+##include('./modules/core/_head.html',
+{
     "title": "About"
 })
 
 <body>
-    <div class="base">
-        <div class="base__container">
-            ##include('./modules/global/header/header.html')
+    <div class="base" data-module="global/global">
+        ##include('./modules/global/header/header.html')
 
-            <main>
-                ##include('./modules/hero/sub/sub-hero.html', {
-                    "title": "About",
-                    "image": "/media/images/content/flooring.jpg"
-                })
+        <main>
+            ##include('./modules/hero/sub/sub-hero.html',
+            {
+                "title": "About",
+                "image": "/media/images/content/flooring.jpg"
+            })
 
-                ##include('./modules/about/about.html')
+            ##include('./modules/about/about.html')
 
-                ##include('./modules/ideas/ideas.html')
+            ##include('./modules/ideas/ideas.html')
 
-                ##include('./modules/callouts/quote/quote.html')
+            ##include('./modules/quote-bar/quote-bar.html')
 
-                ##include('./modules/testimonials/testimonials.html')
-            </main>
+            ##include('./modules/recent-projects/recent-projects.html')
 
-            ##include('./modules/social-media/social-media.html')
+            ##include('./modules/testimonials/testimonials.html')
+        </main>
 
-            ##include('./modules/global/footer/footer.html')
-        </div>
+        ##include('./modules/global/footer/footer.html')
     </div>
 
     ##include('./modules/core/_scripts.html')

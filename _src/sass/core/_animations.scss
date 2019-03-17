@@ -1,0 +1,89 @@
+
+@keyframes opacity
+{
+    0%
+    {
+        opacity: 0;
+    }
+
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+@keyframes cta-hover-in
+{
+    0%
+    {
+        background-color: rgb(42, 69, 135);
+    }
+
+    100%
+    {
+        background-color: rgb(11, 159, 220);
+    }
+}
+
+@keyframes cta-hover-out
+{
+    0%
+    {
+        background-color: rgb(11, 159, 220);
+    }
+
+    100%
+    {
+        background-color: rgb(42, 69, 135);
+    }
+}
+
+@keyframes block-over
+{
+    0%
+    {
+        background-color: rgb(0, 0, 0);
+    }
+
+    100%
+    {
+        background-color: rgb(11, 159, 220);
+    }
+}
+
+@keyframes block-out
+{
+    0%
+    {
+        background-color: rgb(11, 159, 220);
+    }
+
+    100%
+    {
+        background-color: rgb(0, 0, 0);
+    }
+}
+
+@mixin animation($name, $transform0, $transform100, $duration: 1s, $ease: $easeOutQuint, $delay: 0s, $iteration: 1, $direction: "normal", $fill: "forwards")
+{
+    visibility: hidden;
+    animation: #{$name} $duration $ease $delay $iteration #{$direction} #{$fill};
+    opacity: 0;
+
+    @keyframes #{$name}
+    {
+        0%
+        {
+            visibility: hidden;
+            transform: $transform0;
+            opacity: 0;
+        }
+
+        100%
+        {
+            visibility: visible;
+            transform: $transform100;
+            opacity: 1;
+        }
+    }
+}

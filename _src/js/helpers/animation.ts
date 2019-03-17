@@ -53,5 +53,5 @@ export const slide = (el: string, speed: number = 0.4, x:number = 0, ease: strin
  */
 export const scrollTo = (y: number, speed: number = 1.5, ease: string = 'easeOut', onComplete: Function) : void =>
 {
-    TweenMax.to(window, speed, { scrollTo: { y }, ease: Expo[ease], onComplete });
+    TweenMax.to($(window), speed, { scrollTo: { y }, ease: Expo[ease], onComplete });
 };

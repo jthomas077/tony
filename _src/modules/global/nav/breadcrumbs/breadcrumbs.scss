@@ -1,22 +1,37 @@
 
 .breadcrumbs
 {
+    z-index: 1;
     display: inline-block;
-    min-width: 300px;
     height: 50px;
-    padding: 18px 25px 0 35px;
-    background-color: $zumthor;
+    padding: 18px 35px 0 35px;
 
     @include mq($until: tablet)
     {
         padding: 18px 25px 0 30px;
     }
-    @include mq($until: mobile)
+    @include mq($until: retina)
     {
-        min-width: auto;
-        max-width: calc(100% - 25px);
+        width: 100%;
         height: 45px;
-        padding: 15px 25px 0;
+        padding: 15px 20px 0;
+    }
+
+    &::after
+    {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        width: 100%;
+        content: "";
+        transform-origin: left center;
+        background-color: $zumthor;
+
+        @include animation("breadcrumbs", scaleX(0), scaleX(1), 1s, $easeOutQuint, 1s);
     }
 }
 
@@ -28,63 +43,48 @@
 
 .breadcrumbs__item
 {
+    @include animation("breadcrumb", matrix(1, 0, 0, 1, 0, 50), matrix(1, 0, 0, 1, 0, 0), 1s, $easeOutQuint, 1s);
+
     &:not(:first-of-type)
     {
         margin-left: 25px;
+
+        @for $i from 2 through 10
+        {
+            &:nth-of-type(#{$i})
+            {
+                animation-delay: #{0.75 * $i}s;
+
+                &::before
+                {
+                    animation-delay: #{1 * $i}s;
+                }
+            }
+        }
 
         &::before
         {
             font-size: rem(18);
             position: absolute;
-            top: -4px;
-            left: -16px;
+            top: -3px;
+            left: -18px;
             display: inline-block;
             content: "\00bb";
             color: $bay-of-many;
+
+            @include animation("breadcrumb-arrow", matrix(1, 0, 0, 1, -10, 0), matrix(1, 0, 0, 1, 0, 0), 1s, $easeOutQuint, 1s);
         }
     }
 }
 
 .breadcrumbs__lnk
 {
+    font-family: $font-heading;
     font-size: rem(15);
-    z-index: 1;
-    transition: color 0.25s linear;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: $bay-of-many;
 
-    @include font-tracking(0.5);
-    @include mq($until: mobile)
+    @include mq($until: retina)
     {
         font-size: rem(14);
-    }
-
-    &:hover
-    {
-        transition: color 0.25s linear;
-        color: $cerulean;
-
-        &::after
-        {
-            transform: scaleX(1);
-            transform-origin: left center;
-        }
-    }
-
-    &::after
-    {
-        position: absolute;
-        z-index: -1;
-        right: 0;
-        bottom: -3px;
-        left: 0;
-        width: 100%;
-        content: "";
-        transition: transform 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-        transform: scaleX(0);
-        transform-origin: right center;
-        border-bottom: 2px solid $cerulean;
     }
 
     &--selected

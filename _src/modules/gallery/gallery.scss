@@ -18,89 +18,41 @@
     }
 }
 
-.gallery__title
+.gallery__nav
 {
-    display: inline-block;
-    width: calc(100% - 304px);
-    margin: 35px 0 25px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 0 50px;
 
-    &::after
+    @include mq($until: tablet)
     {
-        width: 50px;
+        flex-direction: column;
+        margin: 0 0 25px;
     }
-}
 
-.gallery__filter
-{
-    width: 300px;
-    margin: 0 75px 25px 0;
-
-    &.scroll
+    & .selectric-wrapper
     {
-        position: fixed;
-        z-index: 9;
-        top: 0;
-        left: 100px;
+        width: 50%;
 
-        & ~ .gallery__imgs
+        @include mq($from: tablet)
         {
-            left: 375px;
+            &:not(:first-of-type)
+            {
+                margin-left: 25px;
+            }
+        }
+        @include mq($until: tablet)
+        {
+            width: 100%;
+            margin: 0 0 25px;
         }
     }
 }
 
-.gallery__filter-title
+.gallery__nav-list
 {
-    flex: none;
-}
-
-.gallery__filter-img
-{
-    width: 100%;
-}
-
-.gallery__filter-list
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.gallery__filter-item
-{
-    width: 100%;
-    margin-top: 20px;
-}
-
-.gallery__filter-lnk
-{
-    z-index: 1;
-    display: inline-block;
-    width: 100%;
-    padding: 10px;
-    transition: background-color 0.5s ease;
-    text-align: center;
-    text-decoration: none;
-    color: $white;
-    border-radius: 5px;
-    background-color: $cerulean;
-
-    &:hover
-    {
-        transition: background-color 0.5s ease;
-        background-color: $bay-of-many;
-    }
-}
-
-.gallery__filter-lnk--selected
-{
-    border-bottom: 2px solid $cerulean;
-    background-color: $bay-of-many;
-}
-
-.gallery__sort
-{
-    width: 300px;
+    font-family: $font-primary;
 }
 
 .gallery__imgs
@@ -110,33 +62,8 @@
 
 .gallery__img-lnk
 {
-    transition: all 0.5s ease;
-    opacity: 1;
-
     & img
     {
         max-width: 100%;
-    }
-
-    &--init
-    {
-        transition: all 0.5s ease;
-        opacity: 1;
-    }
-}
-
-.gallery__loadmore
-{
-    margin: 100px 0 0;
-    text-align: center;
-
-    @include mq($until: mobile)
-    {
-        margin: 50px 0 25px;
-
-        & .gallery__loadmore-lnk
-        {
-            width: 100%;
-        }
     }
 }

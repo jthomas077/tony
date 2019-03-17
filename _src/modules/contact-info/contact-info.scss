@@ -1,0 +1,230 @@
+
+.contact-info
+{
+    background-color: $black;
+
+    @include in-view();
+
+    & .wrapper
+    {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+
+        @include mq($until: desktop)
+        {
+            flex-direction: column;
+        }
+    }
+
+    &::after
+    {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+        opacity: 0.1;
+        background: linear-gradient(-45deg, transparent 46%, $wild-sand 49%, $wild-sand 51%, transparent 55%);
+        background-color: $black;
+        background-size: 5px 5px;
+    }
+}
+
+.contact-info.in-view
+{
+    @include in-view(true);
+
+    & .contact-info__details
+    {
+        @include in-view(true);
+
+        @for $i from 1 through 5
+        {
+            &:nth-of-type(#{$i})
+            {
+                transition-delay: #{0.15 * $i}s;
+            }
+        }
+    }
+}
+
+.contact-info__details
+{
+    width: 100%;
+
+    @include in-view();
+}
+
+.contact-info__lnk
+{
+    font-size: rem(28);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 125px;
+    padding: 0 50px;
+    animation: contact-info-hover-out 1s $easeOutQuint 0s 1 normal forwards;
+    color: $white;
+
+    @include font-tracking(1);
+    @include mq($until: mid-desktop)
+    {
+        padding: 0 35px;
+    }
+    @include mq($until: base)
+    {
+        font-size: rem(27);
+        height: 110px;
+        padding: 0 20px;
+    }
+    @include mq($until: desktop)
+    {
+        justify-content: flex-start;
+        height: 100px;
+    }
+    @include mq($until: mobile)
+    {
+        padding: 0 15px;
+    }
+
+    align-items: center;
+
+    &:hover
+    {
+        animation: contact-info-hover-in 1s $easeOutQuint 0s 1 normal forwards;
+
+        & .contact-info__title
+        {
+            transition: transform 1s $easeOutQuint 0.2s;
+            transform: matrix(1, 0, 0, 1, 0, 7);
+
+            &::after
+            {
+                width: 0;
+                margin: 10px 50% auto auto;
+                transition: width 0.5s $easeOutExpo, margin 0.5s $easeOutExpo;
+            }
+        }
+    }
+
+    &::after
+    {
+        background: none;
+    }
+
+    &[href^="mailto"]
+    {
+        & .contact-info__icon
+        {
+            width: 75px;
+            height: 75px;
+
+            @include mq($until: base)
+            {
+                flex: 0 0 60px;
+            }
+            @include mq($until: desktop)
+            {
+                flex: 0 0 50px;
+            }
+
+            flex: 0 0 75px;
+        }
+    }
+
+    @keyframes contact-info-hover-in
+    {
+        0%
+        {
+            background-color: rgb(0, 0, 0);
+
+            fill: $cerulean;
+        }
+
+        100%
+        {
+            background-color: rgb(11, 159, 220);
+
+            fill: $black;
+        }
+    }
+
+    @keyframes contact-info-hover-out
+    {
+        0%
+        {
+            background-color: rgb(11, 159, 220);
+
+            fill: $black;
+        }
+
+        100%
+        {
+            background-color: rgb(0, 0, 0);
+
+            fill: $cerulean;
+        }
+    }
+}
+
+.contact-info__icon
+{
+    width: 50px;
+    height: 50px;
+    background: none;
+
+    @include mq($until: base)
+    {
+        width: 40px;
+        height: 40px;
+    }
+    @include mq($until: desktop)
+    {
+        width: 35px;
+        height: 35px;
+    }
+
+    flex: 0 0 50px;
+}
+
+.contact-info__title
+{
+    font-size: rem(30);
+    margin: 0 0 0 35px;
+    transition: transform 1s $easeOutQuint;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    color: $white;
+
+    @include font-tracking(1);
+    @include mq($until: mid-desktop)
+    {
+        font-size: rem(24);
+        margin: 0 0 0 20px;
+    }
+    @include mq($until: base)
+    {
+        font-size: rem(22);
+    }
+    @include mq($until: mobile)
+    {
+        font-size: rem(17);
+        margin: 0 0 0 15px;
+    }
+
+    &::after
+    {
+        width: 50px;
+        transition: width 0.5s $easeOutExpo 0.2s;
+        border-color: $cerulean;
+        border-bottom-width: 2px;
+
+        @include mq($until: desktop)
+        {
+            width: 30px;
+        }
+    }
+}

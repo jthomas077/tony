@@ -7,27 +7,25 @@
 })
 
 <body>
-    <div class="base">
-        <div class="base__container">
-            ##include('./modules/global/header/header.html')
+    <div class="base" data-module="global/global">
+        ##include('./modules/global/header/header.html')
 
-            <main>
-                ##include('./modules/hero/sub/sub-hero.html', {
-                    "title": "Gallery",
-                    "image": "/media/images/content/flooring.jpg"
-                })
+        <main>
+            ##include('./modules/hero/sub/sub-hero.html', {
+                "title": "Gallery",
+                "image": "/media/images/content/flooring.jpg"
+            })
 
-                ##include('./modules/gallery/gallery.html')
+            ##include('./modules/gallery/gallery.html')
 
-                ##include('./modules/callouts/quote/quote.html')
+            ##include('./modules/quote-bar/quote-bar.html')
 
-                ##include('./modules/testimonials/testimonials.html')
-            </main>
+            ##include('./modules/recent-projects/recent-projects.html')
 
-            ##include('./modules/social-media/social-media.html')
+            ##include('./modules/testimonials/testimonials.html')
+        </main>
 
-            ##include('./modules/global/footer/footer.html')
-        </div>
+        ##include('./modules/global/footer/footer.html')
     </div>
 
     ##include('./modules/core/_scripts.html')

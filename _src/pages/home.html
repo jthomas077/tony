@@ -8,28 +8,26 @@
 })
 
 <body>
-    <div class="base">
-        <div class="base__container">
-            ##include('./modules/global/header/header.html')
+    <div class="base" data-module="global/global">
+        ##include('./modules/global/header/header.html')
 
-            <main>
-                ##include('./modules/hero/main/main-hero.html')
+        <main>
+            ##include('./modules/hero/main/main-hero.html')
 
-                ##include('./modules/callouts/main/main-callout.html')
+            ##include('./modules/callouts/main/main-callout.html')
 
-                ##include('./modules/ideas/ideas.html')
+            ##include('./modules/ideas/ideas.html')
 
-                ##include('./modules/callouts/quote/quote.html')
+            ##include('./modules/quote-bar/quote-bar.html')
 
-                ##include('./modules/recent-projects/recent-projects.html')
+            ##include('./modules/recent-projects/recent-projects.html')
 
-                ##include('./modules/testimonials/testimonials.html')
-            </main>
+            ##include('./modules/testimonials/testimonials.html')
 
-            ##include('./modules/social-media/social-media.html')
+            ##include('./modules/contact-info/contact-info.html')
+        </main>
 
-            ##include('./modules/global/footer/footer.html')
-        </div>
+        ##include('./modules/global/footer/footer.html')
     </div>
 
     ##include('./modules/core/_scripts.html')

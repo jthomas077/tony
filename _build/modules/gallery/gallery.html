@@ -1,61 +1,24 @@
 
-<section class="gallery" data-module="gallery/gallery">
-    <!--
-    <nav class="gallery__filter">
-        <img src="/media/images/svg/filter.svg" alt="" title="" class="gallery__filter-img svg" />
+<section class="gallery main__content" data-module="gallery/gallery">
+    <nav class="gallery__nav">
+        <select id="selServiceGalleryList" name="selServiceGalleryList" class="gallery__nav-list" size="1">
+            <option value="" selected>--- Select a Service ---</option>
+            <option value="1">Deanna</option>
+            <option value="2">Charles Smith</option>
+        </select>
 
-        <h2 class="gallery__filter-title">Filter:</h2>
-
-        <img src="/media/images/content/millwork.jpg" alt="" title="" class="gallery__filter-img" />
-
-        <ul class="gallery__filter-list">
-            <li class="gallery__filter-item">
-                <a href="#" title="" class="gallery__filter-lnk gallery__filter-lnk--selected" data-filter="featured">Featured</a>
-            </li>
-
-            <li class="gallery__filter-item">
-                <a href="#" title="" class="gallery__filter-lnk" data-filter="flooring">Flooring</a>
-            </li>
-
-            <li class="gallery__filter-item">
-                <a href="#" title="" class="gallery__filter-lnk" data-filter="remodel">Remodel</a>
-            </li>
-
-            <li class="gallery__filter-item">
-                <a href="#" title="" class="gallery__filter-lnk" data-filter="millwork">Millwork</a>
-            </li>
-
-            <li class="gallery__filter-item">
-                <a href="#" title="" class="gallery__filter-lnk gallery__filter-lnk--selected" data-filter="featured">Featured</a>
-            </li>
-
-            <li class="gallery__filter-item">
-                <a href="#" title="" class="gallery__filter-lnk" data-filter="flooring">Flooring</a>
-            </li>
-
-            <li class="gallery__filter-item">
-                <a href="#" title="" class="gallery__filter-lnk" data-filter="remodel">Remodel</a>
-            </li>
-
-            <li class="gallery__filter-item">
-                <a href="#" title="" class="gallery__filter-lnk" data-filter="millwork">Millwork</a>
-            </li>
-        </ul>
-
-        <img src="/media/images/svg/list.svg" alt="" title="" class="gallery__filter-img svg" />
-
-
-        <select id="" name="" size="1" class="gallery__sort">
-            <option value="" selected>By Tags</option>
+        <select id="selGalleryList" name="selGalleryList" class="gallery__nav-list" size="1">
+            <option value="" selected>--- Select a Gallery ---</option>
+            <option value="1">Deanna</option>
+            <option value="2">Charles Smith</option>
         </select>
     </nav>
-    -->
 
     <div class="gallery__imgs final-tiles-gallery caption-middle caption-center effect-zoom-out effect-speed-fast caption-color-light">
         <div class="ftg-items">
             <div class="tile" data-img="/media/images/content/house-wip.jpg">
-                <a href="/media/images/content/house-wip.jpg" title="" class="gallery__img-lnk tile-inner">
-                    <img src="/media/images/content/house-wip.jpg" data-src="/media/images/content/house-wip.jpg" alt="" title="" class="gallery__img item" />
+                <a href="/media/images/content/house-wip.jpg" title="asdasd" class="gallery__img-lnk tile-inner">
+                    <img src="/media/images/content/house-wip.jpg" data-src="/media/images/content/house-wip.jpg" alt="" title="assd" class="gallery__img item" />
                 </a>
             </div>
 
@@ -160,10 +123,6 @@
                     <img src="/media/images/content/painting.jpg" data-src="/media/images/content/painting.jpg" alt="" title="" class="gallery__img item" />
                 </a>
             </div>
-        </div>
-
-        <div class="gallery__loadmore">
-            <a href="#" title="Load More Images" class="gallery__loadmore-lnk lnk-btn">Load More Images</a>
         </div>
     </div>
 </section>

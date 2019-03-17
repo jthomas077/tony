@@ -1,61 +1,15 @@
 
 .main-hero
 {
-    @include mq($from: mid-desktop)
+    transform: matrix(1, 0, 0, 1, 0, 130);
+
+    @include mq($until: 1100px)
     {
-        & .swiper-slide
-        {
-            height: 90vh;
-        }
-    }
-    @include mq($until: mid-desktop)
-    {
-        & .swiper-slide
-        {
-            height: 55vh;
-        }
-    }
-    @include mq($until: tablet)
-    {
-        & .swiper-slide
-        {
-            height: 40vh;
-        }
+        transform: matrix(1, 0, 0, 1, 0, 92);
     }
 
-    & .swiper-slide
+    &.scroll
     {
-        background: center 70% / cover no-repeat;
-    }
-
-    & .swiper-button-next
-    {
-        right: 100px;
-        transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-        opacity: 0;
-    }
-
-    & .swiper-button-prev
-    {
-        left: 100px;
-        transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-        opacity: 0;
-    }
-
-    &:hover
-    {
-        & .swiper-button-next
-        {
-            right: 50px;
-            transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-            opacity: 1;
-        }
-
-        & .swiper-button-prev
-        {
-            left: 50px;
-            transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-            opacity: 1;
-        }
+        transform: matrix(1, 0, 0, 1, 0, -15);
     }
 }

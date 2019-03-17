@@ -30,6 +30,8 @@ const consts =
      */
     __DEV__: process.env.NODE_ENV !== 'production',
 
+    __QA__: process.env.NODE_ENV === 'production' && args.includes('--qa'),
+
     /**
      * Check for a request to enable HMR.
      */

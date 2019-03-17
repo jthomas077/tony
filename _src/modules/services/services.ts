@@ -2,40 +2,35 @@
 // @ts-ignore
 import Module from 'core/module';
 
+// @ts-ignore
+import 'waypoints/lib/jquery.waypoints';
+
 class Services extends Module
 {
-    constructor(el: string | JQuery, opts: object)
+    constructor(el : string | JQuery, opts : object)
     {
         super(el, opts);
     }
 
-    init()
+    preInit()
     {
-        this.dom =
-        {
-            $cta: this.el.find('.services__box-cta')
-        }
+        this.VARS.IGNORE_CACHABLE_DOM_ELEMENTS = true;
     }
 
     render()
     {
-        this.dom.$cta.each((idx, el) =>
+        // @ts-ignore
+        new Waypoint(
         {
-            const $el = $(el);
-            const $title = $el.parent().find('.services__box-title');
+            element: this.el,
 
-            $el.on('mouseover mouseout', (e) =>
+            offset: 500,
+
+            handler: (direction) =>
             {
-                $title.toggleClass('after');
-
-                e.preventDefault();
-            })
+                this.el.addClass('in-view');
+            }
         });
-    }
-
-    bindEventListeners()
-    {
-
     }
 }
 

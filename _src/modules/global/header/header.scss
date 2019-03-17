@@ -7,34 +7,32 @@
     right: 0;
     left: 0;
     display: flex;
-    height: 125px;
+    height: auto;
+
+    @include mq($until: desktop)
+    {
+        z-index: 99999;
+    }
 
     &.scroll
     {
-        & .header__main-logo
+        @include mq($from: 1100px)
         {
-            margin: 12px 0 15px 50px;
-            transform: scale(0.75);
-            transform-origin: left top;
-
-            @include mq($until: tablet)
+            & .header__main-logo
             {
-                margin: 12px 0 15px 25px;
+                transform: scale(0.75) matrix(1, 0, 0, 1, 0, -8);
             }
-        }
 
-        & .main-nav
-        {
-            top: -15px;
-            transition: top 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-        }
+            & .main-nav
+            {
+                transform: matrix(1, 0, 0, 1, 0, -15);
+            }
 
-        &::after
-        {
-            transform: scaleY(0.75);
-            transform-origin: center top;
-            opacity: 1;
-            //box-shadow: 0 1px 35px 1px $wild-sand;
+            &::after
+            {
+                transform: scaleY(0.75);
+                opacity: 1;
+            }
         }
     }
 
@@ -47,23 +45,35 @@
         bottom: 0;
         left: 0;
         content: "";
-        transition: transform 0.8s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        transition: transform 1s $easeOutQuint, opacity 1s $easeOutQuint;
         transform: scaleY(1);
         transform-origin: center top;
         opacity: 0.7;
         background-color: $white;
+
+        @include mq($until: 1100px)
+        {
+            transform: scaleY(0.75);
+            opacity: 1;
+        }
     }
 }
 
 .header__main-logo
 {
-    z-index: 999999;
+    z-index: 9999;
     display: inline-block;
     width: 200px;
     margin: 20px 0 20px 50px;
-    transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
-    transform: scale(1);
+    transition: transform 1s $easeOutQuint;
+    transform: scale(1) matrix(1, 0, 0, 1, 0, 0);
     transform-origin: left top;
+
+    @include mq($until: 1100px)
+    {
+        margin-left: 25px;
+        transform: scale(0.75) matrix(1, 0, 0, 1, 0, -8);
+    }
 
     flex: 2 1;
 }

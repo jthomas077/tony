@@ -2,49 +2,27 @@
 // @ts-ignore
 import Module from 'core/module';
 
-// @ts-ignore
-import debounce from 'lodash/debounce';
-
 class Header extends Module
 {
-    private readonly scrollThreshold: number = 15;
-
     constructor(el: string | JQuery, opts: object)
     {
         super(el, opts);
     }
 
-    init()
+    preInit()
     {
-
-    }
-    render()
-
-    {
-
+        this.VARS.IGNORE_CACHABLE_DOM_ELEMENTS = true;
     }
 
-    bindEventListeners()
+    onWindowResize(e: JQuery.Event<Window, null>) : void
     {
-        $(window).on('scroll', (e) => this.onWindowScroll(e))
-                 .on('load resize', debounce(::this.onWindowResize.bind(this), 250));
-    }
-
-    onWindowScroll(e: JQuery.Event<Window, null>) : void
-    {
-        const self = $(e.currentTarget);
-
-        if (window.matchMedia('(min-width: 1280px').matches)
+        if (window.matchMedia('(max-width: 1100px').matches || this.VARS.SCROLL_THRESHOLD_REACHED)
         {
-            this.el.toggleClass('scroll', self.scrollTop() > this.scrollThreshold);
+            this.el.addClass('scroll');
         }
-    }
-
-    onWindowResize(e: EventTarget) : void
-    {
-        if (window.matchMedia('(max-width: 1279px').matches && !this.el.hasClass('scroll'))
+        else
         {
-            this.el.toggleClass('scroll');
+            this.el.removeClass('scroll');
         }
     }
 }

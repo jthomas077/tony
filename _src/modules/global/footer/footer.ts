@@ -2,6 +2,9 @@
 // @ts-ignore
 import Module from 'core/module';
 
+// @ts-ignore
+import 'waypoints/lib/jquery.waypoints';
+
 class Footer extends Module
 {
     constructor(el: string | JQuery, opts: object)
@@ -9,19 +12,26 @@ class Footer extends Module
         super(el, opts);
     }
 
-    init()
+    preInit()
     {
-
+        //this.VARS.IGNORE_CACHABLE_DOM_ELEMENTS = true;
     }
 
     render()
     {
+        // @ts-ignore
+        new Waypoint(
+        {
+            element: this.el,
 
-    }
+            offset: 1200,
 
-    bindEventListeners()
-    {
-
+            handler: (direction) =>
+            {
+                this.el.addClass('in-view');
+                this.dom.freeQuote.addClass('in-view');
+            }
+        });
     }
 }
 

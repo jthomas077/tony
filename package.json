@@ -11,7 +11,8 @@
   "dependencies": {
     "gsap": "^2.0.1",
     "selectric": "^1.13.0",
-    "swiper": "^4.3.3"
+    "swiper": "^4.3.3",
+    "waypoints": "^4.0.1"
   },
   "devDependencies": {
     "@types/jquery": "^3.3.5",
@@ -54,9 +55,11 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development gulp",
     "build": "cross-env NODE_ENV=production gulp build",
+    "build:qa": "cross-env NODE_ENV=production gulp build --qa",
     "tooling": "gulp --tooling",
     "fun": "gulp --fun",
-    "conf": "gulp --conf"
+    "conf": "gulp --conf",
+    "hmr": "gulp --hmr"
   },
   "author": "jawsh",
   "license": "MIT"

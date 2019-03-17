@@ -2,14 +2,20 @@
 // @ts-ignore
 import Module from 'core/module';
 
-// @ts-ignore
-import { open, close } from 'helpers/animation';
-
 class MainNav extends Module
 {
-    constructor(el: string | JQuery, opts: object)
+    constructor(el : string | JQuery, opts : object)
     {
         super(el, opts);
+    }
+
+    init()
+    {
+        this.dom =
+        {
+            html: $('html'),
+            main: $('main')
+        };
     }
 
     bindEventListeners()
@@ -23,9 +29,20 @@ class MainNav extends Module
 
         self.toggleClass('is-active');
 
-        this.dom.list
-            .toggleClass('main-nav__list--active')
-            .toggleClass('main-nav__list--inactive', !this.dom.list.hasClass('main-nav__list--active'));
+        setTimeout(() =>
+        {
+            this.dom.html.toggleClass('modal---active');
+        },
+        (!self.hasClass('is-active')) ? 150 : 300);
+
+        this.dom.base
+            .then(global => global.trigger('update:swipers',
+            {
+                running: !self.hasClass('is-active')
+            }));
+
+        this.dom.main.toggleClass('main--active');
+        this.dom.list.toggleClass('main-nav__list--active');
 
         e.preventDefault();
     }

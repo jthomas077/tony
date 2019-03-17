@@ -3,14 +3,12 @@
 {
     position: absolute;
     z-index: 100;
-    bottom: -75px;
+    bottom: -50px;
     left: 100px;
-    width: 100%;
-    max-width: 600px;
-    padding: 25px 0;
+    padding: 25px 0 0 0;
     text-align: left;
 
-    @include mq($until: base)
+    @include mq($until: base-btw-max)
     {
         left: 75px;
     }
@@ -22,12 +20,13 @@
     {
         max-width: calc(100% - 100px);
     }
-    @include mq($until: mobile)
+    @include mq($until: retina)
     {
         bottom: -65px;
-        left: 25px;
-        max-width: calc(100% - 50px);
-        padding: 20px 0;
+        left: 0;
+        width: 100%;
+        max-width: none;
+        padding: 15px 0;
     }
 
     &::after
@@ -38,13 +37,31 @@
         right: 0;
         bottom: 0;
         left: 0;
-        width: 100%;
         height: 100%;
         margin: 0;
         content: "";
-        opacity: 0.85;
+        animation: init-subhero-after 0.5s $easeOutQuint 0.5s 1 normal forwards;
         border: 0;
-        background-color: $white;
+    }
+
+    @keyframes init-subhero-after
+    {
+        0%
+        {
+            width: 0;
+            transform: scaleX(0);
+            transform-origin: left center;
+            opacity: 0;
+        }
+
+        100%
+        {
+            width: 100%;
+            transform: scaleX(1);
+            transform-origin: left center;
+            opacity: 1;
+            background-color: $white;
+        }
     }
 }
 
@@ -52,7 +69,12 @@
 {
     font-weight: $semibold;
     z-index: 1;
-    padding: 0 0 0 35px;
+    visibility: hidden;
+    padding: 0 35px 0;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    animation: init-title 1s $easeOutQuint 1s 1 normal forwards;
+    opacity: 0;
+    color: $white;
 
     @include font-tracking(0.5);
     @include mq($until: base)
@@ -62,16 +84,54 @@
     @include mq($until: tablet)
     {
         font-size: rem(30);
-        padding: 0 0 0 30px;
+        padding: 0 30px 0;
     }
-    @include mq($until: mobile)
+    @include mq($until: retina)
     {
+        font-size: rem(24);
         width: 100% !important;
-        padding: 0 0 0 25px;
+        padding: 0 20px 0;
+
+        @include font-leading(30, 24);
     }
 
     &::after
     {
-        width: 50px;
+        width: 0;
+        transform: scaleX(0);
+        transform-origin: left center;
+        animation: init-title-after 1s $easeOutQuint 1s 1 normal forwards;
+    }
+
+    @keyframes init-title
+    {
+        0%
+        {
+            visibility: hidden;
+            opacity: 0;
+            color: $white;
+        }
+
+        100%
+        {
+            visibility: visible;
+            opacity: 1;
+            color: $bay-of-many;
+        }
+    }
+
+    @keyframes init-title-after
+    {
+        0%
+        {
+            width: 0;
+            transform: scaleX(0);
+        }
+
+        100%
+        {
+            width: 50px;
+            transform: scaleX(1);
+        }
     }
 }

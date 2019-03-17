@@ -1,0 +1,163 @@
+
+.quote-bar
+{
+    visibility: hidden;
+    width: 100%;
+    padding: 30px;
+    transition: opacity 1s $easeOutQuint, visibility 1s $easeOutQuint;
+    text-align: center;
+    opacity: 0;
+    background-color: $bay-of-many;
+
+    &::before
+    {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+        opacity: 0.1;
+        background: linear-gradient(45deg, transparent 46%, $wild-sand 49%, $wild-sand 51%, transparent 55%);
+        background-size: 5px 5px;
+    }
+
+    &::after
+    {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+        opacity: 0.1;
+        background: linear-gradient(-45deg, transparent 46%, $wild-sand 49%, $wild-sand 51%, transparent 55%);
+        background-size: 5px 5px;
+    }
+}
+
+.quote-bar.in-view
+{
+    visibility: visible;
+    transition: opacity 1s $easeOutQuint, visibility 1s $easeOutQuint;
+    opacity: 1;
+
+    & .quote-bar__title
+    {
+        visibility: visible;
+        transition: opacity 1s $easeOutExpo 0.5s, visibility 1s $easeOutQuint 0.5s;
+        opacity: 1;
+    }
+
+    & .quote-bar__cta
+    {
+        visibility: visible;
+        transition: opacity 1s $easeOutQuint 0.5s, visibility 1s $easeOutQuint 0.5s, transform 1s $easeOutQuint 0.5s;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform-origin: 0, 0;
+        opacity: 1;
+    }
+}
+
+.quote-bar__title
+{
+    font-family: $font-primary;
+    font-size: rem(30);
+    font-weight: $regular;
+    line-height: 1.5;
+    display: inline-block;
+    visibility: hidden;
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+    opacity: 0;
+    color: $white;
+
+    @include font-tracking(0.5);
+    @include mq($until: base)
+    {
+        line-height: 1.4;
+        text-align: center;
+    }
+    @include mq($until: tablet)
+    {
+        font-size: rem(22);
+        text-align: center;
+    }
+    @include mq($until: mobile)
+    {
+        font-size: rem(20);
+    }
+
+    &::after
+    {
+        margin: 0;
+        border: 0;
+    }
+}
+
+.quote-bar__cta
+{
+    font-family: $font-primary;
+    font-size: rem(30);
+    font-weight: $bold;
+    z-index: 1;
+    display: inline-block;
+    visibility: hidden;
+    margin: 8px 0 0 40px;
+    padding: 25px 35px;
+    transition: opacity 1s $easeOutQuint, visibility 1s $easeOutQuint, transform 1s $easeOutQuint;
+    transform: matrix(1, 0, 0, 1, 75, 0);
+    animation: block-over 1s $easeOutQuint 0s 1 normal forwards;
+    vertical-align: top;
+    opacity: 0;
+    color: $white;
+
+    @include font-tracking(0.5);
+    @include mq($until: base)
+    {
+        font-size: rem(25);
+        display: block;
+        margin: 20px 0 0;
+        padding: 15px 25px;
+    }
+    @include mq($until: retina)
+    {
+        font-size: rem(22);
+    }
+
+    &:hover
+    {
+        animation: block-out 1s $easeOutQuint 0s 1 normal forwards;
+    }
+
+    &::before
+    {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+        opacity: 0.1;
+        background: linear-gradient(-45deg, transparent 46%, $wild-sand 49%, $wild-sand 51%, transparent 55%);
+        background-size: 5px 5px;
+    }
+
+    &::after
+    {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+        opacity: 0.1;
+        background: linear-gradient(45deg, transparent 46%, $wild-sand 49%, $wild-sand 51%, transparent 55%);
+        background-size: 5px 5px;
+    }
+}

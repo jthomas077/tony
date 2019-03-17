@@ -1,57 +1,55 @@
 
 .free-quote
 {
-    display: flex;
-    justify-content: space-between;
-    margin: 50px 0 0;
-    padding: 100px;
-
-    @include mq($until: base)
-    {
-        flex-direction: column;
-        padding: 75px;
-    }
+    @include in-view();
     @include mq($until: desktop)
     {
         padding: 50px;
     }
-    @include mq($until: mobile)
+    @include mq($until: tablet)
     {
-        padding: 25px;
+        padding: 30px;
     }
+}
 
-    & > div
+.free-quote.in-view
+{
+    @include in-view(true);
+
+    & .free-quote__title
     {
-        @include mq($until: base)
-        {
-            width: 100%;
-        }
+        transform: matrix(1, 0, 0, 1, 0, 0);
 
-        flex: 1;
+        @include in-view(true);
 
-        &:nth-of-type(2)
+        &::after
         {
-            @include mq($from: base-btw-max)
-            {
-                margin: 0 200px;
-            }
-            @include mq($until: base-btw-max)
-            {
-                margin: 0 50px;
-            }
-            @include mq($until: base)
-            {
-                margin: 50px 0;
-            }
+            transform: scaleX(1);
         }
     }
 
-    & p
+    & .free-quote__copy
     {
-        font-size: rem(18);
-        margin-bottom: 20px;
+        transform: matrix(1, 0, 0, 1, 0, 0);
 
-        @include font-leading(28, 18);
+        @include in-view(true);
+    }
+
+    & .free-quote__form
+    {
+        & .form-input-container
+        {
+            transform: matrix(1, 0, 0, 1, 0, 0);
+
+            @include in-view(true);
+        }
+    }
+
+    & .free-quote__cta
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+
+        @include in-view(true);
     }
 }
 
@@ -59,14 +57,103 @@
 {
     line-height: 1.25;
     margin-bottom: 25px;
+    transform: matrix(1, 0, 0, 1, 0, 50);
 
+    @include in-view(false, 1.25s, 0.25s);
     @include mq($until: mobile)
     {
+        font-size: rem(24);
         line-height: 1.25;
     }
 
     &::after
     {
         width: 50px;
+        transition: transform 0.8s $customEase1 0.75s;
+        transform: scaleX(0);
+        transform-origin: left center;
     }
+}
+
+.free-quote__copy
+{
+    font-size: rem(18);
+    margin-bottom: 20px;
+    transform: matrix(1, 0, 0, 1, 0, 50);
+
+    @include in-view(false, 1.25s, 0.35s);
+    @include font-leading(28, 18);
+    @include mq($until: mobile)
+    {
+        font-size: rem(16);
+
+        @include font-leading(26, 16);
+    }
+}
+
+.free-quote__form
+{
+    display: inline-block;
+    width: 100%;
+
+    & fieldset
+    {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+
+    & input
+    {
+        display: block;
+        width: 100%;
+    }
+
+    & textarea
+    {
+        z-index: 0;
+        display: block;
+        width: 100%;
+        height: 200px;
+    }
+
+    & select
+    {
+        display: block;
+        width: 100%;
+    }
+
+    & button
+    {
+        @include mq($until: base)
+        {
+            width: 100%;
+        }
+    }
+
+    & .form-input-container
+    {
+        transform: matrix(1, 0, 0, 1, 0, 50);
+
+        @include in-view(false, 1.25s);
+
+        @for $i from 1 through 15
+        {
+            &:nth-of-type(#{$i})
+            {
+                z-index: #{99 - $i};
+                transition-delay: #{0.1 * $i}s;
+            }
+        }
+    }
+}
+
+.free-quote__cta
+{
+    display: inline-block;
+    width: 100%;
+    transform: matrix(1, 0, 0, 1, 0, 50);
+    text-align: center;
+
+    @include in-view(false, 1.25s, 1.25s);
 }

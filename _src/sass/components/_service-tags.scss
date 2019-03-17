@@ -1,0 +1,54 @@
+
+.service-tag
+{
+    line-height: 2;
+    display: inline-block;
+    margin: 0 5px 8px 0;
+
+    @include mq($until: 1025px)
+    {
+        margin: 0 10px 12px 0;
+    }
+    @include mq($until: retina)
+    {
+        display: block;
+        width: 100%;
+        margin: 0 0 15px;
+        text-align: center;
+    }
+}
+
+.service-tag__lnk
+{
+    font-family: $font-heading;
+    font-size: rem(16);
+    font-weight: $regular;
+    display: inline-block;
+    animation: block-over 1.5s $easeOutQuint 0s 1 normal forwards;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $white;
+    border-radius: 5px;
+
+    @include font-tracking(1.25);
+    @include mq($from: base)
+    {
+        padding: 7px 20px 5px;
+    }
+    @include mq($until: base)
+    {
+        font-size: rem(16);
+        padding: 10px 20px 8px;
+    }
+    @include mq($until: retina)
+    {
+        width: 100%;
+    }
+
+    &:hover
+    {
+        animation: block-out 1.5s $easeOutQuint 0s 1 normal forwards;
+        color: $white;
+        border: 0 !important;
+    }
+}

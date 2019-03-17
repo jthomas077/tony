@@ -1,0 +1,134 @@
+
+.work-with-us
+{
+    padding: 75px 0;
+    background: center center / cover no-repeat fixed;
+
+    @include mq($until: tablet)
+    {
+        padding: 0 25px;
+    }
+    @include in-view();
+
+    & .wrapper
+    {
+        text-align: center;
+    }
+
+    &::after
+    {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+        opacity: 0.5;
+        background-color: $black;
+    }
+}
+
+.work-with-us.in-view
+{
+    @include in-view(true);
+
+    & .work-with-us__title
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform-origin: 0 0;
+
+        @include in-view(true);
+
+        &::after
+        {
+            width: 75px;
+            transition: transform 0.8s $customEase1 1s;
+            transform: scaleX(1);
+        }
+    }
+
+    & .work-with-us__copy
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform-origin: 0 0;
+
+        @include in-view(true);
+    }
+
+    & .work-with-us__cta
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform-origin: 0 0;
+
+        @include in-view(true);
+
+        @for $i from 1 through 5
+        {
+            &:nth-of-type(#{$i})
+            {
+                transition-delay: #{0.5 + $i/4}s;
+            }
+        }
+    }
+}
+
+.work-with-us__title
+{
+    display: inline-block;
+    margin: 0 0 25px;
+    transform: matrix(1, 0, 0, 1, 0, -75);
+    transform-origin: 0 0;
+    color: $white;
+
+    @include mq($until: tablet)
+    {
+        font-size: rem(38);
+    }
+    @include in-view();
+
+    &::after
+    {
+        width: 0;
+        margin: 25px auto auto;
+        transform: scaleX(0);
+        transform-origin: center center;
+        border-color: $white;
+    }
+}
+
+.work-with-us__copy
+{
+    font-size: rem(25);
+    transform: matrix(1, 0, 0, 1, 0, 75);
+    transform-origin: 0 0;
+    color: $white;
+
+    @include in-view();
+    @include font-leading(38, 25);
+    @include font-tracking(0.75);
+    @include mq($until: base)
+    {
+        padding: 0 35px;
+    }
+    @include mq($until: tablet)
+    {
+        font-size: rem(18);
+
+        @include font-leading(30, 18);
+    }
+}
+
+.work-with-us__cta
+{
+    font-size: rem(20);
+    margin: 50px 0 0;
+    transform: matrix(1, 0, 0, 1, 0, 75);
+    transform-origin: 0 0;
+
+    @include in-view();
+    @include mq($until: retina)
+    {
+        display: block;
+    }
+}

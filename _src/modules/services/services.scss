@@ -2,7 +2,7 @@
 .services
 {
     margin: 50px 0 0;
-    padding: 100px;
+    padding: 100px 75px;
 
     @include mq($until: base)
     {
@@ -18,110 +18,179 @@
     }
 }
 
-.services__title
+.services.in-view
 {
-    &::after
+    & .services__box
     {
-        width: 50px;
+        @for $i from 1 through 25
+        {
+            &:nth-of-type(#{$i})
+            {
+                & .services__box-title
+                {
+                    @include in-view(true, 1s, #{0.5 + $i/4}s);
+
+                    &::after
+                    {
+                        @include in-view(true, 1.25s, #{0.5 + $i/3}s, $customEase1);
+                    }
+                }
+
+                & .services__box-copy
+                {
+                    @include in-view(true, 1s, #{0.5 + $i/3}s);
+                }
+
+                & .services__box-cta
+                {
+                    @for $x from 1 through 25
+                    {
+                        &:nth-of-type(#{$x})
+                        {
+                            transform: matrix(1, 0, 0, 1, 0, 0);
+                            transform-origin: 0 0;
+
+                            @include in-view(true, 1s, #{0.35 * $x}s);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .services__box-title
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform-origin: 0 0;
+
+        &::after
+        {
+            transform: scaleX(1);
+        }
+    }
+
+    & .services__box-copy
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform-origin: 0 0;
+    }
+
+    & .services__box-cta
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform-origin: 0 0;
     }
 }
 
 .services__boxes
 {
-    margin-left: -25px;
+    display: flex;
+    justify-content: space-between;
 
-    @include mq($until: tablet)
-    {
-        margin-left: 0;
-    }
+    flex-wrap: wrap;
 }
 
 .services__box
 {
     display: inline-block;
-    width: calc(33.34% - 28px);
+    width: calc(33.333% - 25px);
     margin: 0 0 50px 25px;
+    animation: opacity 1s $easeOutExpo 0s 1 normal forwards;
     vertical-align: top;
+    opacity: 0;
 
     @include mq($until: base-btw-max)
     {
-        width: calc(50% - 28px);
+        width: calc(50% - 25px);
+        margin-left: 0;
     }
-    @include mq($until: tablet)
+    @include mq($until: desktop)
     {
         width: 100%;
-        margin-left: 0;
+    }
+
+    @for $i from 1 through 25
+    {
+        &:nth-of-type(#{$i})
+        {
+            animation-delay: #{0.15 * $i}s;
+        }
     }
 }
 
 .services__box-lnk
 {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+
     &:hover
     {
         & > .services__box-img
         {
-            &::before
-            {
-                border: 2px solid $cerulean;
-            }
+            transition: transform 1s $easeOutQuint;
+            transform: scale(1.1);
         }
 
-        & + .services__box-title
+        &::before
         {
-            &::after
-            {
-                width: 150px;
-                transition: all 0.5s cubic-bezier(0.9, 0, 0.1, 1);
-                border-color: $bay-of-many;
-            }
+            transition: border 1s $easeOutQuint;
+            border: 2px solid $cerulean;
         }
+
+        &::after
+        {
+            transition: opacity 1s $easeOutQuint;
+            opacity: 0.5;
+        }
+    }
+
+    &::before
+    {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        transition: border 1s $easeOutQuint;
+        border: 2px solid transparent;
+    }
+
+    &::after
+    {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+        transition: opacity 1s $easeOutQuint;
+        opacity: 0;
     }
 }
 
 .services__box-img
 {
-    height: 350px;
+    padding-top: 58.25%;
+    transition: transform 1s $easeOutQuint;
+    transform: scale(1.0);
     background: center center / cover no-repeat;
-
-    @include mq($until: base-btw-max)
-    {
-        height: 275px;
-    }
-    @include mq($until: desktop)
-    {
-        height: 250px;
-    }
-    @include mq($until: 996px)
-    {
-        height: 200px;
-    }
-    @include mq($until: tablet)
-    {
-        height: 300px;
-    }
-    @include mq($until: mobile)
-    {
-        height: 200px;
-    }
-    @include mq($until: 375px)
-    {
-        height: 175px;
-    }
-
-    &::before
-    {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        content: "";
-    }
 }
 
 .services__box-title
 {
     margin: 35px 0 25px;
+    transform: matrix(1, 0, 0, 1, 0, 50);
+    transform-origin: 0 0;
 
-    @include mq($until: 375px)
+    @include in-view();
+    @include mq($until: mid-mobile)
     {
         line-height: 1.35;
         margin: 25px 0;
@@ -129,38 +198,92 @@
 
     &::after
     {
-        width: 50px;
+        width: 35px;
+        transform: scaleX(0);
+        transform-origin: left center;
+        border-width: 3px;
+
+        @include in-view(false, 1s, 0.35s, $customEase1);
     }
 }
 
 .services__box-copy
 {
-    font-size: rem(16);
-    line-height: 1.75;
+    transform: matrix(1, 0, 0, 1, 0, 50);
+    transform-origin: 0 0;
 
-    @include mq($until: 375px)
+    @include in-view();
+
+    & p
     {
-        font-size: rem(15);
+        font-size: rem(16);
+        line-height: 1.75;
+
+        @include mq($until: mid-mobile)
+        {
+            font-size: rem(15);
+        }
     }
 }
 
 .services__box-cta
 {
     margin: 50px 10px 0 0;
+    transform: matrix(1, 0, 0, 1, 0, 25);
+    transform-origin: 0 0;
 
-    @include mq($until: mobile)
+    @include in-view();
+    @include mq($until: 700px)
     {
+        position: relative !important;
+        bottom: auto;
+        left: auto;
+        display: block;
         width: 100%;
         margin: 35px 0 0;
     }
-}
-
-.after
-{
-    &::after
+    @include mq($from: base-btw-max, $until: 2000px)
     {
-        width: 150px;
-        transition: all 0.5s cubic-bezier(0.9, 0, 0.1, 1);
-        border-color: $bay-of-many;
+        width: calc(100% / 2 - 10px);
+
+        &:nth-of-type(3)
+        {
+            position: absolute;
+            right: 0;
+            margin-right: 0;
+        }
+    }
+    @include mq($from: desktop, $until: 1390px)
+    {
+        width: calc(100% / 2 - 10px);
+
+        &:nth-of-type(3)
+        {
+            position: absolute;
+            right: 0;
+            margin-right: 0;
+        }
+    }
+
+    &:last-of-type
+    {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        @include mq($from: base-btw-max, $until: 2000px)
+        {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin-top: 25px;
+        }
+        @include mq($from: desktop, $until: 1390px)
+        {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin-top: 25px;
+        }
     }
 }

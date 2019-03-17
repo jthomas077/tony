@@ -2,22 +2,57 @@
 .ideas
 {
     display: flex;
+    visibility: visible;
     justify-content: center;
     width: 100%;
+    padding: 100px 0;
     text-align: center;
     background: center center / cover no-repeat fixed;
 
-    @include mq($from: base)
-    {
-        height: 500px;
-    }
+    @include in-view();
     @include mq($until: base)
     {
-        //height: 400px;
         padding: 50px 0;
     }
 
     align-items: center;
+}
+
+.ideas.in-view
+{
+    @include in-view(true);
+
+    & .ideas__title
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform-origin: 0 0;
+
+        @include in-view(true);
+    }
+
+    & .ideas__copy
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform-origin: 0 0;
+
+        @include in-view(true);
+    }
+
+    & .ideas__cta-lnk
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform-origin: 0 0;
+
+        @include in-view(true);
+
+        @for $i from 1 through 5
+        {
+            &:nth-of-type(#{$i})
+            {
+                transition-delay: #{0.5 + $i/4}s;
+            }
+        }
+    }
 }
 
 .ideas__title
@@ -28,10 +63,14 @@
     line-height: 2;
     z-index: 1;
     display: inline-block;
+    visibility: hidden;
     width: auto;
     padding: 0 25px;
+    transform: matrix(1, 0, 0, 1, 0, -75);
+    transform-origin: 0 0;
     color: $black;
 
+    @include in-view(false, 1s, 0.25s);
     @include mq($until: base)
     {
         font-size: rem(35);
@@ -39,6 +78,7 @@
     @include mq($until: tablet)
     {
         font-size: rem(30);
+        width: 100%;
     }
     @include mq($until: retina)
     {
@@ -62,7 +102,7 @@
         height: 100%;
         margin: 0;
         content: "";
-        opacity: 0.85;
+        opacity: 1;
         border: 0;
         background-color: $white;
     }
@@ -70,12 +110,9 @@
 
 .ideas__content
 {
-    display: inline-block;
+    display: block;
+    width: 50%;
 
-    @include mq($from: base)
-    {
-        width: 50%;
-    }
     @include mq($until: mid-desktop)
     {
         width: 90%;
@@ -90,9 +127,12 @@
     z-index: 1;
     display: inline-block;
     width: auto;
-    margin: 15px 0 0;
+    margin: 25px 0 0;
+    transform: matrix(1, 0, 0, 1, 0, 75);
+    transform-origin: 0 0;
     color: $black;
 
+    @include in-view(false, 1s, 0.5s);
     @include mq($from: base)
     {
         font-size: rem(20);
@@ -134,14 +174,25 @@
 
 .ideas__cta
 {
-    @include mq($until: mobile)
+    display: block;
+}
+
+.ideas__cta-lnk
+{
+    transform: matrix(1, 0, 0, 1, 0, 75);
+    transform-origin: 0 0;
+
+    @include in-view();
+    @include mq($from: tablet)
+    {
+        &:first-of-type
+        {
+            margin: 50px 25px 0 0;
+        }
+    }
+    @include mq($until: tablet)
     {
         width: 100%;
         margin: 35px 0 0;
-    }
-
-    &:first-of-type
-    {
-        margin: 50px 25px 0 0;
     }
 }

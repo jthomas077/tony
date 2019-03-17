@@ -7,7 +7,7 @@ import Swiper from 'swiper';
 
 class MainHero extends Module
 {
-    constructor(el: string | JQuery, opts: object)
+    constructor(el : string | JQuery, opts : object)
     {
         super(el, opts);
     }
@@ -16,14 +16,22 @@ class MainHero extends Module
     {
         setTimeout(() =>
         {
-            this.dom.heroCallout.addClass('hero-callout--init');
+            if (!!this.dom.heroCallout)
+            {
+                this.dom.heroCallout.addClass('hero-callout--init');
+            }
         },
         0);
     }
 
     render()
     {
-        new Swiper(this.dom.swiperContainer,
+        this.initSwiper();
+    }
+
+    initSwiper() : void
+    {
+        this.swiper = new Swiper(this.dom.swiperContainer,
         {
             loop: true,
             effect: 'fade',
@@ -31,7 +39,7 @@ class MainHero extends Module
             {
                 delay: 5000,
             },
-            speed: 1000,
+            speed: 1500,
             slidesPerView: 1,
             allowTouchMove: true,
             grabCursor: true,
@@ -56,11 +64,14 @@ class MainHero extends Module
                 prevEl: this.dom.swiperButtonPrev
             }
         });
-    }
 
-    bindEventListeners()
-    {
 
+        this.dom.base
+            .then(global => global.trigger('register:swiper',
+            {
+                id: this.el.attr('class'),
+                swiper: this.swiper
+            }));
     }
 }
 

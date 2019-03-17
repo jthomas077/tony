@@ -1,13 +1,22 @@
 
 .main-nav
 {
-    top: 0;
-    padding-right: 35px;
-    transition: top 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+    padding-right: 50px;
+    transition: transform 1s $easeOutQuint;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transform-origin: 0 0;
 
-    @include mq($until: tablet)
+    @include mq($until: 1100px)
     {
-        padding-right: 15px;
+        transform: matrix(1, 0, 0, 1, 0, -15);
+    }
+    @include mq($until: 1025px)
+    {
+        padding-right: 25px;
+    }
+    @include mq($until: desktop)
+    {
+        padding: 0;
     }
 
     align-self: center;
@@ -16,13 +25,14 @@
 .main-nav__hamburger
 {
     position: absolute;
-    z-index: 999999;
+    z-index: 9999;
     top: -27px;
     right: 35px;
     display: none;
 
-    @include mq($until: base)
+    @include mq($until: desktop)
     {
+        right: 15px;
         display: inline-block;
     }
     @include mq($until: tablet)
@@ -33,129 +43,36 @@
 
 .main-nav__list
 {
-    @include mq($from: base)
+    @include mq($from: desktop)
     {
         z-index: 999;
         display: flex;
         height: 100%;
     }
-    @include mq($until: base)
+    @include mq($until: desktop)
     {
-        position: fixed;
-        z-index: -1;
+        position: absolute;
         z-index: 99999;
-        top: 0;
+        top: 45px;
         right: 0;
-        bottom: 0;
-        left: -100vw;
+        left: 0;
         width: 100vw;
-        height: 100vh;
-        transition: opacity 1s ease 0.5s, left 1s ease;
-        opacity: 0;
+        height: calc(100vh - 92px);
+        transition: opacity 0.5s $customEase1, transform 0.5s $customEase1;
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+
+        align-items: center;
 
         &--active
         {
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transition: opacity 1s ease, left 1s ease;
+            transform: translate3d(-100vw, 0, 0);
             opacity: 1;
 
             & .main-nav__item
             {
-                &:nth-of-type(1)
-                {
-                    left: 35vw;
-                    margin-left: -25vw;
-                    transition: left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.5s, opacity 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.1s, margin-left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 1s;
-                    opacity: 1;
-                }
-
-                &:nth-of-type(2)
-                {
-                    left: 35vw;
-                    margin-left: -25vw;
-                    transition: left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.65s, opacity 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.2s, margin-left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 1.1s;
-                    opacity: 1;
-                }
-
-                &:nth-of-type(3)
-                {
-                    left: 35vw;
-                    margin-left: -25vw;
-                    transition: left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.75s, opacity 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.3s, margin-left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 1.2s;
-                    opacity: 1;
-                }
-
-                &:nth-of-type(4)
-                {
-                    left: 35vw;
-                    margin-left: -25vw;
-                    transition: left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.85s, opacity 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.4s, margin-left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 1.3s;
-                    opacity: 1;
-                }
-
-                &:nth-of-type(5)
-                {
-                    left: 35vw;
-                    margin-left: -25vw;
-                    transition: left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.95s, opacity 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.5s, margin-left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 1.4s;
-                    opacity: 1;
-                }
-            }
-        }
-
-        &--inactive
-        {
-            left: -100vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transition: opacity 1s ease 0.5s, left 1s ease;
-            opacity: 0;
-
-            & .main-nav__item
-            {
-                &:nth-of-type(1)
-                {
-                    left: 0;
-                    margin-left: 0;
-                    transition: left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.5s, opacity 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.1s, margin-left cubic-bezier(0.9, 0, 0.1, 1);
-                    opacity: 0;
-                }
-
-                &:nth-of-type(2)
-                {
-                    left: 0;
-                    margin-left: 0;
-                    transition: left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.65s, opacity 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.2s, margin-left cubic-bezier(0.9, 0, 0.1, 1);
-                    opacity: 0;
-                }
-
-                &:nth-of-type(3)
-                {
-                    left: 0;
-                    margin-left: 0;
-                    transition: left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.75s, opacity 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.3s, margin-left cubic-bezier(0.9, 0, 0.1, 1);
-                    opacity: 0;
-                }
-
-                &:nth-of-type(4)
-                {
-                    left: 0;
-                    margin-left: 0;
-                    transition: left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.85s, opacity 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.4s, margin-left cubic-bezier(0.9, 0, 0.1, 1);
-                    opacity: 0;
-                }
-
-                &:nth-of-type(5)
-                {
-                    left: 0;
-                    margin-left: 0;
-                    transition: left 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.95s, opacity 0.8s cubic-bezier(0.9, 0, 0.1, 1) 0.5s, margin-left cubic-bezier(0.9, 0, 0.1, 1);
-                    opacity: 0;
-                }
+                transition: opacity 0.5s $customEase1 0.25s;
+                opacity: 1;
             }
         }
 
@@ -167,109 +84,66 @@
             right: 0;
             bottom: 0;
             left: 0;
-            width: 100vw;
+            width: 100%;
             height: 100vh;
             content: "";
-            opacity: 0.95;
+            opacity: 1;
             background-color: $white;
         }
     }
-
-    /*
-    &--active
-    {
-        transition: opacity 1s ease;
-        opacity: 1;
-
-        & .main-nav__item
-        {
-            &:nth-of-type(1)
-            {
-                top: 0;
-                transition: top 0.35s cubic-bezier(0.9, 0, 0.1, 1);
-            }
-
-            &:nth-of-type(2)
-            {
-                top: 0;
-                transition: top 0.45s cubic-bezier(0.9, 0, 0.1, 1);
-            }
-
-            &:nth-of-type(3)
-            {
-                top: 0;
-                transition: top 0.55s cubic-bezier(0.9, 0, 0.1, 1);
-            }
-
-            &:nth-of-type(4)
-            {
-                top: 0;
-                transition: top 0.65s cubic-bezier(0.9, 0, 0.1, 1);
-            }
-
-            &:nth-of-type(5)
-            {
-                top: 0;
-                transition: top 0.75s cubic-bezier(0.9, 0, 0.1, 1);
-            }
-        }
-    }
-
-    &--inactive
-    {
-        transition: opacity 1s ease;
-        opacity: 0;
-
-        & .main-nav__item
-        {
-            &:nth-of-type(1)
-            {
-                top: -100px;
-                transition: top 1.25s cubic-bezier(0.9, 0, 0.1, 1);
-            }
-
-            &:nth-of-type(2)
-            {
-                top: -100px;
-                transition: top 1s cubic-bezier(0.9, 0, 0.1, 1);
-            }
-
-            &:nth-of-type(3)
-            {
-                top: -100px;
-                transition: top 0.75s cubic-bezier(0.9, 0, 0.1, 1);
-            }
-
-            &:nth-of-type(4)
-            {
-                top: -100px;
-                transition: top 0.5s cubic-bezier(0.9, 0, 0.1, 1);
-            }
-
-            &:nth-of-type(5)
-            {
-                top: -100px;
-                transition: top 0.25s cubic-bezier(0.9, 0, 0.1, 1);
-            }
-        }
-    }
-    */
 }
 
 .main-nav__item
 {
-    margin: 0 25px;
-
-    @include mq($until: base)
+    @include mq($from: desktop)
     {
-        left: 0;
-        margin: 0;
-        transition: all 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        &:not(:first-of-type)
+        {
+            margin: 0 0 0 50px;
+        }
+    }
+    @include mq($until: desktop)
+    {
+        z-index: 99999;
+        top: 100px;
+        display: block;
+        width: 300px;
+        margin: auto;
+        transition: opacity 0.5s $customEase1;
         opacity: 0;
+
+        &:not(:first-of-type)
+        {
+            & .main-nav__menu
+            {
+                display: none;
+            }
+        }
+    }
+
+    &:hover
+    {
+        & .main-nav__lnk
+        {
+            color: $cerulean;
+
+            & ~ .main-nav__menu
+            {
+                visibility: visible;
+                height: auto;
+                opacity: 1;
+            }
+
+            &::after
+            {
+                transform: scaleX(1);
+                transform-origin: left center;
+            }
+        }
     }
 }
 
-.main-nav__link
+.main-nav__lnk
 {
     font-family: $font-primary;
     font-size: rem(20);
@@ -280,16 +154,17 @@
     text-transform: uppercase;
     color: $bay-of-many;
 
-    @include mq($until: base)
+    @include font-tracking(1);
+    @include mq($until: desktop)
     {
-        font-size: rem(40);
+        font-size: rem(30);
         line-height: 2;
-        z-index: 99999;
+        z-index: 9999;
     }
 
-    &:hover
+    &:hover,
+    &--selected
     {
-        transition: color 0.25s linear;
         color: $cerulean;
 
         &::after
@@ -308,9 +183,122 @@
         left: 0;
         width: 100%;
         content: "";
-        transition: transform 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        transition: transform 0.5s $customEase1;
         transform: scaleX(0);
         transform-origin: right center;
         border-bottom: 2px solid $cerulean;
+    }
+}
+
+.main-nav__menu
+{
+    @include mq($from: desktop)
+    {
+        position: absolute;
+        z-index: 99;
+        visibility: hidden;
+        height: auto;
+        margin: 5px 0 0;
+        padding: 13px 15px;
+        text-align: left;
+        opacity: 0;
+
+        &:hover
+        {
+            opacity: 1;
+        }
+
+        &::after
+        {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            background-color: $black;
+        }
+    }
+    @include mq($until: desktop)
+    {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.main-nav__menu-item
+{
+    margin-top: 5px;
+
+    @include mq($until: desktop)
+    {
+        margin: 20px 0 20px 20px;
+    }
+}
+
+.main-nav__menu-lnk
+{
+    font-family: $font-primary;
+    font-size: rem(14);
+    line-height: 1.5;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $white;
+
+    @include font-tracking(1.25);
+    @include mq($from: desktop)
+    {
+        display: block;
+        width: 100%;
+        min-width: 200px;
+        padding: 10px 15px;
+        animation: block-out 0.5s $easeOutQuad 0s 1 normal forwards;
+
+        &:hover
+        {
+            animation: block-over 0.5s $easeOutQuad 0s 1 normal forwards;
+        }
+
+        &--selected
+        {
+            animation: block-over 0.5s $easeOutQuad 0s 1 normal forwards;
+        }
+    }
+    @include mq($until: desktop)
+    {
+        font-size: rem(18);
+        font-weight: $bold;
+        color: $bay-of-many;
+        background-color: $white !important;
+
+        &:hover,
+        &--selected
+        {
+            color: $cerulean;
+
+            &::after
+            {
+                transform: scaleX(1);
+                transform-origin: left center;
+            }
+        }
+
+        &::after
+        {
+            position: absolute;
+            z-index: -1;
+            right: 0;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            content: "";
+            transition: transform 0.5s $customEase1;
+            transform: scaleX(0);
+            transform-origin: right center;
+            border-bottom: 2px solid $cerulean;
+        }
     }
 }

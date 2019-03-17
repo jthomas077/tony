@@ -9,7 +9,7 @@ import { getInstanceOfjQuery } from 'helpers/utils';
 *  @param {string} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
  * @returns {Promise<string[]>} Promise array
 */
-export async function importModules (imports: string | Array<string>, el: string | JQuery) : Promise<string[]>
+export const importModules = async (imports: string | Array<string>, el: string | JQuery) : Promise<string[]> =>
 {
     if (!imports.length)
     {
@@ -28,12 +28,16 @@ export async function importModules (imports: string | Array<string>, el: string
                             JSON.parse(((el.data('module-opts') || '')
                                 .replace(/\'/g, '\"') || JSON.stringify({})))));
 
+                    el.removeAttr('data-module');
+                    el.removeAttr('data-module-opts');
+
                     Promise.resolve();
                 })
                 .catch(err =>
                 {
-                    Promise.reject(
-                        new Error(`There was an error importing your module => ${err}`));
+                    console.error('There was an error importing your module =>', m, '=>', err);
+
+                    Promise.reject();
                 });
     });
 
@@ -52,7 +56,7 @@ export const initModules = (el: string | JQuery, target: Function) : void =>
 
     if (!elements.length)
     {
-        throw new ReferenceError('You must pass an valid element.');
+        throw new ReferenceError('You must pass a valid element.');
     }
 
     for (let i = 0; i < elements.length; i++)
@@ -65,9 +69,9 @@ export const initModules = (el: string | JQuery, target: Function) : void =>
 /**
  * Discovers modules from the DOM on elements that have `data-module` specified.
  */
-export const discoverModules = () : void =>
+export const discoverModules = (el: string = '') : void =>
 {
-    const modules = getInstanceOfjQuery('[data-module]');
+    const modules = getInstanceOfjQuery(`${el}[data-module]`);
 
     modules.each((idx, el) =>
     {
@@ -81,6 +85,7 @@ export const discoverModules = () : void =>
 /**
  * Gets all DOM elements to cache in modules.
  * If a DOM element contains `[data-cache]`, the DOM element will be excluded from caching.
+ * If a DOM element contains `[data-cache-skip]`, the DOM element and it's children will be excluded from caching.
  *
  * @param {string|JQuery} el DOM element in any valid jQuery form i.e. `#foo` or `.bar` or `[data-baz]` or an actual jQuery object.
  * @returns {object} object

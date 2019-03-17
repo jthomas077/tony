@@ -10,8 +10,9 @@ export default
     output:
     {
         path: path.resolve(`${process.env.DEST}`),
-        publicPath: '/js/',
-        filename: '[name].js'
+        publicPath: (__DEV__) ? '/js/' : `/${process.env.APP_SHORT_NAME}/js/`,
+        filename: '[name].js',
+        jsonpFunction: process.env.APP_SHORT_NAME
     },
 
     resolve:
@@ -42,45 +43,22 @@ export default
     [
         /^(jquery|\$)$/i,
 
-        // query jsdelvr on BUILD!
         (context, request, cb) =>
         {
-            //console.log(request)
-
             cb();
         }
     ],
 
     module:
     {
-        rules:
-        [
-            {
-                test: /\.ts?$/,
-                loader: 'awesome-typescript-loader',
-                options:
-                {
-                    reportFiles : [`${process.env.SRC}/{js,modules}/**/*.ts`]
-                }
-            },
-
-            {
-                test: /\.html$/,
-
-                loader: 'html-loader',
-                options:
-                {
-                    minimize: true
-                }
-            }
-        ]
+        rules: config.rules()
     },
 
     plugins: config.plugins(),
 
-    mode: (__DEV__) ? 'development' : process.env.NODE_ENV,
+    mode: (__DEV__ || __QA__) ? 'development' : process.env.NODE_ENV,
 
-    devtool: 'source-map',
+    devtool: (__DEV__ || __QA__) ? 'source-map' : '',
 
     devServer:
     {

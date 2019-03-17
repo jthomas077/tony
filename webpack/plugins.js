@@ -9,7 +9,13 @@ export const plugins = () =>
         new webpack.DefinePlugin(
         {
             __DEV__: __DEV__,
+            __QA__: __QA__,
             __HMR__: __HMR__,
+        }),
+
+        new webpack.DefinePlugin(
+        {
+            'process.env': JSON.stringify(process.env)
         }),
 
         new webpack.ProvidePlugin(

@@ -1,0 +1,20 @@
+
+@mixin in-view($visible: false, $duration: 1s, $delay: 0s, $ease: $easeOutQuint)
+{
+    @if $visible
+    {
+        visibility: visible;
+        opacity: 1;
+
+        @if $duration != 1s or $delay != 0s or $ease != $easeOutQuint
+        {
+            transition: opacity $duration $ease $delay, visibility $duration $ease $delay, transform $duration $ease $delay;
+        }
+    }
+    @else
+    {
+        visibility: hidden;
+        transition: opacity $duration $ease $delay, visibility $duration $ease $delay, transform $duration $ease $delay;
+        opacity: 0;
+    }
+}

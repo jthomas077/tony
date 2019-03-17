@@ -1,0 +1,45 @@
+
+.lnk-transform
+{
+    transition: color 0.8s $customEase1;
+    text-transform: uppercase;
+    color: $bay-of-many;
+
+    &:hover
+    {
+        color: $cerulean;
+
+        &::after
+        {
+            transform: scaleX(1);
+            transform-origin: left center;
+        }
+    }
+
+    &::after
+    {
+        position: absolute;
+        z-index: -1;
+        right: 0;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        content: "";
+        transition: transform 0.8s $customEase1;
+        transform: scaleX(0);
+        transform-origin: right center;
+        border-bottom: 2px solid $cerulean;
+    }
+}
+
+.lnk-border
+{
+    transition: border-bottom 1s $easeOutQuint;
+    color: $white;
+    border-bottom: 1px dotted transparent;
+
+    &:hover
+    {
+        border-bottom: 1px dotted $white;
+    }
+}

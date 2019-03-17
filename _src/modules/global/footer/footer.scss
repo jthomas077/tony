@@ -2,22 +2,46 @@
 .footer
 {
     z-index: 1;
+    top: 600px;
     display: inline-block;
     width: 100%;
+    padding: 25px;
     color: $white;
     background-color: $bay-of-many;
 
-    @include mq($from: base)
+    @include in-view();
+    @include mq($from: 2100px)
     {
-        padding: 35px 50px 25px;
+        padding: 50px;
+    }
+    @include mq($from: 1600px, $until: 2100px)
+    {
+        padding: 25px;
+    }
+    @include mq($from: base, $until: 1600px)
+    {
+        padding: 50px;
     }
     @include mq($until: base)
     {
         padding: 35px 50px 25px;
     }
-    @include mq($until: mobile)
+    @include mq($until: desktop)
     {
-        padding: 30px 30px 25px;
+        top: 450px;
+    }
+    @include mq($until: tablet)
+    {
+        top: 400px;
+    }
+    @include mq($until: 700px)
+    {
+        top: 350px;
+    }
+    @include mq($until: retina)
+    {
+        top: 600px;
+        padding: 0 0 35px;
     }
 
     &::before
@@ -43,129 +67,426 @@
         opacity: 0.1;
         background-size: 5px 5px;
     }
+}
 
-    & a
+.footer.in-view
+{
+    @include in-view(true);
+
+    & .footer__title
     {
-        transition: all 0.25s linear;
-        text-decoration: none;
-        color: $white;
-        border-bottom: 1px dotted transparent;
+        transform: matrix(1, 0, 0, 1, 0, 0);
 
-        &:hover
+        @include in-view(true);
+
+        &::after
         {
-            transition: all 0.25s linear;
-            border-bottom: 1px dotted $white;
+            transform: scaleX(1);
         }
+    }
+
+    & .footer__copy
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+
+        @include in-view(true);
+    }
+
+    & .footer__contact
+    {
+        & .footer__contact-info-item
+        {
+            transform: matrix(1, 0, 0, 1, 0, 0);
+
+            @include in-view(true);
+        }
+
+        & .footer__label
+        {
+            transform: matrix(1, 0, 0, 1, 0, 0);
+
+            @include in-view(true, 1.25s, 0.75s);
+        }
+    }
+
+    & .service-tag
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+
+        @include in-view(true);
+
+        @for $i from 1 through 25
+        {
+            &:nth-of-type(#{$i})
+            {
+                transition-delay: #{0.35 + $i/4}s;
+            }
+        }
+    }
+
+    & .footer__quote
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+
+        @include in-view(true);
+    }
+
+    & .footer__section-social
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+
+        @include in-view(true);
+
+        & .footer__social-lnk
+        {
+            transform: matrix(1, 0, 0, 1, 0, 0);
+
+            @include in-view(true);
+
+            @for $i from 1 through 7
+            {
+                &:nth-of-type(#{$i})
+                {
+                    transition-delay: #{0.75 + $i/4}s;
+                }
+            }
+        }
+    }
+
+    & .footer__copyright
+    {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+
+        @include in-view(true);
     }
 }
 
-.footer__sections
+.footer__bg
+{
+    position: absolute;
+    top: -600px;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    height: 600px;
+    border-bottom: 5px solid $black;
+
+    @include mq($until: desktop)
+    {
+        top: -450px;
+        height: 450px;
+    }
+    @include mq($until: tablet)
+    {
+        top: -400px;
+        height: 400px;
+    }
+    @include mq($until: 700px)
+    {
+        top: -350px;
+        height: 350px;
+    }
+}
+
+.footer__bg-img
+{
+    padding-top: 58.25%;
+    background: center center / cover no-repeat fixed;
+}
+
+.footer__container
 {
     display: flex;
     justify-content: space-between;
 
-    @include mq($until: tablet)
+    @include mq($until: 1600px)
     {
         flex-direction: column;
+        text-align: center;
     }
-
-    flex-wrap: wrap;
 }
 
-.footer__section
+.footer__contact
 {
-    &:nth-of-type(2)
-    {
-        max-width: 40%;
+    width: 25%;
+    padding: 25px 50px 25px 25px;
 
-        @include mq($until: base)
+    @include mq($until: 1600px)
+    {
+        width: 100%;
+        padding: 0;
+
+        order: 1;
+    }
+    @include mq($until: retina)
+    {
+        padding: 25px 50px 50px;
+    }
+    @include mq($until: mobile)
+    {
+        padding: 25px 35px 35px;
+    }
+
+    flex: 1;
+
+    & .footer__label
+    {
+        @for $i from 1 through 5
         {
-            max-width: 35%;
-        }
-        @include mq($until: desktop)
-        {
-            max-width: 50%;
-            margin-bottom: 25px;
-        }
-        @include mq($until: tablet)
-        {
-            max-width: 100%;
-            margin: 50px 0;
+            &:nth-of-type(#{$i})
+            {
+                transform: matrix(1, 0, 0, 1, 0, 50);
+
+                @include in-view(false, 1.25s, #{1.25 + $i/4}s);
+            }
         }
     }
 }
 
-.footer__lnk
+.footer__contact-info-list
 {
-    font-family: $font-primary;
-    font-size: rem(18);
-    font-weight: $light;
-    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+}
 
-    @include font-tracking(0.75);
-    @include mq($until: base)
+.footer__contact-info-item
+{
+    margin: 50px 0 0;
+
+    @include mq($until: 1600px)
     {
-        font-size: rem(16);
+        margin: 25px 0;
+    }
+
+    @for $i from 1 through 5
+    {
+        &:nth-of-type(#{$i})
+        {
+            transform: matrix(1, 0, 0, 1, 0, 50);
+
+            @include in-view(false, 1.25s, #{0.75 + $i/4}s);
+        }
     }
 }
 
-.footer__list
+.footer__connect
+{
+    width: 25%;
+    padding: 25px 0 25px 75px;
+
+    @include mq($until: 2000px)
+    {
+        padding-left: 50px;
+    }
+    @include mq($until: 1600px)
+    {
+        width: 100%;
+        padding: 50px 0;
+
+        order: 2;
+    }
+    @include mq($until: retina)
+    {
+        padding: 25px 50px 50px;
+    }
+    @include mq($until: mobile)
+    {
+        padding: 25px 35px 35px;
+    }
+
+    flex: 1;
+
+    & .service-tag
+    {
+        transform: matrix(1, 0, 0, 1, 0, 50);
+
+        @include in-view(false, 1.25s);
+    }
+}
+
+.footer__quote
+{
+    z-index: 1;
+    bottom: 500px;
+    width: 50%;
+    margin: auto auto -400px;
+    padding: 50px;
+    transform: matrix(1, 0, 0, 1, 0, -50);
+    text-align: left;
+    background-color: $white;
+
+    @include in-view(false, 1.25s);
+    @include mq($from: 4000px)
+    {
+        width: 25%;
+    }
+    @include mq($until: 1921px)
+    {
+        width: 45%;
+    }
+    @include mq($until: 1600px)
+    {
+        width: 100%;
+        margin-bottom: -450px;
+
+        order: 0;
+    }
+    @include mq($until: desktop)
+    {
+        bottom: 400px;
+        margin-bottom: -350px;
+        padding: 0;
+    }
+    @include mq($until: tablet)
+    {
+        bottom: 350px;
+        margin-bottom: -300px;
+    }
+    @include mq($until: 700px)
+    {
+        bottom: 300px;
+        margin-bottom: -250px;
+    }
+    @include mq($until: retina)
+    {
+        bottom: 600px;
+        margin-bottom: -575px;
+    }
+
+    & .free-quote__copy
+    {
+        color: $black;
+    }
+
+    &::before
+    {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        opacity: 0.1;
+        box-shadow: 0 0 10px 5px $black;
+    }
+}
+
+
+.footer__section-social
+{
+    position: absolute;
+    bottom: 100px;
+    display: flex;
+    margin: auto;
+    transform: matrix(1, 0, 0, 1, 0, 50);
+
+    @include in-view(false, 1.25s, 0.75s);
+    @include mq($until: 1600px)
+    {
+        position: relative;
+        bottom: auto;
+        justify-content: center;
+        padding: 50px 0;
+    }
+}
+
+.footer__social
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 0 0 50px;
+
+    @include mq($from: tablet, $until: 1600px)
+    {
+        flex-direction: row;
+    }
+    @include mq($from: max)
+    {
+        margin: 0 0 0 75px;
+    }
+    @include mq($until: mobile)
+    {
+        margin: 0 0 0 50px;
+    }
+}
+
+.footer__social-lnk
 {
     display: inline-block;
-    margin-top: -6px;
-    vertical-align: top;
-}
+    width: 50px;
+    height: 50px;
+    transform: matrix(1, 0, 0, 1, 0, 50);
+    text-decoration: none;
+    background: center center / cover no-repeat;
 
-.footer__item
-{
-    line-height: 2;
-    display: inline-block;
-    margin: 0 4px 8px 0;
-    border-radius: 5px;
-    background-color: $cerulean;
-
-    @include mq($from: base)
+    @include in-view(false, 1.25s);
+    @include mq($from: tablet, $until: 1600px)
     {
-        padding: 5px 12px 3px;
-    }
-    @include mq($until: base)
-    {
-        padding: 3px 10px 2px;
-    }
+        margin-top: 50px;
 
-    & .footer__lnk
-    {
-        font-family: $font-heading;
-        font-size: rem(17);
-
-        @include mq($until: base)
+        &:not(:first-of-type)
         {
-            font-size: rem(16);
+            margin-left: 50px;
         }
     }
-}
 
-.footer__label
-{
-    font-size: rem(14);
-    display: block;
-    margin-top: 20px;
-}
-
-.footer__section-contact
-{
-    & .footer__lnk
+    &:hover
     {
-        font-weight: $semibold;
+        & .svg
+        {
+            visibility: hidden;
+            transition: opacity 1s $easeOutQuint, visibility 1s $easeOutQuint, transform 1s $easeOutQuint;
+            transform: scale(1.5);
+            animation: social-over 0.5s $easeOutQuad 0s 1 normal forwards;
+            opacity: 0;
+        }
     }
 
-    & .footer__lnk-tel
+    & .svg
     {
-        pointer-events: none;
+        visibility: visible;
+        width: 50px;
+        height: 50px;
+        transition: opacity 1s $easeOutQuint, visibility 1s $easeOutQuint;
+        //transform: scale(1);
+        animation: social-out 1s $easeOutQuint 0s 1 normal forwards;
+        opacity: 1;
+    }
 
-        @include mq($until: desktop)
+    @keyframes social-over
+    {
+        0%
         {
-            pointer-events: all;
+            //transform: scale(1);
+            //opacity: 1;
+            fill: $regent-st-blue;
+        }
+
+        100%
+        {
+            // transform: scale(1.5);
+            //opacity: 0;
+            fill: $cerulean;
+        }
+    }
+
+    @keyframes social-out
+    {
+        0%
+        {
+            //transform: scale(1.5);
+            //opacity: 0;
+            fill: $regent-st-blue;
+        }
+
+        100%
+        {
+            // transform: scale(1);
+            //opacity: 1;
+            fill: $cerulean;
         }
     }
 }
@@ -173,47 +494,178 @@
 .footer__title
 {
     font-family: $font-primary;
-    font-size: rem(22);
+    font-size: rem(32);
     font-weight: $bold;
     margin-bottom: 28px;
+    transform: matrix(1, 0, 0, 1, 0, 50);
     text-transform: uppercase;
     color: $white;
 
-    @include font-tracking(0.75);
-    @include font-leading(30, 22);
+    @include in-view(false, 1.25s);
+    @include font-tracking(1.5);
+    @include font-leading(40, 32);
+    @include mq($from: tablet, $until: base-btw-max)
+    {
+        font-size: rem(40);
+
+        @include font-leading(52, 40);
+    }
 
     &::after
     {
         display: block;
         width: 50px;
-        margin-top: 10px;
+        margin-top: 7px;
         content: "";
-        border-bottom: 5px solid $cerulean;
+        transition: transform 0.8s $customEase1 0.5s;
+        transform: scaleX(0);
+        transform-origin: left center;
+        border-bottom: 4px solid $cerulean;
+
+        @include mq($until: 1600px)
+        {
+            width: 60px;
+            margin: 10px auto auto;
+            transform-origin: center center;
+        }
     }
 }
 
-.footer__subtitle
+.footer__title-lnk
 {
-    font-family: $font-primary;
-    font-size: rem(20);
-    font-weight: $semibold;
-    margin-bottom: 5px;
-    text-transform: capitalize;
+    transition: border 0.25s linear;
+    text-decoration: none;
     color: $white;
+    border-bottom: 1px dotted transparent;
 
-    @include font-tracking(0.75);
+    &:hover
+    {
+        color: $white;
+        border-bottom: 1px dotted $white;
+    }
+}
+
+.footer__lnk
+{
+    font-family: $font-heading;
+    font-size: rem(28);
+    font-weight: $regular;
+    display: inline-block;
+    transition: border 0.25s linear;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $white;
+    border-bottom: 1px dotted transparent;
+
+    @include font-tracking(1.5);
+    @include mq($until: 2000px)
+    {
+        font-size: rem(24);
+    }
+    @include mq($until: 1600px)
+    {
+        font-size: rem(30);
+    }
+    @include mq($until: retina)
+    {
+        font-size: rem(22);
+    }
+    @include mq($until: mobile)
+    {
+        font-size: rem(18);
+    }
+
+    &:hover
+    {
+        color: $white;
+        border-bottom: 1px dotted $white;
+    }
+}
+
+.footer__label
+{
+    font-family: $font-heading;
+    font-size: rem(20);
+    position: absolute;
+    bottom: 100px;
+
+    @include font-tracking(1);
+    @include font-leading(24, 20);
+    @include mq($until: 1600px)
+    {
+        position: relative;
+        bottom: auto;
+        display: block;
+        margin-top: 25px;
+    }
+    @include mq($until: mobile)
+    {
+        font-size: rem(16);
+
+        @include font-leading(24, 16);
+    }
+}
+
+.footer__copy
+{
+    transform: matrix(1, 0, 0, 1, 0, 50);
+
+    @include in-view(false, 1.25s, 0.5s);
+
+    & p
+    {
+        font-family: $font-heading;
+        font-size: rem(16);
+        font-weight: $regular;
+        margin-bottom: 25px;
+
+        @include font-tracking(1);
+        @include font-leading(24, 16);
+        @include mq($from: tablet, $until: mid-desktop)
+        {
+            font-size: rem(18);
+
+            @include font-leading(34, 18);
+        }
+    }
 }
 
 .footer__copyright
 {
-    font-size: rem(14);
-    margin: 50px 0 0;
+    font-family: $font-heading;
+    font-size: rem(17);
+    font-weight: $light;
+    display: block;
+    margin: auto;
+    transform: matrix(1, 0, 0, 1, 0, 50);
+    text-align: center;
 
-    @include font-tracking(0.5);
+    @include in-view(false, 1.25s);
+    @include font-tracking(1.25);
+    @include font-leading(25, 17);
+    @include mq($until: tablet)
+    {
+        width: 90%;
+        margin: -25px auto 25px auto;
+    }
     @include mq($until: mobile)
     {
-        font-size: rem(13);
-        line-height: 1.5;
-        text-align: center;
+        font-size: rem(14);
+
+        @include font-leading(22, 14);
+    }
+
+    & a
+    {
+        transition: border 0.25s linear;
+        text-decoration: none;
+        color: $white;
+        border-bottom: 1px dotted transparent;
+
+        &:hover
+        {
+            color: $white;
+            border-bottom: 1px dotted $white;
+        }
     }
 }

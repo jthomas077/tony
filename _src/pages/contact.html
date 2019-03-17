@@ -7,8 +7,8 @@
 })
 
 <body>
-    <div class="base">
-        <div class="base__container">
+    <form class="form">
+        <div class="base" data-module="global/global">
             ##include('./modules/global/header/header.html')
 
             <main>
@@ -19,20 +19,24 @@
 
                 ##include('./modules/contact/contact.html')
 
+                ##include('./modules/contact-info/contact-info.html')
+
                 ##include('./modules/ideas/ideas.html')
 
-                ##include('./modules/callouts/quote/quote.html')
+                ##include('./modules/quote-bar/quote-bar.html')
+
+                ##include('./modules/work-with-us/work-with-us.html')
+
+                ##include('./modules/recent-projects/recent-projects.html')
 
                 ##include('./modules/testimonials/testimonials.html')
             </main>
-
-            ##include('./modules/social-media/social-media.html')
-
-            ##include('./modules/global/footer/footer.html')
         </div>
-    </div>
 
-    ##include('./modules/core/_scripts.html')
+        ##include('./modules/global/footer/footer.html')
+
+        ##include('./modules/core/_scripts.html')
+    </form>
 </body>
 
 </html>

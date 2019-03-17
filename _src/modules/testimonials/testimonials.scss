@@ -7,6 +7,7 @@
     text-align: center;
     background-color: $wild-sand;
 
+    @include in-view();
     @include mq($from: base)
     {
         font-size: rem(40);
@@ -23,7 +24,63 @@
 
     & .swiper-slide
     {
+        height: auto;
+        padding: 0;
+        background: none;
+
         align-self: center;
+
+        &:not(.swiper-slide-active)
+        {
+            visibility: hidden !important;
+            opacity: 0 !important;
+        }
+    }
+}
+
+.testimonials.in-view
+{
+    @include in-view(true);
+
+    & .testimonials__container
+    {
+        &::before
+        {
+            left: 150px;
+            transition: left 1s $easeOutQuint;
+
+            @include mq($until: max)
+            {
+                left: 75px;
+            }
+            @include mq($until: mid-desktop)
+            {
+                left: 50px;
+            }
+            @include mq($until: retina)
+            {
+                left: 25px;
+            }
+        }
+
+        &::after
+        {
+            right: 150px;
+            transition: right 1s $easeOutQuint;
+
+            @include mq($until: max)
+            {
+                right: 75px;
+            }
+            @include mq($until: mid-desktop)
+            {
+                right: 50px;
+            }
+            @include mq($until: retina)
+            {
+                right: 25px;
+            }
+        }
     }
 }
 
@@ -32,47 +89,81 @@
     &::before,
     &::after
     {
-        font-family: "Felix Titling";
-        font-size: rem(550);
+        font-family: $font-felix;
+        font-size: rem(700);
         font-style: normal;
         position: absolute;
         z-index: 2;
         content: "\0022";
         opacity: 0.1;
+
+        @include mq($until: mid-desktop)
+        {
+            font-size: rem(550);
+        }
+        @include mq($until: retina)
+        {
+            font-size: rem(350);
+        }
     }
 
     &::before
     {
-        top: -525px;
-        left: 125px;
+        top: -625px;
+        left: 300px;
         transform: rotate(-180deg);
 
-        @include mq($until: base)
+        @include mq($until: max)
         {
+            top: -675px;
+            left: 75px;
+        }
+        @include mq($until: mid-desktop)
+        {
+            top: -525px;
             left: 50px;
+        }
+        @include mq($until: retina)
+        {
+            top: -325px;
+            left: 25px;
         }
     }
 
     &::after
     {
-        right: 125px;
-        bottom: -525px;
+        right: 300px;
+        bottom: -625px;
 
-        @include mq($until: base)
+        @include mq($until: max)
+        {
+            right: 75px;
+            bottom: -675px;
+        }
+        @include mq($until: mid-desktop)
         {
             right: 50px;
+            bottom: -525px;
+        }
+        @include mq($until: retina)
+        {
+            right: 25px;
+            bottom: -325px;
         }
     }
 }
 
 .testimonials__quote
 {
-    font-style: italic;
     z-index: 1;
     display: inline-block;
-    padding: 40px 20px;
+    padding: 75px 0 50px;
 
-    @include mq($from: base)
+    @include mq($from: max)
+    {
+        width: 60%;
+    }
+    @include mq($until: max)
     {
         width: 70%;
     }
@@ -80,9 +171,10 @@
     {
         width: 80%;
     }
-    @include mq($until: mobile)
+    @include mq($until: retina)
     {
         width: 100%;
+        padding: 35px 25px;
     }
 }
 
@@ -91,7 +183,7 @@
     font-style: normal;
     display: inline-block;
     width: 100%;
-    margin: 10px 0 0 0;
+    margin: 15px 0 0 0;
     text-align: right;
 
     &::before

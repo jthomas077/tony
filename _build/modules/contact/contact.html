@@ -1,50 +1,59 @@
 
-<section class="contact" data-module="contact/contact">
-    <div class="contact__connect">
-        <h2 class="contact__title">Anthony's Contracting, Inc.</h2>
+<section class="contact main__content" data-module="contact/contact">
+    <div class="contact__section">
+        <h2 class="contact__title">How Can We Help?</h2>
 
-        <img src="/media/images/content/tony.jpg" alt="" title="" class="contact__img" />
+        <div class="contact__copy rtf">
+            <p>Have some general questions or not sure where to start? Give us a call at <strong>425.263.0744</strong> or fill out the form below and someone will get back to you.</p>
 
-        <a href="tel:425-263-0744" title="Call: 425.263.0744" class="contact__lnk">425.263.0744</a><br />
-        <a href="mailto:anthonysccrs@gmail.com" title="anthonysccrs@gmail.com" class="contact__lnk">anthonysccrs@gmail.com</a><br />
+            <p>Have some general questions or not sure where to start? Give us a call at <strong>425.263.0744</strong> or fill out the form below and someone will get back to you.</p>
+        </div>
 
-        <br /><br />
+        <div class="contact__container">
+            <div class="contact__contact-details">
+                <h3 class="contact__sub-title">Call or Text</h3>
 
-        <span class="contact__label">LIC# ANTHOCC868QE - BONDED - INSURED</span>
+                <a href="tel:425-263-0744" title="Call: 425.263.0744" class="contact__lnk lnk-btn">425.263.0744</a>
+            </div>
+
+            <div class="contact__contact-details">
+                <h3 class="contact__sub-title">Email</h3>
+
+                <a href="mailto:anthonysccrs@gmail.com" title="anthonysccrs@gmail.com" class="contact__lnk lnk-btn">anthonysccrs@gmail.com</a><br />
+            </div>
+
+            <div class="contact__contact-details">
+                <h3 class="contact__sub-title">Get Started</h3>
+
+                <a href="#" title="Free Quote" class="contact__lnk lnk-btn free-quote-lnk">Free Quote</a>
+            </div>
+        </div>
+
     </div>
 
-    <div class="contact__general">
-        <h2 class="contact__title">General Inquiries</h2>
+    <div class="contact__section">
+        <fieldset class="contact__form">
+            <legend />
 
-        <p>Have some general questions or not sure where to start? Give us a call at <strong>425.263.0744</strong> or fill out the form below and someone will get back to you.</p>
-
-        <form class="contact__form">
-            <fieldset>
-                <legend />
-
+            <div class="form-input-container">
                 <span class="required">* Required</span>
                 <input type="text" id="txtName" name="txtName" title="" placeholder="Name" class="contact__form-name" />
+            </div>
 
-                <br />
-
+            <div class="form-input-container">
                 <span class="required">* Required</span>
                 <input type="tel" id="txtPhone" name="txtPhone" title="" placeholder="Phone Number" class="contact__form-phone" />
+            </div>
 
-                <br />
-
+            <div class="form-input-container">
                 <span class="required">* Required</span>
                 <input type="email" id="txtEmail" name="txtEmail" title="" placeholder="Email Address" class="contact__form-email" />
+            </div>
 
-                <br />
-
-                <span class="required">* Required</span>
-                <textarea id="txtMessage" name="txtMessage" title="" placeholder="Message" class="contact__form-msg"></textarea>
-
-                <br />
-
+            <div class="form-input-container">
                 <span class="required">* Required</span>
                 <select id="selHow" name="selHow" size="1" class="contact__form-found">
-                    <option value="" selected>-- How did you hear about us? --</option>
+                    <option value="" selected>How did you hear about us?</option>
                     <option value="Thumbtack">Thumbtack</option>
                     <option value="Porch">Porch</option>
                     <option value="Facebook">Facebook</option>
@@ -53,31 +62,18 @@
                     <option value="Friend">Friend</option>
                     <option value="Other">Other</option>
                 </select>
+            </div>
 
-                <br /><br />
+            <div class="form-input-container">
+                <span class="required">* Required</span>
+                <textarea id="txtMessage" name="txtMessage" title="" placeholder="Message" class="contact__form-msg"></textarea>
+            </div>
 
-                <button title="Send Inquiry" class="contact__cta lnk-btn">Send Inquiry</button>
-            </fieldset>
-        </form>
-    </div>
+            <br /><br />
 
-    <div class="contact__quote">
-        <h2 class="contact__title">Get Started</h2>
-
-        <p>Let us know the details of your project and we can provide you with a free quote.</p>
-
-        <a href="#" title="Get Started" class="contact__cta lnk-btn">Get Started</a>
-
-<!--
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-        <h2 class="contact__title">Work With Us</h2>
-
-        <p>Got chops huh? You think you have what it takes to maintain the quality Anthony's Contracting strives to deliver to its' customers?</p>
-
-        <p>If so, we want to hear from you!</p>
-
-        <a href="#" title="" class="contact__cta lnk-btn">View Openings</a>
--->
+            <div class="contact__cta">
+                <button title="Send Inquiry" class="contact__cta-btn lnk-btn">Send Inquiry</button>
+            </div>
+        </fieldset>
     </div>
 </section>

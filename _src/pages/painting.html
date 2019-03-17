@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+##include('./modules/core/_head.html',
+{
+    "title": "Painting Services"
+})
+
+<body>
+    <div class="base" data-module="global/global">
+        ##include('./modules/global/header/header.html')
+
+        <main>
+            ##include('./modules/hero/sub/sub-hero.html',
+            {
+                "title": "Painting",
+                "image": "/media/images/content/painting.jpg"
+            })
+
+            ##include('./modules/section/section.html')
+
+            ##include('./modules/work-with-us/work-with-us.html')
+
+            ##include('./modules/quote-bar/quote-bar.html')
+
+            ##include('./modules/recent-projects/recent-projects.html')
+
+            ##include('./modules/testimonials/testimonials.html')
+
+            ##include('./modules/contact-info/contact-info.html')
+        </main>
+
+        ##include('./modules/global/footer/footer.html')
+    </div>
+
+    ##include('./modules/core/_scripts.html')
+</body>
+
+</html>
